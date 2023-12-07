@@ -4,55 +4,58 @@
 NS_Comp_Svc::CLservices::CLservices(void)
 {
 	this->oCad = gcnew NS_Comp_Data::CLcad();
-	this->oMappTB = gcnew NS_Comp_Mappage::CLmapTB();
+	this->oPersonnelTB = gcnew NS_Comp_Mappage::CLpersonnelTB();
 }
-System::Data::DataSet^ NS_Comp_Svc::CLservices::selectionnerToutesLesPersonnes(System::String^ dataTableName)
+
+System::Data::DataSet^ NS_Comp_Svc::CLservices::selectionnerToutLePersonnel(System::String^ dataTableName)
 {
 	System::String^ sql;
 
-	sql = this->oMappTB->Select2();
+	sql = this->oPersonnelTB->Select();
 	return this->oCad->getRows(sql, dataTableName);
 }
 
-// FLAG
-void NS_Comp_Svc::CLservices::ajouterUnePersonne(System::String^ nom, System::String^ prenom, System::String^ ville, System::String^ adresse, System::String^ cp)
-{
-	System::String^ sql1;
-	System::String^ sql2;
-
-	this->oMappTB->setNom(nom);
-	this->oMappTB->setPrenom(prenom);
-	this->oMappTB->setVille(ville);
-	this->oMappTB->setAdresse(adresse);
-	this->oMappTB->setCp(cp);
-	sql1 = this->oMappTB->InsertAdresse();
-
-	this->oCad->actionRows(sql1);
-	this->oCad->getRows(this->oMappTB->getAdressId(), "Adresse");
-	this->oMappTB->SetAdressId(this->oCad->getRows(this->oMappTB->getAdressId(), "Adresse")->Tables["Adresse"]->Rows[0]->ItemArray[0]->ToString());
-	sql2 = this->oMappTB->InsertClient();
-	this->oCad->actionRows(sql2);
-}
-void NS_Comp_Svc::CLservices::updateUnePersonne(System::String^ id, System::String^ nom, System::String^ prenom, System::String^ ville, System::String^ adresse, System::String^ cp)
+void NS_Comp_Svc::CLservices::ajouterUnPersonnel(System::String^ nom, System::String^ prenom, System::Decimal^ id_supp, System::DateTime^ date, System::String^ ville, System::String^ rue, System::Decimal^ numero, System::Decimal^ cp)
 {
 	System::String^ sql;
 
-	this->oMappTB->setId(System::Convert::ToInt32(id));
-	this->oMappTB->setNom(nom);
-	this->oMappTB->setPrenom(prenom);
-	this->oMappTB->setVille(ville);
-	this->oMappTB->setAdresse(adresse);
-	this->oMappTB->setCp(cp);
-	sql = this->oMappTB->Update();
+	this->oPersonnelTB->setNom(nom);
+	this->oPersonnelTB->setPrenom(prenom);
+	this->oPersonnelTB->setIdSupperieur(System::Convert::ToInt32(id_supp));
+	this->oPersonnelTB->setDateEmbauche(date);
+	this->oPersonnelTB->setVille(ville);
+	this->oPersonnelTB->setRue(rue);
+	this->oPersonnelTB->setNumero(System::Convert::ToInt32(numero));
+	this->oPersonnelTB->setCp(System::Convert::ToInt32(cp));
+	sql = this->oPersonnelTB->Insert();
 
 	this->oCad->actionRows(sql);
 }
-void NS_Comp_Svc::CLservices::deleteUnePersonne(System::String^ id)
+
+void NS_Comp_Svc::CLservices::updateUnPersonnel(System::Decimal^ id, System::String^ nom, System::String^ prenom, System::Decimal^ id_supp, System::DateTime^ date, System::String^ ville, System::String^ rue, System::Decimal^ numero, System::Decimal^ cp)
 {
 	System::String^ sql;
 
-	this->oMappTB->setId(System::Convert::ToInt32(id));
-	sql = this->oMappTB->Delete();
+	this->oPersonnelTB->setId(System::Convert::ToInt32(id));
+	this->oPersonnelTB->setNom(nom);
+	this->oPersonnelTB->setPrenom(prenom);
+	this->oPersonnelTB->setIdSupperieur(System::Convert::ToInt32(id_supp));
+	this->oPersonnelTB->setDateEmbauche(date);
+	this->oPersonnelTB->setVille(ville);
+	this->oPersonnelTB->setRue(rue);
+	this->oPersonnelTB->setNumero(System::Convert::ToInt32(numero));
+	this->oPersonnelTB->setCp(System::Convert::ToInt32(cp));
+	sql = this->oPersonnelTB->Update();
+
+	this->oCad->actionRows(sql);
+}
+
+void NS_Comp_Svc::CLservices::deleteUnPersonnel(System::Decimal^ id)
+{
+	System::String^ sql;
+
+	this->oPersonnelTB->setId(System::Convert::ToInt32(id));
+	sql = this->oPersonnelTB->Delete();
 
 	this->oCad->actionRows(sql);
 }

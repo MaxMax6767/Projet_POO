@@ -1,7 +1,7 @@
 //CLservice.h********************************************************************************
 #pragma once
-#include "CLmapTB.h"
 #include "CLcad.h"
+#include "CLpersonnelTB.h"
 
 namespace NS_Comp_Svc
 {
@@ -9,12 +9,12 @@ namespace NS_Comp_Svc
 	{
 	private:
 		NS_Comp_Data::CLcad^ oCad;
-		NS_Comp_Mappage::CLmapTB^ oMappTB;
+		NS_Comp_Mappage::CLpersonnelTB^ oPersonnelTB;
 	public:
 		CLservices(void);
-		System::Data::DataSet^ selectionnerToutesLesPersonnes(System::String^);
-		void ajouterUnePersonne(System::String^, System::String^, System::String^, System::String^, System::String^);
-		void updateUnePersonne(System::String^, System::String^, System::String^, System::String^, System::String^, System::String^);
-		void deleteUnePersonne(System::String^);
+		System::Data::DataSet^ selectionnerToutLePersonnel(System::String^);
+		void ajouterUnPersonnel(System::String^, System::String^, System::Decimal^, System::DateTime^, System::String^, System::String^, System::Decimal^, System::Decimal^);
+		void updateUnPersonnel(System::Decimal^, System::String^, System::String^, System::Decimal^, System::DateTime^, System::String^, System::String^, System::Decimal^, System::Decimal^);
+		void deleteUnPersonnel(System::Decimal^);
 	};
 }

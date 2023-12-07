@@ -36,64 +36,68 @@ namespace P6new {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::DataGridView^ dgv_enr;
-	private: System::Windows::Forms::Button^ btn_valider_employe;
+	private: System::Windows::Forms::DataGridView^ dgv_personnel;
+
+
 	protected:
-
-
-
-
-
-
-	private: System::Windows::Forms::TextBox^ txt_nom;
-	private: System::Windows::Forms::TextBox^ txt_prenom;
 
 
 
 	private: NS_Comp_Svc::CLservices^ oSvc;
 	private: System::Data::DataSet^ oDs;
 
-
-
-
-	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::Label^ label_id_employe;
+	private: System::Windows::Forms::Label^ label_nom_employe;
+	private: System::Windows::Forms::Label^ label_prenom_employe;
 	private: System::Windows::Forms::Label^ Rue_employe;
 	private: System::Windows::Forms::Label^ ville_employe;
+	private: System::Windows::Forms::TextBox^ rue_personnel;
 
 
 
-	private: System::Windows::Forms::TextBox^ txt_adresse;
 
-	private: System::Windows::Forms::TextBox^ txt_ville;
+	private: System::Windows::Forms::TextBox^ ville_personnel;
+
+	private: System::Windows::Forms::TextBox^ nom_personnel;
+	private: System::Windows::Forms::TextBox^ prenom_personnel;
+
+
+
 	private: System::Windows::Forms::Label^ Numero_employe;
 
 
-	private: System::Windows::Forms::TextBox^ txt_cp;
+
 	private: System::Windows::Forms::TabControl^ Catégories;
 	private: System::Windows::Forms::TabPage^ tab_personnel;
 	private: System::Windows::Forms::TabPage^ tab_clients;
+	private: System::Windows::Forms::RadioButton^ radio_suppr_personnel;
 
 
 
-	private: System::Windows::Forms::RadioButton^ radioButton3;
-	private: System::Windows::Forms::RadioButton^ radioButton2;
-	private: System::Windows::Forms::RadioButton^ radioButton1;
+
+	private: System::Windows::Forms::RadioButton^ radio_edit_personnel;
+
+	private: System::Windows::Forms::RadioButton^ radio_add_personnel;
+
 	private: System::Windows::Forms::GroupBox^ Actions_Personnel;
 	private: System::Windows::Forms::GroupBox^ userEntry_personnel;
 
 	private: System::Windows::Forms::Label^ ID_supp_employe;
-	private: System::Windows::Forms::Label^ date_embauche;
+	private: System::Windows::Forms::Label^ label_date_embauche;
+
+
 
 
 	private: System::Windows::Forms::Label^ CP_employe;
 	private: System::Windows::Forms::NumericUpDown^ id_personnel;
+	private: System::Windows::Forms::DateTimePicker^ date_embauche;
+	private: System::Windows::Forms::NumericUpDown^ cp_personnel;
 
 
-	private: System::Windows::Forms::DateTimePicker^ dateTimePicker1;
-	private: System::Windows::Forms::NumericUpDown^ numericUpDown3;
-	private: System::Windows::Forms::NumericUpDown^ numericUpDown2;
+
+
+	private: System::Windows::Forms::NumericUpDown^ id_supp;
+
 	private: System::Windows::Forms::GroupBox^ groupBox3;
 	private: System::Windows::Forms::RadioButton^ radioButton4;
 	private: System::Windows::Forms::RadioButton^ radioButton5;
@@ -215,9 +219,13 @@ private: System::Windows::Forms::Label^ label_nom_produit;
 
 private: System::Windows::Forms::TextBox^ textBox11;
 private: System::Windows::Forms::TextBox^ qt_dispo;
-private: System::Windows::Forms::Button^ btn_update;
-private: System::Windows::Forms::Button^ btn_delete;
-private: System::Windows::Forms::Button^ btn_insert;
+private: System::Windows::Forms::NumericUpDown^ numero_personnel;
+
+
+
+
+private: System::Windows::Forms::Button^ btn_valider_employe;
+
 
 
 
@@ -249,33 +257,33 @@ private: System::Windows::Forms::Button^ btn_insert;
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->dgv_enr = (gcnew System::Windows::Forms::DataGridView());
-			this->btn_valider_employe = (gcnew System::Windows::Forms::Button());
-			this->txt_nom = (gcnew System::Windows::Forms::TextBox());
-			this->txt_prenom = (gcnew System::Windows::Forms::TextBox());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->dgv_personnel = (gcnew System::Windows::Forms::DataGridView());
+			this->nom_personnel = (gcnew System::Windows::Forms::TextBox());
+			this->prenom_personnel = (gcnew System::Windows::Forms::TextBox());
+			this->label_id_employe = (gcnew System::Windows::Forms::Label());
+			this->label_nom_employe = (gcnew System::Windows::Forms::Label());
+			this->label_prenom_employe = (gcnew System::Windows::Forms::Label());
 			this->Rue_employe = (gcnew System::Windows::Forms::Label());
 			this->ville_employe = (gcnew System::Windows::Forms::Label());
-			this->txt_adresse = (gcnew System::Windows::Forms::TextBox());
-			this->txt_ville = (gcnew System::Windows::Forms::TextBox());
+			this->rue_personnel = (gcnew System::Windows::Forms::TextBox());
+			this->ville_personnel = (gcnew System::Windows::Forms::TextBox());
 			this->Numero_employe = (gcnew System::Windows::Forms::Label());
-			this->txt_cp = (gcnew System::Windows::Forms::TextBox());
 			this->Catégories = (gcnew System::Windows::Forms::TabControl());
 			this->tab_personnel = (gcnew System::Windows::Forms::TabPage());
 			this->userEntry_personnel = (gcnew System::Windows::Forms::GroupBox());
-			this->numericUpDown3 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->numericUpDown2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->numero_personnel = (gcnew System::Windows::Forms::NumericUpDown());
+			this->cp_personnel = (gcnew System::Windows::Forms::NumericUpDown());
+			this->id_supp = (gcnew System::Windows::Forms::NumericUpDown());
 			this->id_personnel = (gcnew System::Windows::Forms::NumericUpDown());
-			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->date_embauche = (gcnew System::Windows::Forms::DateTimePicker());
 			this->ID_supp_employe = (gcnew System::Windows::Forms::Label());
-			this->date_embauche = (gcnew System::Windows::Forms::Label());
+			this->label_date_embauche = (gcnew System::Windows::Forms::Label());
 			this->CP_employe = (gcnew System::Windows::Forms::Label());
 			this->Actions_Personnel = (gcnew System::Windows::Forms::GroupBox());
-			this->radioButton3 = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
+			this->btn_valider_employe = (gcnew System::Windows::Forms::Button());
+			this->radio_suppr_personnel = (gcnew System::Windows::Forms::RadioButton());
+			this->radio_edit_personnel = (gcnew System::Windows::Forms::RadioButton());
+			this->radio_add_personnel = (gcnew System::Windows::Forms::RadioButton());
 			this->tab_clients = (gcnew System::Windows::Forms::TabPage());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
@@ -321,10 +329,16 @@ private: System::Windows::Forms::Button^ btn_insert;
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->textBox11 = (gcnew System::Windows::Forms::TextBox());
 			this->qt_dispo = (gcnew System::Windows::Forms::TextBox());
+			this->seuil_reapro = (gcnew System::Windows::Forms::TextBox());
+			this->label_type = (gcnew System::Windows::Forms::Label());
 			this->numericUpDown1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->label_couleur = (gcnew System::Windows::Forms::Label());
+			this->couleur = (gcnew System::Windows::Forms::TextBox());
 			this->label_qt_dispo = (gcnew System::Windows::Forms::Label());
 			this->label_nom_produit = (gcnew System::Windows::Forms::Label());
+			this->type = (gcnew System::Windows::Forms::TextBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->label_seuil_reapro = (gcnew System::Windows::Forms::Label());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
@@ -339,29 +353,21 @@ private: System::Windows::Forms::Button^ btn_insert;
 			this->label_prix_ht = (gcnew System::Windows::Forms::Label());
 			this->label_taux_tva = (gcnew System::Windows::Forms::Label());
 			this->textBox10 = (gcnew System::Windows::Forms::TextBox());
-			this->seuil_reapro = (gcnew System::Windows::Forms::TextBox());
 			this->label22 = (gcnew System::Windows::Forms::Label());
-			this->label_type = (gcnew System::Windows::Forms::Label());
 			this->label20 = (gcnew System::Windows::Forms::Label());
-			this->label_seuil_reapro = (gcnew System::Windows::Forms::Label());
 			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
-			this->label_couleur = (gcnew System::Windows::Forms::Label());
-			this->type = (gcnew System::Windows::Forms::TextBox());
-			this->couleur = (gcnew System::Windows::Forms::TextBox());
 			this->label16 = (gcnew System::Windows::Forms::Label());
 			this->numericUpDown5 = (gcnew System::Windows::Forms::NumericUpDown());
 			this->Commandes = (gcnew System::Windows::Forms::TabPage());
 			this->Statistiques = (gcnew System::Windows::Forms::TabPage());
 			this->Informations = (gcnew System::Windows::Forms::TabPage());
-			this->btn_delete = (gcnew System::Windows::Forms::Button());
-			this->btn_update = (gcnew System::Windows::Forms::Button());
-			this->btn_insert = (gcnew System::Windows::Forms::Button());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_enr))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_personnel))->BeginInit();
 			this->Catégories->SuspendLayout();
 			this->tab_personnel->SuspendLayout();
 			this->userEntry_personnel->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown3))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numero_personnel))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->cp_personnel))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->id_supp))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->id_personnel))->BeginInit();
 			this->Actions_Personnel->SuspendLayout();
 			this->tab_clients->SuspendLayout();
@@ -380,66 +386,56 @@ private: System::Windows::Forms::Button^ btn_insert;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown5))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// dgv_enr
+			// dgv_personnel
 			// 
-			this->dgv_enr->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgv_enr->Location = System::Drawing::Point(296, 18);
-			this->dgv_enr->Name = L"dgv_enr";
-			this->dgv_enr->Size = System::Drawing::Size(887, 648);
-			this->dgv_enr->TabIndex = 0;
+			this->dgv_personnel->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgv_personnel->Location = System::Drawing::Point(296, 18);
+			this->dgv_personnel->Name = L"dgv_personnel";
+			this->dgv_personnel->Size = System::Drawing::Size(918, 648);
+			this->dgv_personnel->TabIndex = 0;
 			// 
-			// btn_valider_employe
+			// nom_personnel
 			// 
-			this->btn_valider_employe->Location = System::Drawing::Point(155, 19);
-			this->btn_valider_employe->Name = L"btn_valider_employe";
-			this->btn_valider_employe->Size = System::Drawing::Size(117, 56);
-			this->btn_valider_employe->TabIndex = 1;
-			this->btn_valider_employe->Text = L"Valider";
-			this->btn_valider_employe->UseVisualStyleBackColor = true;
-			this->btn_valider_employe->Click += gcnew System::EventHandler(this, &MyForm::btn_load_Click);
+			this->nom_personnel->Location = System::Drawing::Point(6, 80);
+			this->nom_personnel->Name = L"nom_personnel";
+			this->nom_personnel->Size = System::Drawing::Size(266, 20);
+			this->nom_personnel->TabIndex = 6;
 			// 
-			// txt_nom
+			// prenom_personnel
 			// 
-			this->txt_nom->Location = System::Drawing::Point(6, 80);
-			this->txt_nom->Name = L"txt_nom";
-			this->txt_nom->Size = System::Drawing::Size(266, 20);
-			this->txt_nom->TabIndex = 6;
+			this->prenom_personnel->Location = System::Drawing::Point(6, 119);
+			this->prenom_personnel->Name = L"prenom_personnel";
+			this->prenom_personnel->Size = System::Drawing::Size(266, 20);
+			this->prenom_personnel->TabIndex = 7;
 			// 
-			// txt_prenom
+			// label_id_employe
 			// 
-			this->txt_prenom->Location = System::Drawing::Point(6, 119);
-			this->txt_prenom->Name = L"txt_prenom";
-			this->txt_prenom->Size = System::Drawing::Size(266, 20);
-			this->txt_prenom->TabIndex = 7;
+			this->label_id_employe->AutoSize = true;
+			this->label_id_employe->Location = System::Drawing::Point(7, 22);
+			this->label_id_employe->Name = L"label_id_employe";
+			this->label_id_employe->Size = System::Drawing::Size(18, 13);
+			this->label_id_employe->TabIndex = 12;
+			this->label_id_employe->Text = L"ID";
+			this->label_id_employe->Click += gcnew System::EventHandler(this, &MyForm::label1_Click);
 			// 
-			// label1
+			// label_nom_employe
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(7, 22);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(18, 13);
-			this->label1->TabIndex = 12;
-			this->label1->Text = L"ID";
-			this->label1->Click += gcnew System::EventHandler(this, &MyForm::label1_Click);
+			this->label_nom_employe->AutoSize = true;
+			this->label_nom_employe->Location = System::Drawing::Point(7, 64);
+			this->label_nom_employe->Name = L"label_nom_employe";
+			this->label_nom_employe->Size = System::Drawing::Size(29, 13);
+			this->label_nom_employe->TabIndex = 13;
+			this->label_nom_employe->Text = L"Nom";
+			this->label_nom_employe->Click += gcnew System::EventHandler(this, &MyForm::label2_Click);
 			// 
-			// label2
+			// label_prenom_employe
 			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(7, 64);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(29, 13);
-			this->label2->TabIndex = 13;
-			this->label2->Text = L"Nom";
-			this->label2->Click += gcnew System::EventHandler(this, &MyForm::label2_Click);
-			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(7, 103);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(43, 13);
-			this->label3->TabIndex = 14;
-			this->label3->Text = L"Prénom";
+			this->label_prenom_employe->AutoSize = true;
+			this->label_prenom_employe->Location = System::Drawing::Point(7, 103);
+			this->label_prenom_employe->Name = L"label_prenom_employe";
+			this->label_prenom_employe->Size = System::Drawing::Size(43, 13);
+			this->label_prenom_employe->TabIndex = 14;
+			this->label_prenom_employe->Text = L"Prénom";
 			// 
 			// Rue_employe
 			// 
@@ -460,19 +456,19 @@ private: System::Windows::Forms::Button^ btn_insert;
 			this->ville_employe->TabIndex = 17;
 			this->ville_employe->Text = L"Ville";
 			// 
-			// txt_adresse
+			// rue_personnel
 			// 
-			this->txt_adresse->Location = System::Drawing::Point(6, 278);
-			this->txt_adresse->Name = L"txt_adresse";
-			this->txt_adresse->Size = System::Drawing::Size(266, 20);
-			this->txt_adresse->TabIndex = 16;
+			this->rue_personnel->Location = System::Drawing::Point(6, 278);
+			this->rue_personnel->Name = L"rue_personnel";
+			this->rue_personnel->Size = System::Drawing::Size(266, 20);
+			this->rue_personnel->TabIndex = 16;
 			// 
-			// txt_ville
+			// ville_personnel
 			// 
-			this->txt_ville->Location = System::Drawing::Point(6, 239);
-			this->txt_ville->Name = L"txt_ville";
-			this->txt_ville->Size = System::Drawing::Size(266, 20);
-			this->txt_ville->TabIndex = 15;
+			this->ville_personnel->Location = System::Drawing::Point(6, 239);
+			this->ville_personnel->Name = L"ville_personnel";
+			this->ville_personnel->Size = System::Drawing::Size(266, 20);
+			this->ville_personnel->TabIndex = 15;
 			// 
 			// Numero_employe
 			// 
@@ -483,14 +479,6 @@ private: System::Windows::Forms::Button^ btn_insert;
 			this->Numero_employe->TabIndex = 20;
 			this->Numero_employe->Text = L"Numero";
 			this->Numero_employe->Click += gcnew System::EventHandler(this, &MyForm::label6_Click);
-			// 
-			// txt_cp
-			// 
-			this->txt_cp->Location = System::Drawing::Point(6, 322);
-			this->txt_cp->Name = L"txt_cp";
-			this->txt_cp->Size = System::Drawing::Size(266, 20);
-			this->txt_cp->TabIndex = 19;
-			this->txt_cp->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox3_TextChanged);
 			// 
 			// Catégories
 			// 
@@ -503,21 +491,18 @@ private: System::Windows::Forms::Button^ btn_insert;
 			this->Catégories->Location = System::Drawing::Point(10, 12);
 			this->Catégories->Name = L"Catégories";
 			this->Catégories->SelectedIndex = 0;
-			this->Catégories->Size = System::Drawing::Size(1198, 664);
+			this->Catégories->Size = System::Drawing::Size(1248, 664);
 			this->Catégories->TabIndex = 21;
 			// 
 			// tab_personnel
 			// 
 			this->tab_personnel->Controls->Add(this->userEntry_personnel);
 			this->tab_personnel->Controls->Add(this->Actions_Personnel);
-			this->tab_personnel->Controls->Add(this->btn_update);
-			this->tab_personnel->Controls->Add(this->btn_delete);
-			this->tab_personnel->Controls->Add(this->btn_insert);
-			this->tab_personnel->Controls->Add(this->dgv_enr);
+			this->tab_personnel->Controls->Add(this->dgv_personnel);
 			this->tab_personnel->Location = System::Drawing::Point(4, 22);
 			this->tab_personnel->Name = L"tab_personnel";
 			this->tab_personnel->Padding = System::Windows::Forms::Padding(3);
-			this->tab_personnel->Size = System::Drawing::Size(1190, 638);
+			this->tab_personnel->Size = System::Drawing::Size(1240, 638);
 			this->tab_personnel->TabIndex = 0;
 			this->tab_personnel->Text = L"Personnel";
 			this->tab_personnel->UseVisualStyleBackColor = true;
@@ -525,24 +510,24 @@ private: System::Windows::Forms::Button^ btn_insert;
 			// 
 			// userEntry_personnel
 			// 
-			this->userEntry_personnel->Controls->Add(this->numericUpDown3);
-			this->userEntry_personnel->Controls->Add(this->numericUpDown2);
+			this->userEntry_personnel->Controls->Add(this->numero_personnel);
+			this->userEntry_personnel->Controls->Add(this->cp_personnel);
+			this->userEntry_personnel->Controls->Add(this->id_supp);
 			this->userEntry_personnel->Controls->Add(this->id_personnel);
-			this->userEntry_personnel->Controls->Add(this->dateTimePicker1);
-			this->userEntry_personnel->Controls->Add(this->ID_supp_employe);
 			this->userEntry_personnel->Controls->Add(this->date_embauche);
+			this->userEntry_personnel->Controls->Add(this->ID_supp_employe);
+			this->userEntry_personnel->Controls->Add(this->label_date_embauche);
 			this->userEntry_personnel->Controls->Add(this->CP_employe);
-			this->userEntry_personnel->Controls->Add(this->txt_ville);
+			this->userEntry_personnel->Controls->Add(this->ville_personnel);
 			this->userEntry_personnel->Controls->Add(this->ville_employe);
-			this->userEntry_personnel->Controls->Add(this->label3);
-			this->userEntry_personnel->Controls->Add(this->txt_adresse);
+			this->userEntry_personnel->Controls->Add(this->label_prenom_employe);
+			this->userEntry_personnel->Controls->Add(this->rue_personnel);
 			this->userEntry_personnel->Controls->Add(this->Numero_employe);
-			this->userEntry_personnel->Controls->Add(this->label2);
-			this->userEntry_personnel->Controls->Add(this->txt_nom);
-			this->userEntry_personnel->Controls->Add(this->label1);
+			this->userEntry_personnel->Controls->Add(this->label_nom_employe);
+			this->userEntry_personnel->Controls->Add(this->nom_personnel);
+			this->userEntry_personnel->Controls->Add(this->label_id_employe);
 			this->userEntry_personnel->Controls->Add(this->Rue_employe);
-			this->userEntry_personnel->Controls->Add(this->txt_cp);
-			this->userEntry_personnel->Controls->Add(this->txt_prenom);
+			this->userEntry_personnel->Controls->Add(this->prenom_personnel);
 			this->userEntry_personnel->Location = System::Drawing::Point(6, 14);
 			this->userEntry_personnel->Name = L"userEntry_personnel";
 			this->userEntry_personnel->Size = System::Drawing::Size(284, 400);
@@ -551,19 +536,26 @@ private: System::Windows::Forms::Button^ btn_insert;
 			this->userEntry_personnel->Text = L"Entrée utilisateur";
 			this->userEntry_personnel->Enter += gcnew System::EventHandler(this, &MyForm::groupBox1_Enter_1);
 			// 
-			// numericUpDown3
+			// numero_personnel
 			// 
-			this->numericUpDown3->Location = System::Drawing::Point(6, 368);
-			this->numericUpDown3->Name = L"numericUpDown3";
-			this->numericUpDown3->Size = System::Drawing::Size(266, 20);
-			this->numericUpDown3->TabIndex = 28;
+			this->numero_personnel->Location = System::Drawing::Point(6, 322);
+			this->numero_personnel->Name = L"numero_personnel";
+			this->numero_personnel->Size = System::Drawing::Size(266, 20);
+			this->numero_personnel->TabIndex = 29;
 			// 
-			// numericUpDown2
+			// cp_personnel
 			// 
-			this->numericUpDown2->Location = System::Drawing::Point(6, 159);
-			this->numericUpDown2->Name = L"numericUpDown2";
-			this->numericUpDown2->Size = System::Drawing::Size(266, 20);
-			this->numericUpDown2->TabIndex = 27;
+			this->cp_personnel->Location = System::Drawing::Point(6, 368);
+			this->cp_personnel->Name = L"cp_personnel";
+			this->cp_personnel->Size = System::Drawing::Size(266, 20);
+			this->cp_personnel->TabIndex = 28;
+			// 
+			// id_supp
+			// 
+			this->id_supp->Location = System::Drawing::Point(6, 159);
+			this->id_supp->Name = L"id_supp";
+			this->id_supp->Size = System::Drawing::Size(266, 20);
+			this->id_supp->TabIndex = 27;
 			// 
 			// id_personnel
 			// 
@@ -572,12 +564,12 @@ private: System::Windows::Forms::Button^ btn_insert;
 			this->id_personnel->Size = System::Drawing::Size(266, 20);
 			this->id_personnel->TabIndex = 26;
 			// 
-			// dateTimePicker1
+			// date_embauche
 			// 
-			this->dateTimePicker1->Location = System::Drawing::Point(6, 200);
-			this->dateTimePicker1->Name = L"dateTimePicker1";
-			this->dateTimePicker1->Size = System::Drawing::Size(266, 20);
-			this->dateTimePicker1->TabIndex = 25;
+			this->date_embauche->Location = System::Drawing::Point(6, 200);
+			this->date_embauche->Name = L"date_embauche";
+			this->date_embauche->Size = System::Drawing::Size(266, 20);
+			this->date_embauche->TabIndex = 25;
 			// 
 			// ID_supp_employe
 			// 
@@ -588,15 +580,15 @@ private: System::Windows::Forms::Button^ btn_insert;
 			this->ID_supp_employe->TabIndex = 24;
 			this->ID_supp_employe->Text = L"ID Suppérieur";
 			// 
-			// date_embauche
+			// label_date_embauche
 			// 
-			this->date_embauche->AutoSize = true;
-			this->date_embauche->Location = System::Drawing::Point(7, 182);
-			this->date_embauche->Name = L"date_embauche";
-			this->date_embauche->Size = System::Drawing::Size(91, 13);
-			this->date_embauche->TabIndex = 24;
-			this->date_embauche->Text = L"Date d\'embauche";
-			this->date_embauche->Click += gcnew System::EventHandler(this, &MyForm::label4_Click_1);
+			this->label_date_embauche->AutoSize = true;
+			this->label_date_embauche->Location = System::Drawing::Point(7, 182);
+			this->label_date_embauche->Name = L"label_date_embauche";
+			this->label_date_embauche->Size = System::Drawing::Size(91, 13);
+			this->label_date_embauche->TabIndex = 24;
+			this->label_date_embauche->Text = L"Date d\'embauche";
+			this->label_date_embauche->Click += gcnew System::EventHandler(this, &MyForm::label4_Click_1);
 			// 
 			// CP_employe
 			// 
@@ -609,10 +601,10 @@ private: System::Windows::Forms::Button^ btn_insert;
 			// 
 			// Actions_Personnel
 			// 
-			this->Actions_Personnel->Controls->Add(this->radioButton3);
-			this->Actions_Personnel->Controls->Add(this->radioButton2);
-			this->Actions_Personnel->Controls->Add(this->radioButton1);
 			this->Actions_Personnel->Controls->Add(this->btn_valider_employe);
+			this->Actions_Personnel->Controls->Add(this->radio_suppr_personnel);
+			this->Actions_Personnel->Controls->Add(this->radio_edit_personnel);
+			this->Actions_Personnel->Controls->Add(this->radio_add_personnel);
 			this->Actions_Personnel->Location = System::Drawing::Point(6, 542);
 			this->Actions_Personnel->Name = L"Actions_Personnel";
 			this->Actions_Personnel->Size = System::Drawing::Size(284, 90);
@@ -621,39 +613,48 @@ private: System::Windows::Forms::Button^ btn_insert;
 			this->Actions_Personnel->Text = L"Actions";
 			this->Actions_Personnel->Enter += gcnew System::EventHandler(this, &MyForm::groupBox1_Enter);
 			// 
-			// radioButton3
+			// btn_valider_employe
 			// 
-			this->radioButton3->AutoSize = true;
-			this->radioButton3->Location = System::Drawing::Point(6, 65);
-			this->radioButton3->Name = L"radioButton3";
-			this->radioButton3->Size = System::Drawing::Size(72, 17);
-			this->radioButton3->TabIndex = 23;
-			this->radioButton3->TabStop = true;
-			this->radioButton3->Text = L"Supprimer";
-			this->radioButton3->UseVisualStyleBackColor = true;
+			this->btn_valider_employe->Location = System::Drawing::Point(155, 22);
+			this->btn_valider_employe->Name = L"btn_valider_employe";
+			this->btn_valider_employe->Size = System::Drawing::Size(117, 56);
+			this->btn_valider_employe->TabIndex = 26;
+			this->btn_valider_employe->Text = L"Valider";
+			this->btn_valider_employe->UseVisualStyleBackColor = true;
+			this->btn_valider_employe->Click += gcnew System::EventHandler(this, &MyForm::btn_valider_employe_Click);
 			// 
-			// radioButton2
+			// radio_suppr_personnel
 			// 
-			this->radioButton2->AutoSize = true;
-			this->radioButton2->Location = System::Drawing::Point(6, 42);
-			this->radioButton2->Name = L"radioButton2";
-			this->radioButton2->Size = System::Drawing::Size(62, 17);
-			this->radioButton2->TabIndex = 22;
-			this->radioButton2->TabStop = true;
-			this->radioButton2->Text = L"Modifier";
-			this->radioButton2->UseVisualStyleBackColor = true;
+			this->radio_suppr_personnel->AutoSize = true;
+			this->radio_suppr_personnel->Location = System::Drawing::Point(6, 65);
+			this->radio_suppr_personnel->Name = L"radio_suppr_personnel";
+			this->radio_suppr_personnel->Size = System::Drawing::Size(72, 17);
+			this->radio_suppr_personnel->TabIndex = 23;
+			this->radio_suppr_personnel->Text = L"Supprimer";
+			this->radio_suppr_personnel->UseVisualStyleBackColor = true;
 			// 
-			// radioButton1
+			// radio_edit_personnel
 			// 
-			this->radioButton1->AutoSize = true;
-			this->radioButton1->Location = System::Drawing::Point(6, 19);
-			this->radioButton1->Name = L"radioButton1";
-			this->radioButton1->Size = System::Drawing::Size(58, 17);
-			this->radioButton1->TabIndex = 21;
-			this->radioButton1->TabStop = true;
-			this->radioButton1->Text = L"Ajouter";
-			this->radioButton1->UseVisualStyleBackColor = true;
-			this->radioButton1->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioButton1_CheckedChanged);
+			this->radio_edit_personnel->AutoSize = true;
+			this->radio_edit_personnel->Location = System::Drawing::Point(6, 42);
+			this->radio_edit_personnel->Name = L"radio_edit_personnel";
+			this->radio_edit_personnel->Size = System::Drawing::Size(62, 17);
+			this->radio_edit_personnel->TabIndex = 22;
+			this->radio_edit_personnel->Text = L"Modifier";
+			this->radio_edit_personnel->UseVisualStyleBackColor = true;
+			// 
+			// radio_add_personnel
+			// 
+			this->radio_add_personnel->AutoSize = true;
+			this->radio_add_personnel->Checked = true;
+			this->radio_add_personnel->Location = System::Drawing::Point(6, 19);
+			this->radio_add_personnel->Name = L"radio_add_personnel";
+			this->radio_add_personnel->Size = System::Drawing::Size(58, 17);
+			this->radio_add_personnel->TabIndex = 21;
+			this->radio_add_personnel->TabStop = true;
+			this->radio_add_personnel->Text = L"Ajouter";
+			this->radio_add_personnel->UseVisualStyleBackColor = true;
+			this->radio_add_personnel->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioButton1_CheckedChanged);
 			// 
 			// tab_clients
 			// 
@@ -1117,12 +1118,45 @@ private: System::Windows::Forms::Button^ btn_insert;
 			this->qt_dispo->TabIndex = 46;
 			this->qt_dispo->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox7_TextChanged);
 			// 
+			// seuil_reapro
+			// 
+			this->seuil_reapro->Location = System::Drawing::Point(4, 214);
+			this->seuil_reapro->Name = L"seuil_reapro";
+			this->seuil_reapro->Size = System::Drawing::Size(266, 20);
+			this->seuil_reapro->TabIndex = 15;
+			// 
+			// label_type
+			// 
+			this->label_type->AutoSize = true;
+			this->label_type->Location = System::Drawing::Point(6, 237);
+			this->label_type->Name = L"label_type";
+			this->label_type->Size = System::Drawing::Size(31, 13);
+			this->label_type->TabIndex = 18;
+			this->label_type->Text = L"Type";
+			this->label_type->Click += gcnew System::EventHandler(this, &MyForm::label21_Click);
+			// 
 			// numericUpDown1
 			// 
 			this->numericUpDown1->Location = System::Drawing::Point(3, 628);
 			this->numericUpDown1->Name = L"numericUpDown1";
 			this->numericUpDown1->Size = System::Drawing::Size(266, 20);
 			this->numericUpDown1->TabIndex = 45;
+			// 
+			// label_couleur
+			// 
+			this->label_couleur->AutoSize = true;
+			this->label_couleur->Location = System::Drawing::Point(6, 276);
+			this->label_couleur->Name = L"label_couleur";
+			this->label_couleur->Size = System::Drawing::Size(43, 13);
+			this->label_couleur->TabIndex = 31;
+			this->label_couleur->Text = L"Couleur";
+			// 
+			// couleur
+			// 
+			this->couleur->Location = System::Drawing::Point(6, 292);
+			this->couleur->Name = L"couleur";
+			this->couleur->Size = System::Drawing::Size(266, 20);
+			this->couleur->TabIndex = 29;
 			// 
 			// label_qt_dispo
 			// 
@@ -1143,6 +1177,14 @@ private: System::Windows::Forms::Button^ btn_insert;
 			this->label_nom_produit->TabIndex = 24;
 			this->label_nom_produit->Text = L"Nom du produit";
 			// 
+			// type
+			// 
+			this->type->Location = System::Drawing::Point(5, 253);
+			this->type->Name = L"type";
+			this->type->Size = System::Drawing::Size(266, 20);
+			this->type->TabIndex = 16;
+			this->type->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox6_TextChanged);
+			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
@@ -1151,6 +1193,15 @@ private: System::Windows::Forms::Button^ btn_insert;
 			this->label4->Size = System::Drawing::Size(64, 13);
 			this->label4->TabIndex = 44;
 			this->label4->Text = L"Code Postal";
+			// 
+			// label_seuil_reapro
+			// 
+			this->label_seuil_reapro->AutoSize = true;
+			this->label_seuil_reapro->Location = System::Drawing::Point(5, 198);
+			this->label_seuil_reapro->Name = L"label_seuil_reapro";
+			this->label_seuil_reapro->Size = System::Drawing::Size(151, 13);
+			this->label_seuil_reapro->TabIndex = 17;
+			this->label_seuil_reapro->Text = L"Seuil de Réapprovisionnement";
 			// 
 			// textBox1
 			// 
@@ -1267,13 +1318,6 @@ private: System::Windows::Forms::Button^ btn_insert;
 			this->textBox10->Size = System::Drawing::Size(266, 20);
 			this->textBox10->TabIndex = 33;
 			// 
-			// seuil_reapro
-			// 
-			this->seuil_reapro->Location = System::Drawing::Point(4, 214);
-			this->seuil_reapro->Name = L"seuil_reapro";
-			this->seuil_reapro->Size = System::Drawing::Size(266, 20);
-			this->seuil_reapro->TabIndex = 15;
-			// 
 			// label22
 			// 
 			this->label22->AutoSize = true;
@@ -1282,16 +1326,6 @@ private: System::Windows::Forms::Button^ btn_insert;
 			this->label22->Size = System::Drawing::Size(27, 13);
 			this->label22->TabIndex = 32;
 			this->label22->Text = L"Rue";
-			// 
-			// label_type
-			// 
-			this->label_type->AutoSize = true;
-			this->label_type->Location = System::Drawing::Point(6, 237);
-			this->label_type->Name = L"label_type";
-			this->label_type->Size = System::Drawing::Size(31, 13);
-			this->label_type->TabIndex = 18;
-			this->label_type->Text = L"Type";
-			this->label_type->Click += gcnew System::EventHandler(this, &MyForm::label21_Click);
 			// 
 			// label20
 			// 
@@ -1302,45 +1336,12 @@ private: System::Windows::Forms::Button^ btn_insert;
 			this->label20->TabIndex = 34;
 			this->label20->Text = L"Numero";
 			// 
-			// label_seuil_reapro
-			// 
-			this->label_seuil_reapro->AutoSize = true;
-			this->label_seuil_reapro->Location = System::Drawing::Point(5, 198);
-			this->label_seuil_reapro->Name = L"label_seuil_reapro";
-			this->label_seuil_reapro->Size = System::Drawing::Size(151, 13);
-			this->label_seuil_reapro->TabIndex = 17;
-			this->label_seuil_reapro->Text = L"Seuil de Réapprovisionnement";
-			// 
 			// textBox8
 			// 
 			this->textBox8->Location = System::Drawing::Point(758, 262);
 			this->textBox8->Name = L"textBox8";
 			this->textBox8->Size = System::Drawing::Size(266, 20);
 			this->textBox8->TabIndex = 30;
-			// 
-			// label_couleur
-			// 
-			this->label_couleur->AutoSize = true;
-			this->label_couleur->Location = System::Drawing::Point(6, 276);
-			this->label_couleur->Name = L"label_couleur";
-			this->label_couleur->Size = System::Drawing::Size(43, 13);
-			this->label_couleur->TabIndex = 31;
-			this->label_couleur->Text = L"Couleur";
-			// 
-			// type
-			// 
-			this->type->Location = System::Drawing::Point(5, 253);
-			this->type->Name = L"type";
-			this->type->Size = System::Drawing::Size(266, 20);
-			this->type->TabIndex = 16;
-			this->type->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox6_TextChanged);
-			// 
-			// couleur
-			// 
-			this->couleur->Location = System::Drawing::Point(6, 292);
-			this->couleur->Name = L"couleur";
-			this->couleur->Size = System::Drawing::Size(266, 20);
-			this->couleur->TabIndex = 29;
 			// 
 			// label16
 			// 
@@ -1388,52 +1389,23 @@ private: System::Windows::Forms::Button^ btn_insert;
 			this->Informations->Text = L"Informations";
 			this->Informations->UseVisualStyleBackColor = true;
 			// 
-			// btn_delete
-			// 
-			this->btn_delete->Location = System::Drawing::Point(889, 128);
-			this->btn_delete->Name = L"btn_delete";
-			this->btn_delete->Size = System::Drawing::Size(133, 37);
-			this->btn_delete->TabIndex = 3;
-			this->btn_delete->Text = L"Supprimer";
-			this->btn_delete->UseVisualStyleBackColor = true;
-			this->btn_delete->Click += gcnew System::EventHandler(this, &MyForm::btn_delete_Click);
-			// 
-			// btn_update
-			// 
-			this->btn_update->Location = System::Drawing::Point(889, 82);
-			this->btn_update->Name = L"btn_update";
-			this->btn_update->Size = System::Drawing::Size(133, 37);
-			this->btn_update->TabIndex = 4;
-			this->btn_update->Text = L"Mettre à jour";
-			this->btn_update->UseVisualStyleBackColor = true;
-			this->btn_update->Click += gcnew System::EventHandler(this, &MyForm::btn_update_Click);
-			// 
-			// btn_insert
-			// 
-			this->btn_insert->Location = System::Drawing::Point(889, 36);
-			this->btn_insert->Name = L"btn_insert";
-			this->btn_insert->Size = System::Drawing::Size(133, 37);
-			this->btn_insert->TabIndex = 2;
-			this->btn_insert->Text = L"Nouveau";
-			this->btn_insert->UseVisualStyleBackColor = true;
-			this->btn_insert->Click += gcnew System::EventHandler(this, &MyForm::btn_insert_Click);
-			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1217, 689);
+			this->ClientSize = System::Drawing::Size(1270, 689);
 			this->Controls->Add(this->Catégories);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_enr))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_personnel))->EndInit();
 			this->Catégories->ResumeLayout(false);
 			this->tab_personnel->ResumeLayout(false);
 			this->userEntry_personnel->ResumeLayout(false);
 			this->userEntry_personnel->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown3))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numero_personnel))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->cp_personnel))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->id_supp))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->id_personnel))->EndInit();
 			this->Actions_Personnel->ResumeLayout(false);
 			this->Actions_Personnel->PerformLayout();
@@ -1459,30 +1431,13 @@ private: System::Windows::Forms::Button^ btn_insert;
 
 		}
 #pragma endregion
-	private: System::Void btn_load_Click(System::Object^ sender, System::EventArgs^ e)
-	{
-		this->dgv_enr->Refresh();
-		this->oDs = this->oSvc->selectionnerToutesLesPersonnes("Rsl");
-		this->dgv_enr->DataSource = this->oDs;
-		this->dgv_enr->DataMember = "Rsl";
-	}
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e)
 	{
 		this->oSvc = gcnew NS_Comp_Svc::CLservices();
-		this->dgv_enr->Refresh();
-		this->oDs = this->oSvc->selectionnerToutesLesPersonnes("Rsl");
-		this->dgv_enr->DataSource = this->oDs;
-		this->dgv_enr->DataMember = "Rsl";
-	}
-	private: System::Void btn_insert_Click(System::Object^ sender, System::EventArgs^ e)
-	{
-		// FLAG
-		this->oSvc->ajouterUnePersonne(this->txt_nom->Text, this->txt_prenom->Text, this->txt_ville->Text, this->txt_adresse->Text, this->txt_cp->Text);
-
-		this->dgv_enr->Refresh();
-		this->oDs = this->oSvc->selectionnerToutesLesPersonnes("Rsl");
-		this->dgv_enr->DataSource = this->oDs;
-		this->dgv_enr->DataMember = "Rsl";
+		this->dgv_personnel->Refresh();
+		this->oDs = this->oSvc->selectionnerToutLePersonnel("Personnel");
+		this->dgv_personnel->DataSource = this->oDs;
+		this->dgv_personnel->DataMember = "Personnel";
 	}
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -1496,21 +1451,6 @@ private: System::Windows::Forms::Button^ btn_insert;
 	}
 	private: System::Void label7_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-	private: System::Void btn_update_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->oSvc->updateUnePersonne(this->id_personnel->Text, this->txt_nom->Text, this->txt_prenom->Text, this->txt_ville->Text, this->txt_adresse->Text, this->txt_cp->Text);
-		this->dgv_enr->Refresh();
-		this->oDs = this->oSvc->selectionnerToutesLesPersonnes("Rsl");
-		this->dgv_enr->DataSource = this->oDs;
-		this->dgv_enr->DataMember = "Rsl";
-	}
-	private: System::Void btn_delete_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->oSvc->deleteUnePersonne(this->id_personnel->Text);
-		this->dgv_enr->Refresh();
-		this->oDs = this->oSvc->selectionnerToutesLesPersonnes("Rsl");
-		this->dgv_enr->DataSource = this->oDs;
-		this->dgv_enr->DataMember = "Rsl";
-	}
-
 private: System::Void tabPage1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void radioButton1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -1544,6 +1484,32 @@ private: System::Void Stock_Click(System::Object^ sender, System::EventArgs^ e) 
 private: System::Void label21_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void textBox6_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void btn_valider_employe_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (this->radio_add_personnel->Checked)
+	{
+		this->oSvc->ajouterUnPersonnel(this->nom_personnel->Text, this->prenom_personnel->Text, this->id_supp->Value, this->date_embauche->Value, this->ville_personnel->Text, this->rue_personnel->Text, this->numero_personnel->Value, this->cp_personnel->Value);
+		this->dgv_personnel->Refresh();
+		this->oDs = this->oSvc->selectionnerToutLePersonnel("Personnel");
+		this->dgv_personnel->DataSource = this->oDs;
+		this->dgv_personnel->DataMember = "Personnel";
+	}
+	else if (this->radio_edit_personnel->Checked)
+	{
+		this->oSvc->updateUnPersonnel(this->id_personnel->Value, this->nom_personnel->Text, this->prenom_personnel->Text, this->id_supp->Value, this->date_embauche->Value, this->ville_personnel->Text, this->rue_personnel->Text, this->numero_personnel->Value, this->cp_personnel->Value);
+		this->dgv_personnel->Refresh();
+		this->oDs = this->oSvc->selectionnerToutLePersonnel("Personnel");
+		this->dgv_personnel->DataSource = this->oDs;
+		this->dgv_personnel->DataMember = "Personnel";
+	}
+	else if (this->radio_suppr_personnel->Checked)
+	{
+		this->oSvc->deleteUnPersonnel(this->id_personnel->Value);
+		this->dgv_personnel->Refresh();
+		this->oDs = this->oSvc->selectionnerToutLePersonnel("Personnel");
+		this->dgv_personnel->DataSource = this->oDs;
+		this->dgv_personnel->DataMember = "Personnel";
+	}
 }
 };
 }

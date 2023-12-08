@@ -1,4 +1,4 @@
-//MyForm.H*********************************************************************************************
+ï»¿//MyForm.H*********************************************************************************************
 #pragma once
 #include "CLservices.h"
 
@@ -67,7 +67,7 @@ namespace P6new {
 
 
 
-	private: System::Windows::Forms::TabControl^ Catégories;
+	private: System::Windows::Forms::TabControl^ CatÃ©gories;
 	private: System::Windows::Forms::TabPage^ tab_personnel;
 	private: System::Windows::Forms::TabPage^ tab_clients;
 	private: System::Windows::Forms::RadioButton^ radio_suppr_personnel;
@@ -229,6 +229,49 @@ private: System::Windows::Forms::NumericUpDown^ numero_personnel;
 
 
 private: System::Windows::Forms::Button^ btn_valider_employe;
+private: System::Windows::Forms::Label^ label_stat_panier_moyen;
+private: System::Windows::Forms::Button^ btn_rld_panier_moyen;
+
+
+private: System::Windows::Forms::TextBox^ stat_panier_moyen;
+
+private: System::Windows::Forms::GroupBox^ stats_grp;
+private: System::Windows::Forms::DateTimePicker^ date_stat_ca;
+
+private: System::Windows::Forms::Label^ label_stat_ca;
+private: System::Windows::Forms::TextBox^ stat_ca;
+private: System::Windows::Forms::Button^ btn_rld_ca;
+private: System::Windows::Forms::Button^ btn_rld_seuil_reapro;
+private: System::Windows::Forms::Label^ label_stats_seuil_reapro;
+private: System::Windows::Forms::DataGridView^ dgv_seuil_reapro;
+private: System::Windows::Forms::Button^ btn_rld_pires_ventes;
+
+private: System::Windows::Forms::Label^ label_pires_ventes;
+private: System::Windows::Forms::DataGridView^ dgv_pires_ventes;
+private: System::Windows::Forms::Button^ btn_rld_meilleures_ventes;
+
+
+
+private: System::Windows::Forms::Label^ label_meilleures_ventes;
+private: System::Windows::Forms::DataGridView^ dgv_meilleures_ventes;
+
+
+private: System::Windows::Forms::TextBox^ stat_valeur_achat;
+private: System::Windows::Forms::Label^ label_valeur_achat_stock;
+private: System::Windows::Forms::Button^ btn_rld_valeur_achat;
+private: System::Windows::Forms::TextBox^ stat_valeur_commerciale;
+private: System::Windows::Forms::Label^ label_valeur_commerciale;
+private: System::Windows::Forms::Button^ btn_rld_valeur_commerciale;
+private: System::Windows::Forms::NumericUpDown^ stat_id_client;
+private: System::Windows::Forms::Label^ laben_stat_total_client;
+private: System::Windows::Forms::TextBox^ stat_total_client;
+private: System::Windows::Forms::Button^ btn_rld_total_client;
+
+
+
+
+
+
 
 
 
@@ -272,7 +315,7 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->rue_personnel = (gcnew System::Windows::Forms::TextBox());
 			this->ville_personnel = (gcnew System::Windows::Forms::TextBox());
 			this->Numero_employe = (gcnew System::Windows::Forms::Label());
-			this->Catégories = (gcnew System::Windows::Forms::TabControl());
+			this->CatÃ©gories = (gcnew System::Windows::Forms::TabControl());
 			this->tab_personnel = (gcnew System::Windows::Forms::TabPage());
 			this->userEntry_personnel = (gcnew System::Windows::Forms::GroupBox());
 			this->numero_personnel = (gcnew System::Windows::Forms::NumericUpDown());
@@ -365,8 +408,35 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->Commandes = (gcnew System::Windows::Forms::TabPage());
 			this->Statistiques = (gcnew System::Windows::Forms::TabPage());
 			this->Informations = (gcnew System::Windows::Forms::TabPage());
+			this->stat_panier_moyen = (gcnew System::Windows::Forms::TextBox());
+			this->btn_rld_panier_moyen = (gcnew System::Windows::Forms::Button());
+			this->label_stat_panier_moyen = (gcnew System::Windows::Forms::Label());
+			this->stats_grp = (gcnew System::Windows::Forms::GroupBox());
+			this->date_stat_ca = (gcnew System::Windows::Forms::DateTimePicker());
+			this->btn_rld_ca = (gcnew System::Windows::Forms::Button());
+			this->stat_ca = (gcnew System::Windows::Forms::TextBox());
+			this->label_stat_ca = (gcnew System::Windows::Forms::Label());
+			this->dgv_seuil_reapro = (gcnew System::Windows::Forms::DataGridView());
+			this->label_stats_seuil_reapro = (gcnew System::Windows::Forms::Label());
+			this->btn_rld_seuil_reapro = (gcnew System::Windows::Forms::Button());
+			this->btn_rld_meilleures_ventes = (gcnew System::Windows::Forms::Button());
+			this->label_meilleures_ventes = (gcnew System::Windows::Forms::Label());
+			this->dgv_meilleures_ventes = (gcnew System::Windows::Forms::DataGridView());
+			this->btn_rld_pires_ventes = (gcnew System::Windows::Forms::Button());
+			this->label_pires_ventes = (gcnew System::Windows::Forms::Label());
+			this->dgv_pires_ventes = (gcnew System::Windows::Forms::DataGridView());
+			this->laben_stat_total_client = (gcnew System::Windows::Forms::Label());
+			this->stat_total_client = (gcnew System::Windows::Forms::TextBox());
+			this->btn_rld_total_client = (gcnew System::Windows::Forms::Button());
+			this->stat_id_client = (gcnew System::Windows::Forms::NumericUpDown());
+			this->stat_valeur_commerciale = (gcnew System::Windows::Forms::TextBox());
+			this->label_valeur_commerciale = (gcnew System::Windows::Forms::Label());
+			this->btn_rld_valeur_commerciale = (gcnew System::Windows::Forms::Button());
+			this->stat_valeur_achat = (gcnew System::Windows::Forms::TextBox());
+			this->label_valeur_achat_stock = (gcnew System::Windows::Forms::Label());
+			this->btn_rld_valeur_achat = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_personnel))->BeginInit();
-			this->Catégories->SuspendLayout();
+			this->CatÃ©gories->SuspendLayout();
 			this->tab_personnel->SuspendLayout();
 			this->userEntry_personnel->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numero_personnel))->BeginInit();
@@ -388,6 +458,12 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->id_produit))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown5))->BeginInit();
+			this->Statistiques->SuspendLayout();
+			this->stats_grp->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_seuil_reapro))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_meilleures_ventes))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_pires_ventes))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->stat_id_client))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// dgv_personnel
@@ -439,7 +515,7 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->label_prenom_employe->Name = L"label_prenom_employe";
 			this->label_prenom_employe->Size = System::Drawing::Size(43, 13);
 			this->label_prenom_employe->TabIndex = 14;
-			this->label_prenom_employe->Text = L"Prénom";
+			this->label_prenom_employe->Text = L"PrÃ©nom";
 			// 
 			// Rue_employe
 			// 
@@ -484,19 +560,19 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->Numero_employe->Text = L"Numero";
 			this->Numero_employe->Click += gcnew System::EventHandler(this, &MyForm::label6_Click);
 			// 
-			// Catégories
+			// CatÃ©gories
 			// 
-			this->Catégories->Controls->Add(this->tab_personnel);
-			this->Catégories->Controls->Add(this->tab_clients);
-			this->Catégories->Controls->Add(this->Stock);
-			this->Catégories->Controls->Add(this->Commandes);
-			this->Catégories->Controls->Add(this->Statistiques);
-			this->Catégories->Controls->Add(this->Informations);
-			this->Catégories->Location = System::Drawing::Point(10, 12);
-			this->Catégories->Name = L"Catégories";
-			this->Catégories->SelectedIndex = 0;
-			this->Catégories->Size = System::Drawing::Size(1248, 664);
-			this->Catégories->TabIndex = 21;
+			this->CatÃ©gories->Controls->Add(this->tab_personnel);
+			this->CatÃ©gories->Controls->Add(this->tab_clients);
+			this->CatÃ©gories->Controls->Add(this->Stock);
+			this->CatÃ©gories->Controls->Add(this->Commandes);
+			this->CatÃ©gories->Controls->Add(this->Statistiques);
+			this->CatÃ©gories->Controls->Add(this->Informations);
+			this->CatÃ©gories->Location = System::Drawing::Point(10, 12);
+			this->CatÃ©gories->Name = L"CatÃ©gories";
+			this->CatÃ©gories->SelectedIndex = 0;
+			this->CatÃ©gories->Size = System::Drawing::Size(1248, 664);
+			this->CatÃ©gories->TabIndex = 21;
 			// 
 			// tab_personnel
 			// 
@@ -537,7 +613,7 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->userEntry_personnel->Size = System::Drawing::Size(284, 400);
 			this->userEntry_personnel->TabIndex = 25;
 			this->userEntry_personnel->TabStop = false;
-			this->userEntry_personnel->Text = L"Entrée utilisateur";
+			this->userEntry_personnel->Text = L"EntrÃ©e utilisateur";
 			this->userEntry_personnel->Enter += gcnew System::EventHandler(this, &MyForm::groupBox1_Enter_1);
 			// 
 			// numero_personnel
@@ -585,7 +661,7 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->ID_supp_employe->Name = L"ID_supp_employe";
 			this->ID_supp_employe->Size = System::Drawing::Size(72, 13);
 			this->ID_supp_employe->TabIndex = 24;
-			this->ID_supp_employe->Text = L"ID Suppérieur";
+			this->ID_supp_employe->Text = L"ID SuppÃ©rieur";
 			// 
 			// label_date_embauche
 			// 
@@ -755,7 +831,7 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->userEntry_clients->Size = System::Drawing::Size(305, 516);
 			this->userEntry_clients->TabIndex = 26;
 			this->userEntry_clients->TabStop = false;
-			this->userEntry_clients->Text = L"Entrée Utilisateur";
+			this->userEntry_clients->Text = L"EntrÃ©e Utilisateur";
 			// 
 			// panel1
 			// 
@@ -1031,7 +1107,7 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->label_prenom_client->Name = L"label_prenom_client";
 			this->label_prenom_client->Size = System::Drawing::Size(72, 13);
 			this->label_prenom_client->TabIndex = 14;
-			this->label_prenom_client->Text = L"Prénom Client";
+			this->label_prenom_client->Text = L"PrÃ©nom Client";
 			// 
 			// label_date_1er_achat
 			// 
@@ -1084,7 +1160,7 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->groupBox1->Size = System::Drawing::Size(305, 516);
 			this->groupBox1->TabIndex = 27;
 			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"Entrée Utilisateur";
+			this->groupBox1->Text = L"EntrÃ©e Utilisateur";
 			// 
 			// panel2
 			// 
@@ -1182,7 +1258,7 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->label_qt_dispo->Name = L"label_qt_dispo";
 			this->label_qt_dispo->Size = System::Drawing::Size(97, 13);
 			this->label_qt_dispo->TabIndex = 27;
-			this->label_qt_dispo->Text = L"Quantité disponible";
+			this->label_qt_dispo->Text = L"QuantitÃ© disponible";
 			this->label_qt_dispo->Click += gcnew System::EventHandler(this, &MyForm::label25_Click);
 			// 
 			// label_nom_produit
@@ -1218,7 +1294,7 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->label_seuil_reapro->Name = L"label_seuil_reapro";
 			this->label_seuil_reapro->Size = System::Drawing::Size(151, 13);
 			this->label_seuil_reapro->TabIndex = 17;
-			this->label_seuil_reapro->Text = L"Seuil de Réapprovisionnement";
+			this->label_seuil_reapro->Text = L"Seuil de RÃ©approvisionnement";
 			// 
 			// textBox1
 			// 
@@ -1277,7 +1353,7 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->prix_degressif->Name = L"prix_degressif";
 			this->prix_degressif->Size = System::Drawing::Size(88, 17);
 			this->prix_degressif->TabIndex = 37;
-			this->prix_degressif->Text = L"Prix dégressif";
+			this->prix_degressif->Text = L"Prix dÃ©gressif";
 			this->prix_degressif->UseVisualStyleBackColor = true;
 			// 
 			// id_produit
@@ -1388,6 +1464,7 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			// 
 			// Statistiques
 			// 
+			this->Statistiques->Controls->Add(this->stats_grp);
 			this->Statistiques->Location = System::Drawing::Point(4, 22);
 			this->Statistiques->Name = L"Statistiques";
 			this->Statistiques->Padding = System::Windows::Forms::Padding(3);
@@ -1406,17 +1483,287 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->Informations->Text = L"Informations";
 			this->Informations->UseVisualStyleBackColor = true;
 			// 
+			// stat_panier_moyen
+			// 
+			this->stat_panier_moyen->Enabled = false;
+			this->stat_panier_moyen->Location = System::Drawing::Point(65, 46);
+			this->stat_panier_moyen->Name = L"stat_panier_moyen";
+			this->stat_panier_moyen->Size = System::Drawing::Size(292, 20);
+			this->stat_panier_moyen->TabIndex = 0;
+			// 
+			// btn_rld_panier_moyen
+			// 
+			this->btn_rld_panier_moyen->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.25F));
+			this->btn_rld_panier_moyen->Location = System::Drawing::Point(16, 26);
+			this->btn_rld_panier_moyen->Name = L"btn_rld_panier_moyen";
+			this->btn_rld_panier_moyen->Size = System::Drawing::Size(43, 40);
+			this->btn_rld_panier_moyen->TabIndex = 1;
+			this->btn_rld_panier_moyen->Text = L"â†»";
+			this->btn_rld_panier_moyen->UseVisualStyleBackColor = true;
+			// 
+			// label_stat_panier_moyen
+			// 
+			this->label_stat_panier_moyen->AutoSize = true;
+			this->label_stat_panier_moyen->Location = System::Drawing::Point(65, 30);
+			this->label_stat_panier_moyen->Name = L"label_stat_panier_moyen";
+			this->label_stat_panier_moyen->Size = System::Drawing::Size(75, 13);
+			this->label_stat_panier_moyen->TabIndex = 2;
+			this->label_stat_panier_moyen->Text = L"Panier Moyen ";
+			this->label_stat_panier_moyen->Click += gcnew System::EventHandler(this, &MyForm::label1_Click_1);
+			// 
+			// stats_grp
+			// 
+			this->stats_grp->Controls->Add(this->stat_valeur_achat);
+			this->stats_grp->Controls->Add(this->label_valeur_achat_stock);
+			this->stats_grp->Controls->Add(this->btn_rld_valeur_achat);
+			this->stats_grp->Controls->Add(this->stat_valeur_commerciale);
+			this->stats_grp->Controls->Add(this->label_valeur_commerciale);
+			this->stats_grp->Controls->Add(this->btn_rld_valeur_commerciale);
+			this->stats_grp->Controls->Add(this->stat_id_client);
+			this->stats_grp->Controls->Add(this->laben_stat_total_client);
+			this->stats_grp->Controls->Add(this->stat_total_client);
+			this->stats_grp->Controls->Add(this->btn_rld_total_client);
+			this->stats_grp->Controls->Add(this->btn_rld_pires_ventes);
+			this->stats_grp->Controls->Add(this->label_pires_ventes);
+			this->stats_grp->Controls->Add(this->dgv_pires_ventes);
+			this->stats_grp->Controls->Add(this->btn_rld_meilleures_ventes);
+			this->stats_grp->Controls->Add(this->label_meilleures_ventes);
+			this->stats_grp->Controls->Add(this->dgv_meilleures_ventes);
+			this->stats_grp->Controls->Add(this->btn_rld_seuil_reapro);
+			this->stats_grp->Controls->Add(this->label_stats_seuil_reapro);
+			this->stats_grp->Controls->Add(this->dgv_seuil_reapro);
+			this->stats_grp->Controls->Add(this->label_stat_ca);
+			this->stats_grp->Controls->Add(this->stat_ca);
+			this->stats_grp->Controls->Add(this->btn_rld_ca);
+			this->stats_grp->Controls->Add(this->date_stat_ca);
+			this->stats_grp->Controls->Add(this->stat_panier_moyen);
+			this->stats_grp->Controls->Add(this->label_stat_panier_moyen);
+			this->stats_grp->Controls->Add(this->btn_rld_panier_moyen);
+			this->stats_grp->Location = System::Drawing::Point(17, 16);
+			this->stats_grp->Name = L"stats_grp";
+			this->stats_grp->Size = System::Drawing::Size(1207, 616);
+			this->stats_grp->TabIndex = 3;
+			this->stats_grp->TabStop = false;
+			this->stats_grp->Text = L"Statistiques";
+			this->stats_grp->Enter += gcnew System::EventHandler(this, &MyForm::stats_grp_Enter);
+			// 
+			// date_stat_ca
+			// 
+			this->date_stat_ca->Location = System::Drawing::Point(65, 103);
+			this->date_stat_ca->Name = L"date_stat_ca";
+			this->date_stat_ca->Size = System::Drawing::Size(292, 20);
+			this->date_stat_ca->TabIndex = 3;
+			// 
+			// btn_rld_ca
+			// 
+			this->btn_rld_ca->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.25F));
+			this->btn_rld_ca->Location = System::Drawing::Point(16, 83);
+			this->btn_rld_ca->Name = L"btn_rld_ca";
+			this->btn_rld_ca->Size = System::Drawing::Size(43, 40);
+			this->btn_rld_ca->TabIndex = 4;
+			this->btn_rld_ca->Text = L"â†»";
+			this->btn_rld_ca->UseVisualStyleBackColor = true;
+			// 
+			// stat_ca
+			// 
+			this->stat_ca->Enabled = false;
+			this->stat_ca->Location = System::Drawing::Point(65, 129);
+			this->stat_ca->Name = L"stat_ca";
+			this->stat_ca->Size = System::Drawing::Size(292, 20);
+			this->stat_ca->TabIndex = 5;
+			// 
+			// label_stat_ca
+			// 
+			this->label_stat_ca->AutoSize = true;
+			this->label_stat_ca->Location = System::Drawing::Point(65, 83);
+			this->label_stat_ca->Name = L"label_stat_ca";
+			this->label_stat_ca->Size = System::Drawing::Size(119, 13);
+			this->label_stat_ca->TabIndex = 6;
+			this->label_stat_ca->Text = L"Chiffre d\'affaire par mois";
+			this->label_stat_ca->Click += gcnew System::EventHandler(this, &MyForm::label1_Click_2);
+			// 
+			// dgv_seuil_reapro
+			// 
+			this->dgv_seuil_reapro->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgv_seuil_reapro->Location = System::Drawing::Point(689, 35);
+			this->dgv_seuil_reapro->Name = L"dgv_seuil_reapro";
+			this->dgv_seuil_reapro->Size = System::Drawing::Size(498, 166);
+			this->dgv_seuil_reapro->TabIndex = 7;
+			// 
+			// label_stats_seuil_reapro
+			// 
+			this->label_stats_seuil_reapro->AutoSize = true;
+			this->label_stats_seuil_reapro->Location = System::Drawing::Point(689, 19);
+			this->label_stats_seuil_reapro->Name = L"label_stats_seuil_reapro";
+			this->label_stats_seuil_reapro->Size = System::Drawing::Size(153, 13);
+			this->label_stats_seuil_reapro->TabIndex = 8;
+			this->label_stats_seuil_reapro->Text = L"Produits sous le seuil de rÃ©apro";
+			// 
+			// btn_rld_seuil_reapro
+			// 
+			this->btn_rld_seuil_reapro->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.25F));
+			this->btn_rld_seuil_reapro->Location = System::Drawing::Point(640, 19);
+			this->btn_rld_seuil_reapro->Name = L"btn_rld_seuil_reapro";
+			this->btn_rld_seuil_reapro->Size = System::Drawing::Size(43, 40);
+			this->btn_rld_seuil_reapro->TabIndex = 9;
+			this->btn_rld_seuil_reapro->Text = L"â†»";
+			this->btn_rld_seuil_reapro->UseVisualStyleBackColor = true;
+			// 
+			// btn_rld_meilleures_ventes
+			// 
+			this->btn_rld_meilleures_ventes->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.25F));
+			this->btn_rld_meilleures_ventes->Location = System::Drawing::Point(640, 213);
+			this->btn_rld_meilleures_ventes->Name = L"btn_rld_meilleures_ventes";
+			this->btn_rld_meilleures_ventes->Size = System::Drawing::Size(43, 40);
+			this->btn_rld_meilleures_ventes->TabIndex = 12;
+			this->btn_rld_meilleures_ventes->Text = L"â†»";
+			this->btn_rld_meilleures_ventes->UseVisualStyleBackColor = true;
+			// 
+			// label_meilleures_ventes
+			// 
+			this->label_meilleures_ventes->AutoSize = true;
+			this->label_meilleures_ventes->Location = System::Drawing::Point(689, 213);
+			this->label_meilleures_ventes->Name = L"label_meilleures_ventes";
+			this->label_meilleures_ventes->Size = System::Drawing::Size(125, 13);
+			this->label_meilleures_ventes->TabIndex = 11;
+			this->label_meilleures_ventes->Text = L"Top 10 meilleures ventes";
+			this->label_meilleures_ventes->Click += gcnew System::EventHandler(this, &MyForm::label1_Click_3);
+			// 
+			// dgv_meilleures_ventes
+			// 
+			this->dgv_meilleures_ventes->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgv_meilleures_ventes->Location = System::Drawing::Point(689, 229);
+			this->dgv_meilleures_ventes->Name = L"dgv_meilleures_ventes";
+			this->dgv_meilleures_ventes->Size = System::Drawing::Size(498, 166);
+			this->dgv_meilleures_ventes->TabIndex = 10;
+			// 
+			// btn_rld_pires_ventes
+			// 
+			this->btn_rld_pires_ventes->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.25F));
+			this->btn_rld_pires_ventes->Location = System::Drawing::Point(640, 411);
+			this->btn_rld_pires_ventes->Name = L"btn_rld_pires_ventes";
+			this->btn_rld_pires_ventes->Size = System::Drawing::Size(43, 40);
+			this->btn_rld_pires_ventes->TabIndex = 15;
+			this->btn_rld_pires_ventes->Text = L"â†»";
+			this->btn_rld_pires_ventes->UseVisualStyleBackColor = true;
+			// 
+			// label_pires_ventes
+			// 
+			this->label_pires_ventes->AutoSize = true;
+			this->label_pires_ventes->Location = System::Drawing::Point(689, 411);
+			this->label_pires_ventes->Name = L"label_pires_ventes";
+			this->label_pires_ventes->Size = System::Drawing::Size(101, 13);
+			this->label_pires_ventes->TabIndex = 14;
+			this->label_pires_ventes->Text = L"Top 10 pires ventes";
+			this->label_pires_ventes->Click += gcnew System::EventHandler(this, &MyForm::label2_Click_1);
+			// 
+			// dgv_pires_ventes
+			// 
+			this->dgv_pires_ventes->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgv_pires_ventes->Location = System::Drawing::Point(689, 427);
+			this->dgv_pires_ventes->Name = L"dgv_pires_ventes";
+			this->dgv_pires_ventes->Size = System::Drawing::Size(498, 166);
+			this->dgv_pires_ventes->TabIndex = 13;
+			// 
+			// laben_stat_total_client
+			// 
+			this->laben_stat_total_client->AutoSize = true;
+			this->laben_stat_total_client->Location = System::Drawing::Point(65, 161);
+			this->laben_stat_total_client->Name = L"laben_stat_total_client";
+			this->laben_stat_total_client->Size = System::Drawing::Size(158, 13);
+			this->laben_stat_total_client->TabIndex = 19;
+			this->laben_stat_total_client->Text = L"Montant total d\'achats par client";
+			// 
+			// stat_total_client
+			// 
+			this->stat_total_client->Enabled = false;
+			this->stat_total_client->Location = System::Drawing::Point(65, 207);
+			this->stat_total_client->Name = L"stat_total_client";
+			this->stat_total_client->Size = System::Drawing::Size(292, 20);
+			this->stat_total_client->TabIndex = 18;
+			// 
+			// btn_rld_total_client
+			// 
+			this->btn_rld_total_client->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.25F));
+			this->btn_rld_total_client->Location = System::Drawing::Point(16, 161);
+			this->btn_rld_total_client->Name = L"btn_rld_total_client";
+			this->btn_rld_total_client->Size = System::Drawing::Size(43, 40);
+			this->btn_rld_total_client->TabIndex = 17;
+			this->btn_rld_total_client->Text = L"â†»";
+			this->btn_rld_total_client->UseVisualStyleBackColor = true;
+			// 
+			// stat_id_client
+			// 
+			this->stat_id_client->Location = System::Drawing::Point(64, 181);
+			this->stat_id_client->Name = L"stat_id_client";
+			this->stat_id_client->Size = System::Drawing::Size(293, 20);
+			this->stat_id_client->TabIndex = 20;
+			// 
+			// stat_valeur_commerciale
+			// 
+			this->stat_valeur_commerciale->Enabled = false;
+			this->stat_valeur_commerciale->Location = System::Drawing::Point(65, 260);
+			this->stat_valeur_commerciale->Name = L"stat_valeur_commerciale";
+			this->stat_valeur_commerciale->Size = System::Drawing::Size(292, 20);
+			this->stat_valeur_commerciale->TabIndex = 21;
+			// 
+			// label_valeur_commerciale
+			// 
+			this->label_valeur_commerciale->AutoSize = true;
+			this->label_valeur_commerciale->Location = System::Drawing::Point(65, 244);
+			this->label_valeur_commerciale->Name = L"label_valeur_commerciale";
+			this->label_valeur_commerciale->Size = System::Drawing::Size(143, 13);
+			this->label_valeur_commerciale->TabIndex = 23;
+			this->label_valeur_commerciale->Text = L"Valeur commerciale du stock";
+			// 
+			// btn_rld_valeur_commerciale
+			// 
+			this->btn_rld_valeur_commerciale->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.25F));
+			this->btn_rld_valeur_commerciale->Location = System::Drawing::Point(16, 240);
+			this->btn_rld_valeur_commerciale->Name = L"btn_rld_valeur_commerciale";
+			this->btn_rld_valeur_commerciale->Size = System::Drawing::Size(43, 40);
+			this->btn_rld_valeur_commerciale->TabIndex = 22;
+			this->btn_rld_valeur_commerciale->Text = L"â†»";
+			this->btn_rld_valeur_commerciale->UseVisualStyleBackColor = true;
+			// 
+			// stat_valeur_achat
+			// 
+			this->stat_valeur_achat->Enabled = false;
+			this->stat_valeur_achat->Location = System::Drawing::Point(65, 318);
+			this->stat_valeur_achat->Name = L"stat_valeur_achat";
+			this->stat_valeur_achat->Size = System::Drawing::Size(292, 20);
+			this->stat_valeur_achat->TabIndex = 24;
+			// 
+			// label_valeur_achat_stock
+			// 
+			this->label_valeur_achat_stock->AutoSize = true;
+			this->label_valeur_achat_stock->Location = System::Drawing::Point(65, 302);
+			this->label_valeur_achat_stock->Name = L"label_valeur_achat_stock";
+			this->label_valeur_achat_stock->Size = System::Drawing::Size(119, 13);
+			this->label_valeur_achat_stock->TabIndex = 26;
+			this->label_valeur_achat_stock->Text = L"Valeur d\'achat du stock";
+			// 
+			// btn_rld_valeur_achat
+			// 
+			this->btn_rld_valeur_achat->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.25F));
+			this->btn_rld_valeur_achat->Location = System::Drawing::Point(16, 298);
+			this->btn_rld_valeur_achat->Name = L"btn_rld_valeur_achat";
+			this->btn_rld_valeur_achat->Size = System::Drawing::Size(43, 40);
+			this->btn_rld_valeur_achat->TabIndex = 25;
+			this->btn_rld_valeur_achat->Text = L"â†»";
+			this->btn_rld_valeur_achat->UseVisualStyleBackColor = true;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1270, 689);
-			this->Controls->Add(this->Catégories);
+			this->Controls->Add(this->CatÃ©gories);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_personnel))->EndInit();
-			this->Catégories->ResumeLayout(false);
+			this->CatÃ©gories->ResumeLayout(false);
 			this->tab_personnel->ResumeLayout(false);
 			this->userEntry_personnel->ResumeLayout(false);
 			this->userEntry_personnel->PerformLayout();
@@ -1444,6 +1791,13 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->id_produit))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown5))->EndInit();
+			this->Statistiques->ResumeLayout(false);
+			this->stats_grp->ResumeLayout(false);
+			this->stats_grp->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_seuil_reapro))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_meilleures_ventes))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_pires_ventes))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->stat_id_client))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -1643,6 +1997,16 @@ this->id_client->Enabled = true;
 	this->rue_client_2->Enabled = false;
 	this->numero_client_2->Enabled = false;
 	this->cp_client_2->Enabled = false;
+}
+private: System::Void label1_Click_1(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label1_Click_2(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void stats_grp_Enter(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label1_Click_3(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label2_Click_1(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

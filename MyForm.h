@@ -532,7 +532,6 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->userEntry_personnel->Name = L"userEntry_personnel";
 			this->userEntry_personnel->Size = System::Drawing::Size(284, 400);
 			this->userEntry_personnel->TabIndex = 25;
-			this->userEntry_personnel->TabStop = false;
 			this->userEntry_personnel->Text = L"Entrée utilisateur";
 			this->userEntry_personnel->Enter += gcnew System::EventHandler(this, &MyForm::groupBox1_Enter_1);
 			// 
@@ -546,6 +545,7 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			// cp_personnel
 			// 
 			this->cp_personnel->Location = System::Drawing::Point(6, 368);
+			this->cp_personnel->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 99999, 0, 0, 0 });
 			this->cp_personnel->Name = L"cp_personnel";
 			this->cp_personnel->Size = System::Drawing::Size(266, 20);
 			this->cp_personnel->TabIndex = 28;
@@ -561,6 +561,7 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			// 
 			this->id_personnel->Enabled = false;
 			this->id_personnel->Location = System::Drawing::Point(6, 41);
+			this->id_personnel->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1000000, 0, 0, 0 });
 			this->id_personnel->Name = L"id_personnel";
 			this->id_personnel->Size = System::Drawing::Size(266, 20);
 			this->id_personnel->TabIndex = 26;
@@ -633,6 +634,7 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->radio_suppr_personnel->TabIndex = 23;
 			this->radio_suppr_personnel->Text = L"Supprimer";
 			this->radio_suppr_personnel->UseVisualStyleBackColor = true;
+			this->radio_suppr_personnel->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radio_suppr_personnel_CheckedChanged);
 			// 
 			// radio_edit_personnel
 			// 
@@ -643,6 +645,7 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->radio_edit_personnel->TabIndex = 22;
 			this->radio_edit_personnel->Text = L"Modifier";
 			this->radio_edit_personnel->UseVisualStyleBackColor = true;
+			this->radio_edit_personnel->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radio_edit_personnel_CheckedChanged);
 			// 
 			// radio_add_personnel
 			// 
@@ -1459,6 +1462,11 @@ private: System::Void radioButton1_CheckedChanged(System::Object^ sender, System
 	this->nom_personnel->Enabled = true;
 	this->prenom_personnel->Enabled = true;
 	this->id_supp->Enabled = true;
+	this->date_embauche->Enabled = true;
+	this->ville_personnel->Enabled = true;
+	this->rue_personnel->Enabled = true;
+	this->numero_personnel->Enabled = true;
+	this->cp_personnel->Enabled = true;
 }
 private: System::Void groupBox1_Enter(System::Object^ sender, System::EventArgs^ e) {
 }
@@ -1515,6 +1523,28 @@ private: System::Void btn_valider_employe_Click(System::Object^ sender, System::
 		this->dgv_personnel->DataSource = this->oDs;
 		this->dgv_personnel->DataMember = "Personnel";
 	}
+}
+private: System::Void radio_edit_personnel_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	this->id_personnel->Enabled = true;
+	this->nom_personnel->Enabled = true;
+	this->prenom_personnel->Enabled = true;
+	this->id_supp->Enabled = true;
+	this->date_embauche->Enabled = true;
+	this->ville_personnel->Enabled = true;
+	this->rue_personnel->Enabled = true;
+	this->numero_personnel->Enabled = true;
+	this->cp_personnel->Enabled = true;
+}
+private: System::Void radio_suppr_personnel_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	this->id_personnel->Enabled = true;
+	this->nom_personnel->Enabled = false;
+	this->prenom_personnel->Enabled = false;
+	this->id_supp->Enabled = false;
+	this->date_embauche->Enabled = false;
+	this->ville_personnel->Enabled = false;
+	this->rue_personnel->Enabled = false;
+	this->numero_personnel->Enabled = false;
+	this->cp_personnel->Enabled = false;
 }
 };
 }

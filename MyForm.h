@@ -559,6 +559,7 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			// 
 			// id_personnel
 			// 
+			this->id_personnel->Enabled = false;
 			this->id_personnel->Location = System::Drawing::Point(6, 41);
 			this->id_personnel->Name = L"id_personnel";
 			this->id_personnel->Size = System::Drawing::Size(266, 20);
@@ -664,7 +665,7 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->tab_clients->Location = System::Drawing::Point(4, 22);
 			this->tab_clients->Name = L"tab_clients";
 			this->tab_clients->Padding = System::Windows::Forms::Padding(3);
-			this->tab_clients->Size = System::Drawing::Size(1190, 638);
+			this->tab_clients->Size = System::Drawing::Size(1240, 638);
 			this->tab_clients->TabIndex = 1;
 			this->tab_clients->Text = L"Clients";
 			this->tab_clients->UseVisualStyleBackColor = true;
@@ -1053,7 +1054,7 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->Stock->Location = System::Drawing::Point(4, 22);
 			this->Stock->Name = L"Stock";
 			this->Stock->Padding = System::Windows::Forms::Padding(3);
-			this->Stock->Size = System::Drawing::Size(1190, 638);
+			this->Stock->Size = System::Drawing::Size(1240, 638);
 			this->Stock->TabIndex = 2;
 			this->Stock->Text = L"Stock";
 			this->Stock->UseVisualStyleBackColor = true;
@@ -1364,7 +1365,7 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->Commandes->Location = System::Drawing::Point(4, 22);
 			this->Commandes->Name = L"Commandes";
 			this->Commandes->Padding = System::Windows::Forms::Padding(3);
-			this->Commandes->Size = System::Drawing::Size(1190, 638);
+			this->Commandes->Size = System::Drawing::Size(1240, 638);
 			this->Commandes->TabIndex = 3;
 			this->Commandes->Text = L"Commandes";
 			this->Commandes->UseVisualStyleBackColor = true;
@@ -1374,7 +1375,7 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->Statistiques->Location = System::Drawing::Point(4, 22);
 			this->Statistiques->Name = L"Statistiques";
 			this->Statistiques->Padding = System::Windows::Forms::Padding(3);
-			this->Statistiques->Size = System::Drawing::Size(1190, 638);
+			this->Statistiques->Size = System::Drawing::Size(1240, 638);
 			this->Statistiques->TabIndex = 4;
 			this->Statistiques->Text = L"Statistiques";
 			this->Statistiques->UseVisualStyleBackColor = true;
@@ -1384,7 +1385,7 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->Informations->Location = System::Drawing::Point(4, 22);
 			this->Informations->Name = L"Informations";
 			this->Informations->Padding = System::Windows::Forms::Padding(3);
-			this->Informations->Size = System::Drawing::Size(1190, 638);
+			this->Informations->Size = System::Drawing::Size(1240, 638);
 			this->Informations->TabIndex = 5;
 			this->Informations->Text = L"Informations";
 			this->Informations->UseVisualStyleBackColor = true;
@@ -1454,6 +1455,10 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 private: System::Void tabPage1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void radioButton1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	this->id_personnel->Enabled = false;
+	this->nom_personnel->Enabled = true;
+	this->prenom_personnel->Enabled = true;
+	this->id_supp->Enabled = true;
 }
 private: System::Void groupBox1_Enter(System::Object^ sender, System::EventArgs^ e) {
 }

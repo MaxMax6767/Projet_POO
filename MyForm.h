@@ -99,9 +99,12 @@ namespace P6new {
 	private: System::Windows::Forms::NumericUpDown^ id_supp;
 
 	private: System::Windows::Forms::GroupBox^ groupBox3;
-	private: System::Windows::Forms::RadioButton^ radioButton4;
-	private: System::Windows::Forms::RadioButton^ radioButton5;
-	private: System::Windows::Forms::RadioButton^ radioButton6;
+	private: System::Windows::Forms::RadioButton^ radio_delete_client;
+
+	private: System::Windows::Forms::RadioButton^ radio_edit_client;
+
+	private: System::Windows::Forms::RadioButton^ radio_add_client;
+
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::GroupBox^ userEntry_clients;
 
@@ -139,7 +142,8 @@ private: System::Windows::Forms::TextBox^ prenom_client;
 private: System::Windows::Forms::DateTimePicker^ date_1er_achat;
 private: System::Windows::Forms::Label^ label_date_1er_achat;
 private: System::Windows::Forms::DataGridView^ dataGridView1;
-private: System::Windows::Forms::CheckBox^ checkBox1;
+private: System::Windows::Forms::CheckBox^ adresse_check;
+
 private: System::Windows::Forms::NumericUpDown^ cp_client_1;
 
 private: System::Windows::Forms::Label^ label5;
@@ -287,9 +291,9 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->tab_clients = (gcnew System::Windows::Forms::TabPage());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
-			this->radioButton4 = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton5 = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton6 = (gcnew System::Windows::Forms::RadioButton());
+			this->radio_delete_client = (gcnew System::Windows::Forms::RadioButton());
+			this->radio_edit_client = (gcnew System::Windows::Forms::RadioButton());
+			this->radio_add_client = (gcnew System::Windows::Forms::RadioButton());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->userEntry_clients = (gcnew System::Windows::Forms::GroupBox());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
@@ -301,7 +305,7 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->numero_client_2 = (gcnew System::Windows::Forms::TextBox());
-			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
+			this->adresse_check = (gcnew System::Windows::Forms::CheckBox());
 			this->id_client = (gcnew System::Windows::Forms::NumericUpDown());
 			this->cp_client_1 = (gcnew System::Windows::Forms::NumericUpDown());
 			this->prenom_client = (gcnew System::Windows::Forms::TextBox());
@@ -532,6 +536,7 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->userEntry_personnel->Name = L"userEntry_personnel";
 			this->userEntry_personnel->Size = System::Drawing::Size(284, 400);
 			this->userEntry_personnel->TabIndex = 25;
+			this->userEntry_personnel->TabStop = false;
 			this->userEntry_personnel->Text = L"Entrée utilisateur";
 			this->userEntry_personnel->Enter += gcnew System::EventHandler(this, &MyForm::groupBox1_Enter_1);
 			// 
@@ -678,15 +683,15 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView1->Location = System::Drawing::Point(317, 17);
 			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(861, 611);
+			this->dataGridView1->Size = System::Drawing::Size(900, 611);
 			this->dataGridView1->TabIndex = 29;
 			// 
 			// groupBox3
 			// 
 			this->groupBox3->BackColor = System::Drawing::Color::WhiteSmoke;
-			this->groupBox3->Controls->Add(this->radioButton4);
-			this->groupBox3->Controls->Add(this->radioButton5);
-			this->groupBox3->Controls->Add(this->radioButton6);
+			this->groupBox3->Controls->Add(this->radio_delete_client);
+			this->groupBox3->Controls->Add(this->radio_edit_client);
+			this->groupBox3->Controls->Add(this->radio_add_client);
 			this->groupBox3->Controls->Add(this->button1);
 			this->groupBox3->Location = System::Drawing::Point(6, 538);
 			this->groupBox3->Name = L"groupBox3";
@@ -695,38 +700,40 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->groupBox3->TabStop = false;
 			this->groupBox3->Text = L"Actions";
 			// 
-			// radioButton4
+			// radio_delete_client
 			// 
-			this->radioButton4->AutoSize = true;
-			this->radioButton4->Location = System::Drawing::Point(6, 65);
-			this->radioButton4->Name = L"radioButton4";
-			this->radioButton4->Size = System::Drawing::Size(72, 17);
-			this->radioButton4->TabIndex = 23;
-			this->radioButton4->TabStop = true;
-			this->radioButton4->Text = L"Supprimer";
-			this->radioButton4->UseVisualStyleBackColor = true;
+			this->radio_delete_client->AutoSize = true;
+			this->radio_delete_client->Location = System::Drawing::Point(6, 65);
+			this->radio_delete_client->Name = L"radio_delete_client";
+			this->radio_delete_client->Size = System::Drawing::Size(72, 17);
+			this->radio_delete_client->TabIndex = 23;
+			this->radio_delete_client->Text = L"Supprimer";
+			this->radio_delete_client->UseVisualStyleBackColor = true;
+			this->radio_delete_client->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radio_delete_client_CheckedChanged);
 			// 
-			// radioButton5
+			// radio_edit_client
 			// 
-			this->radioButton5->AutoSize = true;
-			this->radioButton5->Location = System::Drawing::Point(6, 42);
-			this->radioButton5->Name = L"radioButton5";
-			this->radioButton5->Size = System::Drawing::Size(62, 17);
-			this->radioButton5->TabIndex = 22;
-			this->radioButton5->TabStop = true;
-			this->radioButton5->Text = L"Modifier";
-			this->radioButton5->UseVisualStyleBackColor = true;
+			this->radio_edit_client->AutoSize = true;
+			this->radio_edit_client->Location = System::Drawing::Point(6, 42);
+			this->radio_edit_client->Name = L"radio_edit_client";
+			this->radio_edit_client->Size = System::Drawing::Size(62, 17);
+			this->radio_edit_client->TabIndex = 22;
+			this->radio_edit_client->Text = L"Modifier";
+			this->radio_edit_client->UseVisualStyleBackColor = true;
+			this->radio_edit_client->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radio_edit_client_CheckedChanged);
 			// 
-			// radioButton6
+			// radio_add_client
 			// 
-			this->radioButton6->AutoSize = true;
-			this->radioButton6->Location = System::Drawing::Point(6, 19);
-			this->radioButton6->Name = L"radioButton6";
-			this->radioButton6->Size = System::Drawing::Size(58, 17);
-			this->radioButton6->TabIndex = 21;
-			this->radioButton6->TabStop = true;
-			this->radioButton6->Text = L"Ajouter";
-			this->radioButton6->UseVisualStyleBackColor = true;
+			this->radio_add_client->AutoSize = true;
+			this->radio_add_client->Checked = true;
+			this->radio_add_client->Location = System::Drawing::Point(6, 19);
+			this->radio_add_client->Name = L"radio_add_client";
+			this->radio_add_client->Size = System::Drawing::Size(58, 17);
+			this->radio_add_client->TabIndex = 21;
+			this->radio_add_client->TabStop = true;
+			this->radio_add_client->Text = L"Ajouter";
+			this->radio_add_client->UseVisualStyleBackColor = true;
+			this->radio_add_client->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radio_add_client_CheckedChanged);
 			// 
 			// button1
 			// 
@@ -762,7 +769,7 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->panel1->Controls->Add(this->label13);
 			this->panel1->Controls->Add(this->label14);
 			this->panel1->Controls->Add(this->numero_client_2);
-			this->panel1->Controls->Add(this->checkBox1);
+			this->panel1->Controls->Add(this->adresse_check);
 			this->panel1->Controls->Add(this->id_client);
 			this->panel1->Controls->Add(this->cp_client_1);
 			this->panel1->Controls->Add(this->prenom_client);
@@ -787,12 +794,14 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			this->panel1->Controls->Add(this->date_naissance);
 			this->panel1->Location = System::Drawing::Point(6, 24);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(290, 483);
+			this->panel1->Size = System::Drawing::Size(290, 486);
 			this->panel1->TabIndex = 30;
 			// 
 			// cp_client_2
 			// 
+			this->cp_client_2->Enabled = false;
 			this->cp_client_2->Location = System::Drawing::Point(3, 628);
+			this->cp_client_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 99999, 0, 0, 0 });
 			this->cp_client_2->Name = L"cp_client_2";
 			this->cp_client_2->Size = System::Drawing::Size(266, 20);
 			this->cp_client_2->TabIndex = 45;
@@ -808,6 +817,7 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			// 
 			// ville_client_2
 			// 
+			this->ville_client_2->Enabled = false;
 			this->ville_client_2->Location = System::Drawing::Point(3, 499);
 			this->ville_client_2->Name = L"ville_client_2";
 			this->ville_client_2->Size = System::Drawing::Size(266, 20);
@@ -824,6 +834,7 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			// 
 			// rue_client_2
 			// 
+			this->rue_client_2->Enabled = false;
 			this->rue_client_2->Location = System::Drawing::Point(3, 538);
 			this->rue_client_2->Name = L"rue_client_2";
 			this->rue_client_2->Size = System::Drawing::Size(266, 20);
@@ -849,26 +860,28 @@ private: System::Windows::Forms::Button^ btn_valider_employe;
 			// 
 			// numero_client_2
 			// 
+			this->numero_client_2->Enabled = false;
 			this->numero_client_2->Location = System::Drawing::Point(3, 582);
 			this->numero_client_2->Name = L"numero_client_2";
 			this->numero_client_2->Size = System::Drawing::Size(266, 20);
 			this->numero_client_2->TabIndex = 42;
 			// 
-			// checkBox1
+			// adresse_check
 			// 
-			this->checkBox1->AutoSize = true;
-			this->checkBox1->Checked = true;
-			this->checkBox1->CheckState = System::Windows::Forms::CheckState::Checked;
-			this->checkBox1->Location = System::Drawing::Point(2, 458);
-			this->checkBox1->Name = L"checkBox1";
-			this->checkBox1->Size = System::Drawing::Size(238, 17);
-			this->checkBox1->TabIndex = 37;
-			this->checkBox1->Text = L"Adresse de livraison = Adresse de facturation";
-			this->checkBox1->UseVisualStyleBackColor = true;
-			this->checkBox1->CheckedChanged += gcnew System::EventHandler(this, &MyForm::checkBox1_CheckedChanged);
+			this->adresse_check->AutoSize = true;
+			this->adresse_check->Checked = true;
+			this->adresse_check->CheckState = System::Windows::Forms::CheckState::Checked;
+			this->adresse_check->Location = System::Drawing::Point(2, 458);
+			this->adresse_check->Name = L"adresse_check";
+			this->adresse_check->Size = System::Drawing::Size(238, 17);
+			this->adresse_check->TabIndex = 37;
+			this->adresse_check->Text = L"Adresse de livraison = Adresse de facturation";
+			this->adresse_check->UseVisualStyleBackColor = true;
+			this->adresse_check->CheckedChanged += gcnew System::EventHandler(this, &MyForm::checkBox1_CheckedChanged);
 			// 
 			// id_client
 			// 
+			this->id_client->Enabled = false;
 			this->id_client->Location = System::Drawing::Point(3, 19);
 			this->id_client->Name = L"id_client";
 			this->id_client->Size = System::Drawing::Size(266, 20);
@@ -1481,6 +1494,19 @@ private: System::Void groupBox1_Enter_1(System::Object^ sender, System::EventArg
 private: System::Void label_nom_client_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	if (this->adresse_check->Checked) {
+		this->ville_client_2->Enabled = false;
+		this->rue_client_2->Enabled = false;
+		this->numero_client_2->Enabled = false;
+		this->cp_client_2->Enabled = false;
+	}
+	else
+	{
+		this->ville_client_2->Enabled = true;
+		this->rue_client_2->Enabled = true;
+		this->numero_client_2->Enabled = true;
+		this->cp_client_2->Enabled = true;
+	}
 }
 private: System::Void label7_Click_1(System::Object^ sender, System::EventArgs^ e) {
 }
@@ -1545,6 +1571,78 @@ private: System::Void radio_suppr_personnel_CheckedChanged(System::Object^ sende
 	this->rue_personnel->Enabled = false;
 	this->numero_personnel->Enabled = false;
 	this->cp_personnel->Enabled = false;
+}
+private: System::Void radio_add_client_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	this->id_client->Enabled = false;
+	this->nom_client->Enabled = true;
+	this->prenom_client->Enabled = true;
+	this->date_naissance->Enabled = true;
+	this->date_1er_achat->Enabled = true;
+	this->logo_link->Enabled = true;
+	this->ville_client_1->Enabled = true;
+	this->rue_client_1->Enabled = true;
+	this->numero_client_1->Enabled = true;
+	this->cp_client_1->Enabled = true;
+	this->nom_entreprise->Enabled = true;
+	this->adresse_check->Enabled = true;
+	if (this->adresse_check->Checked) {
+		this->ville_client_2->Enabled = false;
+		this->rue_client_2->Enabled = false;
+		this->numero_client_2->Enabled = false;
+		this->cp_client_2->Enabled = false;
+	}
+	else
+	{
+		this->ville_client_2->Enabled = true;
+		this->rue_client_2->Enabled = true;
+		this->numero_client_2->Enabled = true;
+		this->cp_client_2->Enabled = true;
+	}
+}
+private: System::Void radio_edit_client_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	this->id_client->Enabled = true;
+	this->nom_client->Enabled = true;
+	this->prenom_client->Enabled = true;
+	this->date_naissance->Enabled = true;
+	this->date_1er_achat->Enabled = true;
+	this->logo_link->Enabled = true;
+	this->ville_client_1->Enabled = true;
+	this->rue_client_1->Enabled = true;
+	this->numero_client_1->Enabled = true;
+	this->cp_client_1->Enabled = true;
+	this->nom_entreprise->Enabled = true;
+	this->adresse_check->Enabled = true;
+	if (this->adresse_check->Checked) {
+		this->ville_client_2->Enabled = false;
+		this->rue_client_2->Enabled = false;
+		this->numero_client_2->Enabled = false;
+		this->cp_client_2->Enabled = false;
+	}
+	else
+	{
+		this->ville_client_2->Enabled = true;
+		this->rue_client_2->Enabled = true;
+		this->numero_client_2->Enabled = true;
+		this->cp_client_2->Enabled = true;
+	}
+}
+private: System::Void radio_delete_client_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+this->id_client->Enabled = true;
+	this->nom_client->Enabled = false;
+	this->prenom_client->Enabled = false;
+	this->date_naissance->Enabled = false;
+	this->date_1er_achat->Enabled = false;
+	this->logo_link->Enabled = false;
+	this->ville_client_1->Enabled = false;
+	this->rue_client_1->Enabled = false;
+	this->numero_client_1->Enabled = false;
+	this->cp_client_1->Enabled = false;
+	this->nom_entreprise->Enabled = false;
+	this->adresse_check->Enabled = false;
+	this->ville_client_2->Enabled = false;
+	this->rue_client_2->Enabled = false;
+	this->numero_client_2->Enabled = false;
+	this->cp_client_2->Enabled = false;
 }
 };
 }

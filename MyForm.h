@@ -141,7 +141,7 @@ private: System::Windows::Forms::Label^ label_nom_entreprise;
 private: System::Windows::Forms::TextBox^ prenom_client;
 private: System::Windows::Forms::DateTimePicker^ date_1er_achat;
 private: System::Windows::Forms::Label^ label_date_1er_achat;
-private: System::Windows::Forms::DataGridView^ dataGridView1;
+private: System::Windows::Forms::DataGridView^ dgv_clients;
 private: System::Windows::Forms::CheckBox^ adresse_check;
 
 private: System::Windows::Forms::NumericUpDown^ cp_client_1;
@@ -154,7 +154,7 @@ private: System::Windows::Forms::TextBox^ rue_client_1;
 
 private: System::Windows::Forms::Label^ label8;
 private: System::Windows::Forms::Label^ label10;
-private: System::Windows::Forms::TextBox^ numero_client_1;
+
 
 private: System::Windows::Forms::Panel^ panel1;
 private: System::Windows::Forms::NumericUpDown^ cp_client_2;
@@ -168,7 +168,7 @@ private: System::Windows::Forms::TextBox^ rue_client_2;
 
 private: System::Windows::Forms::Label^ label13;
 private: System::Windows::Forms::Label^ label14;
-private: System::Windows::Forms::TextBox^ numero_client_2;
+
 private: System::Windows::Forms::TabPage^ Stock;
 private: System::Windows::Forms::TabPage^ Commandes;
 private: System::Windows::Forms::TabPage^ Statistiques;
@@ -297,6 +297,9 @@ private: System::Windows::Forms::TextBox^ prix_ht;
 private: System::Windows::Forms::Label^ label_prix_ht;
 private: System::Windows::Forms::Label^ label_taux_tva;
 private: System::Windows::Forms::Label^ label1;
+private: System::Windows::Forms::NumericUpDown^ numero_client_2;
+private: System::Windows::Forms::NumericUpDown^ numero_client_1;
+private: System::Windows::Forms::TabPage^ tabPage1;
 
 
 
@@ -363,7 +366,7 @@ private: System::Windows::Forms::Label^ label1;
 			this->radio_edit_personnel = (gcnew System::Windows::Forms::RadioButton());
 			this->radio_add_personnel = (gcnew System::Windows::Forms::RadioButton());
 			this->tab_clients = (gcnew System::Windows::Forms::TabPage());
-			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->dgv_clients = (gcnew System::Windows::Forms::DataGridView());
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
 			this->radio_delete_client = (gcnew System::Windows::Forms::RadioButton());
 			this->radio_edit_client = (gcnew System::Windows::Forms::RadioButton());
@@ -371,6 +374,8 @@ private: System::Windows::Forms::Label^ label1;
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->userEntry_clients = (gcnew System::Windows::Forms::GroupBox());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->numero_client_1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->numero_client_2 = (gcnew System::Windows::Forms::NumericUpDown());
 			this->cp_client_2 = (gcnew System::Windows::Forms::NumericUpDown());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->ville_client_2 = (gcnew System::Windows::Forms::TextBox());
@@ -378,7 +383,6 @@ private: System::Windows::Forms::Label^ label1;
 			this->rue_client_2 = (gcnew System::Windows::Forms::TextBox());
 			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->label14 = (gcnew System::Windows::Forms::Label());
-			this->numero_client_2 = (gcnew System::Windows::Forms::TextBox());
 			this->adresse_check = (gcnew System::Windows::Forms::CheckBox());
 			this->id_client = (gcnew System::Windows::Forms::NumericUpDown());
 			this->cp_client_1 = (gcnew System::Windows::Forms::NumericUpDown());
@@ -395,7 +399,6 @@ private: System::Windows::Forms::Label^ label1;
 			this->label_nom_entreprise = (gcnew System::Windows::Forms::Label());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->logo_link = (gcnew System::Windows::Forms::TextBox());
-			this->numero_client_1 = (gcnew System::Windows::Forms::TextBox());
 			this->label_nom_client = (gcnew System::Windows::Forms::Label());
 			this->date_1er_achat = (gcnew System::Windows::Forms::DateTimePicker());
 			this->label_prenom_client = (gcnew System::Windows::Forms::Label());
@@ -459,6 +462,7 @@ private: System::Windows::Forms::Label^ label1;
 			this->btn_rld_panier_moyen = (gcnew System::Windows::Forms::Button());
 			this->Informations = (gcnew System::Windows::Forms::TabPage());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_personnel))->BeginInit();
 			this->Catégories->SuspendLayout();
 			this->tab_personnel->SuspendLayout();
@@ -469,10 +473,12 @@ private: System::Windows::Forms::Label^ label1;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->id_personnel))->BeginInit();
 			this->Actions_Personnel->SuspendLayout();
 			this->tab_clients->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_clients))->BeginInit();
 			this->groupBox3->SuspendLayout();
 			this->userEntry_clients->SuspendLayout();
 			this->panel1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numero_client_1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numero_client_2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->cp_client_2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->id_client))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->cp_client_1))->BeginInit();
@@ -593,6 +599,7 @@ private: System::Windows::Forms::Label^ label1;
 			this->Catégories->Controls->Add(this->Commandes);
 			this->Catégories->Controls->Add(this->Statistiques);
 			this->Catégories->Controls->Add(this->Informations);
+			this->Catégories->Controls->Add(this->tabPage1);
 			this->Catégories->Location = System::Drawing::Point(10, 12);
 			this->Catégories->Name = L"Catégories";
 			this->Catégories->SelectedIndex = 0;
@@ -611,7 +618,7 @@ private: System::Windows::Forms::Label^ label1;
 			this->tab_personnel->TabIndex = 0;
 			this->tab_personnel->Text = L"Personnel";
 			this->tab_personnel->UseVisualStyleBackColor = true;
-			this->tab_personnel->Click += gcnew System::EventHandler(this, &MyForm::tabPage1_Click);
+			this->tab_personnel->Click += gcnew System::EventHandler(this, &MyForm::tab_client_Click);
 			// 
 			// userEntry_personnel
 			// 
@@ -768,7 +775,7 @@ private: System::Windows::Forms::Label^ label1;
 			// 
 			// tab_clients
 			// 
-			this->tab_clients->Controls->Add(this->dataGridView1);
+			this->tab_clients->Controls->Add(this->dgv_clients);
 			this->tab_clients->Controls->Add(this->groupBox3);
 			this->tab_clients->Controls->Add(this->userEntry_clients);
 			this->tab_clients->Location = System::Drawing::Point(4, 22);
@@ -779,13 +786,14 @@ private: System::Windows::Forms::Label^ label1;
 			this->tab_clients->Text = L"Clients";
 			this->tab_clients->UseVisualStyleBackColor = true;
 			// 
-			// dataGridView1
+			// dgv_clients
 			// 
-			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(317, 17);
-			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(900, 611);
-			this->dataGridView1->TabIndex = 29;
+			this->dgv_clients->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgv_clients->Location = System::Drawing::Point(317, 17);
+			this->dgv_clients->Name = L"dgv_clients";
+			this->dgv_clients->Size = System::Drawing::Size(900, 611);
+			this->dgv_clients->TabIndex = 29;
+			this->dgv_clients->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MyForm::dgv_clients_CellContentClick);
 			// 
 			// groupBox3
 			// 
@@ -862,6 +870,8 @@ private: System::Windows::Forms::Label^ label1;
 			// 
 			this->panel1->AllowDrop = true;
 			this->panel1->AutoScroll = true;
+			this->panel1->Controls->Add(this->numero_client_1);
+			this->panel1->Controls->Add(this->numero_client_2);
 			this->panel1->Controls->Add(this->cp_client_2);
 			this->panel1->Controls->Add(this->label11);
 			this->panel1->Controls->Add(this->ville_client_2);
@@ -869,7 +879,6 @@ private: System::Windows::Forms::Label^ label1;
 			this->panel1->Controls->Add(this->rue_client_2);
 			this->panel1->Controls->Add(this->label13);
 			this->panel1->Controls->Add(this->label14);
-			this->panel1->Controls->Add(this->numero_client_2);
 			this->panel1->Controls->Add(this->adresse_check);
 			this->panel1->Controls->Add(this->id_client);
 			this->panel1->Controls->Add(this->cp_client_1);
@@ -886,7 +895,6 @@ private: System::Windows::Forms::Label^ label1;
 			this->panel1->Controls->Add(this->label_nom_entreprise);
 			this->panel1->Controls->Add(this->label10);
 			this->panel1->Controls->Add(this->logo_link);
-			this->panel1->Controls->Add(this->numero_client_1);
 			this->panel1->Controls->Add(this->label_nom_client);
 			this->panel1->Controls->Add(this->date_1er_achat);
 			this->panel1->Controls->Add(this->label_prenom_client);
@@ -897,6 +905,23 @@ private: System::Windows::Forms::Label^ label1;
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(290, 486);
 			this->panel1->TabIndex = 30;
+			// 
+			// numero_client_1
+			// 
+			this->numero_client_1->Location = System::Drawing::Point(3, 386);
+			this->numero_client_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 99999, 0, 0, 0 });
+			this->numero_client_1->Name = L"numero_client_1";
+			this->numero_client_1->Size = System::Drawing::Size(266, 20);
+			this->numero_client_1->TabIndex = 47;
+			// 
+			// numero_client_2
+			// 
+			this->numero_client_2->Enabled = false;
+			this->numero_client_2->Location = System::Drawing::Point(3, 582);
+			this->numero_client_2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 99999, 0, 0, 0 });
+			this->numero_client_2->Name = L"numero_client_2";
+			this->numero_client_2->Size = System::Drawing::Size(266, 20);
+			this->numero_client_2->TabIndex = 46;
 			// 
 			// cp_client_2
 			// 
@@ -958,14 +983,6 @@ private: System::Windows::Forms::Label^ label1;
 			this->label14->Size = System::Drawing::Size(27, 13);
 			this->label14->TabIndex = 41;
 			this->label14->Text = L"Rue";
-			// 
-			// numero_client_2
-			// 
-			this->numero_client_2->Enabled = false;
-			this->numero_client_2->Location = System::Drawing::Point(3, 582);
-			this->numero_client_2->Name = L"numero_client_2";
-			this->numero_client_2->Size = System::Drawing::Size(266, 20);
-			this->numero_client_2->TabIndex = 42;
 			// 
 			// adresse_check
 			// 
@@ -1100,13 +1117,6 @@ private: System::Windows::Forms::Label^ label1;
 			this->logo_link->Name = L"logo_link";
 			this->logo_link->Size = System::Drawing::Size(266, 20);
 			this->logo_link->TabIndex = 15;
-			// 
-			// numero_client_1
-			// 
-			this->numero_client_1->Location = System::Drawing::Point(2, 386);
-			this->numero_client_1->Name = L"numero_client_1";
-			this->numero_client_1->Size = System::Drawing::Size(266, 20);
-			this->numero_client_1->TabIndex = 33;
 			// 
 			// label_nom_client
 			// 
@@ -1733,6 +1743,16 @@ private: System::Windows::Forms::Label^ label1;
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"label1";
 			// 
+			// tabPage1
+			// 
+			this->tabPage1->Location = System::Drawing::Point(4, 22);
+			this->tabPage1->Name = L"tabPage1";
+			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage1->Size = System::Drawing::Size(1240, 638);
+			this->tabPage1->TabIndex = 6;
+			this->tabPage1->Text = L"tabPage1";
+			this->tabPage1->UseVisualStyleBackColor = true;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -1754,12 +1774,14 @@ private: System::Windows::Forms::Label^ label1;
 			this->Actions_Personnel->ResumeLayout(false);
 			this->Actions_Personnel->PerformLayout();
 			this->tab_clients->ResumeLayout(false);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_clients))->EndInit();
 			this->groupBox3->ResumeLayout(false);
 			this->groupBox3->PerformLayout();
 			this->userEntry_clients->ResumeLayout(false);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numero_client_1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numero_client_2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->cp_client_2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->id_client))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->cp_client_1))->EndInit();
@@ -1791,6 +1813,12 @@ private: System::Windows::Forms::Label^ label1;
 		this->oDs = this->oSvc->selectionnerToutLePersonnel("Personnel");
 		this->dgv_personnel->DataSource = this->oDs;
 		this->dgv_personnel->DataMember = "Personnel";
+
+		this->oSvc = gcnew NS_Comp_Svc::CLservices();
+		this->dgv_clients->Refresh();
+		this->oDs = this->oSvc->selectionnerToutLeClient("Clients");
+		this->dgv_clients->DataSource = this->oDs;
+		this->dgv_clients->DataMember = "Clients";
 	}
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -1804,7 +1832,20 @@ private: System::Windows::Forms::Label^ label1;
 	}
 	private: System::Void label7_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-private: System::Void tabPage1_Click(System::Object^ sender, System::EventArgs^ e) {
+
+private: System::Void tab_personnel_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->oSvc = gcnew NS_Comp_Svc::CLservices();
+	this->dgv_personnel->Refresh();
+	this->oDs = this->oSvc->selectionnerToutLePersonnel("Personnel");
+	this->dgv_personnel->DataSource = this->oDs;
+	this->dgv_personnel->DataMember = "Personnel";
+}
+private: System::Void tab_client_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->oSvc = gcnew NS_Comp_Svc::CLservices();
+	this->dgv_clients->Refresh();
+	this->oDs = this->oSvc->selectionnerToutLeClient("Clients");
+	this->dgv_clients->DataSource = this->oDs;
+	this->dgv_clients->DataMember = "Clients";
 }
 private: System::Void radioButton1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	this->id_personnel->Enabled = false;
@@ -1847,6 +1888,30 @@ private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::E
 private: System::Void label7_Click_1(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (this->radio_add_client->Checked)
+	{
+		this->oSvc->ajouterUnClient(this->nom_client->Text, this->prenom_client->Text, this->date_naissance->Value, this->date_1er_achat->Value, this->logo_link->Text, this->nom_entreprise->Text, this->ville_client_1->Text, this->rue_client_1->Text, this->numero_client_1->Value, this->cp_client_1->Value, this->adresse_check->Checked, this->ville_client_2->Text, this->rue_client_2->Text, this->numero_client_2->Value, this->cp_client_2->Value);
+		this->dgv_clients->Refresh();
+		this->oDs = this->oSvc->selectionnerToutLeClient("Clients");
+		this->dgv_clients->DataSource = this->oDs;
+		this->dgv_clients->DataMember = "Clients";
+	}
+	else if (this->radio_edit_client->Checked)
+	{
+		this->oSvc->updateUnClient(this->id_client->Value, this->nom_client->Text, this->prenom_client->Text, this->date_naissance->Value, this->date_1er_achat->Value, this->logo_link->Text, this->nom_entreprise->Text, this->ville_client_1->Text, this->rue_client_1->Text, this->numero_client_1->Value, this->cp_client_1->Value, this->adresse_check->Checked, this->ville_client_2->Text, this->rue_client_2->Text, this->numero_client_2->Value, this->cp_client_2->Value);
+		this->dgv_clients->Refresh();
+		this->oDs = this->oSvc->selectionnerToutLeClient("Clients");
+		this->dgv_clients->DataSource = this->oDs;
+		this->dgv_clients->DataMember = "Clients";
+	}
+	else if (this->radio_delete_client->Checked)
+	{
+		this->oSvc->deleteUnClient(this->id_client->Value);
+		this->dgv_clients->Refresh();
+		this->oDs = this->oSvc->selectionnerToutLeClient("Clients");
+		this->dgv_clients->DataSource = this->oDs;
+		this->dgv_clients->DataMember = "Clients";
+	}
 }
 private: System::Void groupBox1_Enter_2(System::Object^ sender, System::EventArgs^ e) {
 }
@@ -2022,6 +2087,8 @@ this->id_produit->Enabled = true;
 	this->couleur->Enabled = false;
 	this->prix_degressif->Enabled = false;
 	this->nom_produit_stock->Enabled = false;
+}
+private: System::Void dgv_clients_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 }
 };
 }

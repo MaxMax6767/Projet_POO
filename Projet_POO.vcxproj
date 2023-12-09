@@ -133,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CLcad.cpp" />
+    <ClCompile Include="CLclientTB.cpp" />
     <ClCompile Include="CLmapTB.cpp" />
     <ClCompile Include="CLpersonnelTB.cpp" />
     <ClCompile Include="CLservices.cpp" />
@@ -140,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CLcad.h" />
+    <ClInclude Include="CLclientTB.h" />
     <ClInclude Include="CLmapTB.h" />
     <ClInclude Include="CLpersonnelTB.h" />
     <ClInclude Include="CLservices.h" />
@@ -151,6 +153,9 @@
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Projet_POO.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

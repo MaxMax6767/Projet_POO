@@ -4,7 +4,7 @@
 
 NS_Comp_Data::CLcad::CLcad(void)
 {
-	this->sCnx = "Data Source=Asus-TUF-A15;Initial Catalog=POO_Projet;Integrated Security=True";
+	this->sCnx = "Data Source=Asus-TUF-A15;Initial Catalog=POO_projet;Integrated Security=True";
 
 	this->sSql = "Rien";
 

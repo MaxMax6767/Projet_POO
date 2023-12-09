@@ -2,22 +2,22 @@
 
 System::String^ NS_Comp_Mappage::CLpersonnelTB::Select()
 {
-	return "USE POO_Projet; SELECT P.[id_personnel] AS 'Identifiant', P.[nom_personnel] AS 'Nom', P.[prenom_personnel] AS 'Prenom', P.[date_embauche] AS 'Date embauche', P.[id_supperieur] AS 'Supperieur', A.[ville] AS 'Ville', A.[rue] AS 'Rue', A.[numero] AS 'Numero', A.[code_postal] AS 'Code Postal' FROM [POO_Projet].[dbo].[Personnel] P JOIN [POO_Projet].[dbo].[Adresse] A ON A.id_adresse = P.id_adresse;";
+	return "USE POO_projet; EXEC AfficherPersonnel;";
 }
 
 System::String^ NS_Comp_Mappage::CLpersonnelTB::Insert()
 {
-	return "USE POO_Projet; BEGIN TRANSACTION; INSERT INTO Adresse(id_adresse, ville, rue, numero, code_postal) VALUES((SELECT MAX(id_adresse) FROM Adresse)+1, '" + this->ville + "', '" + this->rue + "', " + this->numero + ", " + this->cp + "); INSERT INTO Personnel(id_personnel, nom_personnel, prenom_personnel, date_embauche, id_supperieur, id_adresse) VALUES((SELECT MAX(id_personnel) FROM Personnel)+1, '" + this->nom + "', '" + this->prenom + "', '" + this->dateEmbauche->ToShortDateString() + "', " + this->idSupperieur + ", (SELECT MAX(id_adresse) FROM Adresse)); COMMIT;";
+	return "USE POO_projet; EXEC CreerPersonnel @nom_personnel = '" + this->nom + "', @prenom_personnel = '" + this->prenom + "', @id_supperieur = " + this->idSupperieur + ", @date_embauche = '" + this->dateEmbauche + "', @ville_personnel = '" + this->ville + "', @rue_personnel = '" + this->rue + "', @numero_personnel = " + this->numero + ", @code_postal_personnel = " + this->cp + ";";
 }
 
 System::String^ NS_Comp_Mappage::CLpersonnelTB::Update()
 {
-	return "USE POO_Projet; BEGIN TRANSACTION; UPDATE Personnel SET P.nom_personnel = '" + this->nom + "', P.prenom = '" + this->prenom + "', P.date_embauche = '" + this->dateEmbauche->ToShortDateString() + "', P.id_supperieur = " + this->idSupperieur + " FROM Personnel P, Adresse A WHERE P.id_adresse = A.id_adresse AND P.id_personnel = '" + this->Id + "'; UPDATE Adresse SET A.ville = '" + this->ville + "', A.rue = '" + this->rue + "', A.cp = '" + this->cp + "', A.numero = '" + this->numero + "' FROM Personnel P, Adresse A WHERE P.id_adresse = A.id_adresse AND P.id_personnel = '" + this->Id + "'; COMMIT;";
+	return "USE POO_projet; EXEC ModifierPersonnel @id_personnel = " + this->Id + ", @nom_personnel = '" + this->nom + "', @prenom_personnel = '" + this->prenom + "', @id_supperieur = " + this->idSupperieur + ", @date_embauche = '" + this->dateEmbauche + "', @ville_personnel = '" + this->ville + "', @rue_personnel = '" + this->rue + "', @numero_personnel = " + this->numero + ", @code_postal_personnel = " + this->cp + ";";
 }
 
 System::String^ NS_Comp_Mappage::CLpersonnelTB::Delete()
 {
-	return "USE POO_Projet; DELETE FROM Personnel WHERE id_personnel = '" + this->Id + "';";
+	return "USE POO_Projet; EXEC SupprimerPersonnel @id_personnel = " + this->Id + ";";
 }
 
 void NS_Comp_Mappage::CLpersonnelTB::setId(int id)

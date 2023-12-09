@@ -296,6 +296,7 @@ private: System::Windows::Forms::Label^ label_id_produit;
 private: System::Windows::Forms::TextBox^ prix_ht;
 private: System::Windows::Forms::Label^ label_prix_ht;
 private: System::Windows::Forms::Label^ label_taux_tva;
+private: System::Windows::Forms::Label^ label1;
 
 
 
@@ -457,6 +458,7 @@ private: System::Windows::Forms::Label^ label_taux_tva;
 			this->label_stat_panier_moyen = (gcnew System::Windows::Forms::Label());
 			this->btn_rld_panier_moyen = (gcnew System::Windows::Forms::Button());
 			this->Informations = (gcnew System::Windows::Forms::TabPage());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_personnel))->BeginInit();
 			this->Catégories->SuspendLayout();
 			this->tab_personnel->SuspendLayout();
@@ -486,6 +488,7 @@ private: System::Windows::Forms::Label^ label_taux_tva;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_pires_ventes))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_meilleures_ventes))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_seuil_reapro))->BeginInit();
+			this->Informations->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// dgv_personnel
@@ -1712,6 +1715,7 @@ private: System::Windows::Forms::Label^ label_taux_tva;
 			// 
 			// Informations
 			// 
+			this->Informations->Controls->Add(this->label1);
 			this->Informations->Location = System::Drawing::Point(4, 22);
 			this->Informations->Name = L"Informations";
 			this->Informations->Padding = System::Windows::Forms::Padding(3);
@@ -1719,6 +1723,15 @@ private: System::Windows::Forms::Label^ label_taux_tva;
 			this->Informations->TabIndex = 5;
 			this->Informations->Text = L"Informations";
 			this->Informations->UseVisualStyleBackColor = true;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(363, 264);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(35, 13);
+			this->label1->TabIndex = 0;
+			this->label1->Text = L"label1";
 			// 
 			// MyForm
 			// 
@@ -1765,6 +1778,8 @@ private: System::Windows::Forms::Label^ label_taux_tva;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_pires_ventes))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_meilleures_ventes))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_seuil_reapro))->EndInit();
+			this->Informations->ResumeLayout(false);
+			this->Informations->PerformLayout();
 			this->ResumeLayout(false);
 
 		}

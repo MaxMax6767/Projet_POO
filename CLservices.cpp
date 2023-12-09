@@ -6,6 +6,8 @@ NS_Comp_Svc::CLservices::CLservices(void)
 	this->oCad = gcnew NS_Comp_Data::CLcad();
 	this->oPersonnelTB = gcnew NS_Comp_Mappage::CLpersonnelTB();
 	this->oClientTB = gcnew NS_Comp_Mappage::CLclientTB();
+	this->oStockTB = gcnew NS_Comp_Mappage::CLstockTB();
+	this->oStatTB = gcnew NS_Comp_Mappage::CLstatTB();
 }
 
 System::Data::DataSet^ NS_Comp_Svc::CLservices::selectionnerToutLePersonnel(System::String^ dataTableName)
@@ -144,4 +146,125 @@ void NS_Comp_Svc::CLservices::deleteUnClient(System::Decimal^ id)
 	sql = this->oClientTB->Delete();
 
 	this->oCad->actionRows(sql);
+}
+
+System::Data::DataSet^ NS_Comp_Svc::CLservices::selectionnerToutLeStock(System::String^ dataTableName)
+{
+	System::String^ sql;
+
+	sql = this->oStockTB->Select();
+	return this->oCad->getRows(sql, dataTableName);
+}
+
+void NS_Comp_Svc::CLservices::ajouterUnStock(System::String^ nom, System::String^ prix_achat, System::String^ prix_ht, System::Boolean^ degressif, System::String^ tva, System::String^ qt_dispo, System::String^ qt_reapro, System::String^ type, System::String^ couleur)
+{
+	System::String^ sql;
+
+	this->oStockTB->setNom(nom);
+	this->oStockTB->setPrix_achat(System::Convert::ToDouble(prix_achat));
+	this->oStockTB->setPrix_HT(System::Convert::ToDouble(prix_ht));
+	this->oStockTB->setDegressif(degressif);
+	this->oStockTB->setTaux_TVA(System::Convert::ToInt32(tva));
+	this->oStockTB->setQt_dispo(System::Convert::ToInt32(qt_dispo));
+	this->oStockTB->setQt_reapro(System::Convert::ToInt32(qt_reapro));
+	this->oStockTB->setType(type);
+	this->oStockTB->setCouleur(couleur);
+	sql = this->oStockTB->Insert();
+
+	this->oCad->actionRows(sql);
+}
+
+void NS_Comp_Svc::CLservices::updateUnStock(System::Decimal^ id, System::String^ nom, System::String^ prix_achat, System::String^ prix_ht, System::Boolean^ degressif, System::String^ tva, System::String^ qt_dispo, System::String^ qt_reapro, System::String^ type, System::String^ couleur)
+{
+	System::String^ sql;
+
+	this->oStockTB->setId(System::Convert::ToInt32(id));
+	this->oStockTB->setNom(nom);
+	this->oStockTB->setPrix_achat(System::Convert::ToDouble(prix_achat));
+	this->oStockTB->setPrix_HT(System::Convert::ToDouble(prix_ht));
+	this->oStockTB->setDegressif(degressif);
+	this->oStockTB->setTaux_TVA(System::Convert::ToInt32(tva));
+	this->oStockTB->setQt_dispo(System::Convert::ToInt32(qt_dispo));
+	this->oStockTB->setQt_reapro(System::Convert::ToInt32(qt_reapro));
+	this->oStockTB->setType(type);
+	this->oStockTB->setCouleur(couleur);
+	sql = this->oStockTB->Update();
+
+	this->oCad->actionRows(sql);
+}
+
+void NS_Comp_Svc::CLservices::deleteUnStock(System::Decimal^ id)
+{
+	System::String^ sql;
+
+	this->oStockTB->setId(System::Convert::ToInt32(id));
+	sql = this->oStockTB->Delete();
+
+	this->oCad->actionRows(sql);
+}
+
+System::Data::DataSet^ NS_Comp_Svc::CLservices::PanierMoyen(System::String^ dgv)
+{
+	System::String^ sql;
+
+	sql = this->oStatTB->PanierMoyen();
+	return this->oCad->getRows(sql, dgv);
+}
+
+System::Data::DataSet^ NS_Comp_Svc::CLservices::CAParMois(System::String^ dgv, System::DateTime^ date)
+{
+	System::String^ sql;
+
+	this->oStatTB->setDate(date);
+	sql = this->oStatTB->CAParMois();
+	return this->oCad->getRows(sql, dgv);
+}
+
+System::Data::DataSet^ NS_Comp_Svc::CLservices::CAParClient(System::String^ dgv, System::Decimal^ id)
+{
+	System::String^ sql;
+
+	this->oStatTB->setIdClient(System::Convert::ToInt32(id));
+	sql = this->oStatTB->CAParClient();
+	return this->oCad->getRows(sql, dgv);
+}
+
+System::Data::DataSet^ NS_Comp_Svc::CLservices::ValeurCommercialeStock(System::String^ dgv)
+{
+	System::String^ sql;
+
+	sql = this->oStatTB->ValeurCommercialeStock();
+	return this->oCad->getRows(sql, dgv);
+}
+
+System::Data::DataSet^ NS_Comp_Svc::CLservices::ValeurAchatStock(System::String^ dgv)
+{
+	System::String^ sql;
+
+	sql = this->oStatTB->ValeurAchatStock();
+	return this->oCad->getRows(sql, dgv);
+}
+
+System::Data::DataSet^ NS_Comp_Svc::CLservices::SousReapro(System::String^ dgv)
+{
+	System::String^ sql;
+
+	sql = this->oStatTB->SousReapro();
+	return this->oCad->getRows(sql, dgv);
+}
+
+System::Data::DataSet^ NS_Comp_Svc::CLservices::Top10MVente(System::String^ dgv)
+{
+	System::String^ sql;
+
+	sql = this->oStatTB->Top10MVente();
+	return this->oCad->getRows(sql, dgv);
+}
+
+System::Data::DataSet^ NS_Comp_Svc::CLservices::Top10PVente(System::String^ dgv)
+{
+	System::String^ sql;
+
+	sql = this->oStatTB->Top10PVente();
+	return this->oCad->getRows(sql, dgv);
 }

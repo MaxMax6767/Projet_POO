@@ -137,6 +137,8 @@
     <ClCompile Include="CLmapTB.cpp" />
     <ClCompile Include="CLpersonnelTB.cpp" />
     <ClCompile Include="CLservices.cpp" />
+    <ClCompile Include="CLstatTB.cpp" />
+    <ClCompile Include="CLstockTB.cpp" />
     <ClCompile Include="MyForm.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +147,8 @@
     <ClInclude Include="CLmapTB.h" />
     <ClInclude Include="CLpersonnelTB.h" />
     <ClInclude Include="CLservices.h" />
+    <ClInclude Include="CLstatTB.h" />
+    <ClInclude Include="CLstockTB.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>

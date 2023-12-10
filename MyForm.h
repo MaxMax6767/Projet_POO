@@ -310,6 +310,114 @@ private: System::Windows::Forms::DataGridView^ dgv_CAParMois;
 
 private: System::Windows::Forms::DataGridView^ dgv_panierMoyen;
 private: System::Windows::Forms::DataGridView^ dgv_ValeurAchat;
+private: System::Windows::Forms::GroupBox^ groupBox4;
+private: System::Windows::Forms::RadioButton^ radio_supprimer_commande;
+
+private: System::Windows::Forms::RadioButton^ radio_modifier_commande;
+
+private: System::Windows::Forms::RadioButton^ radio_ajouter_commande;
+private: System::Windows::Forms::Button^ btn_valider_commande;
+
+
+private: System::Windows::Forms::GroupBox^ group_contenu_commande;
+private: System::Windows::Forms::DataGridView^ dgv_produits_dispo;
+
+
+private: System::Windows::Forms::DataGridView^ dgv_produits_ajoutes;
+
+
+private: System::Windows::Forms::GroupBox^ group_command;
+private: System::Windows::Forms::DataGridView^ dgv_commande;
+
+private: System::Windows::Forms::GroupBox^ groupBox2;
+private: System::Windows::Forms::Panel^ panel3;
+private: System::Windows::Forms::NumericUpDown^ remise;
+
+private: System::Windows::Forms::NumericUpDown^ id_commande;
+
+
+
+
+
+
+
+
+
+
+
+private: System::Windows::Forms::Label^ label_id_commande;
+
+
+
+
+
+
+
+
+
+
+private: System::Windows::Forms::Label^ label_remise;
+private: System::Windows::Forms::DateTimePicker^ date_livraison;
+
+
+
+
+
+
+private: System::Windows::Forms::Label^ label_date_livraison;
+
+
+private: System::Windows::Forms::Label^ label_date_expédition;
+
+
+private: System::Windows::Forms::Label^ label_produits_disponibles;
+private: System::Windows::Forms::Label^ label_produits_inclus;
+private: System::Windows::Forms::DomainUpDown^ selecteur_moyen_paiement;
+private: System::Windows::Forms::Label^ label_moyen_paiement;
+private: System::Windows::Forms::NumericUpDown^ id_client_commande;
+
+private: System::Windows::Forms::Label^ label_id_client_commande;
+
+private: System::Windows::Forms::DateTimePicker^ date_expédition;
+private: System::Windows::Forms::GroupBox^ group_contenu_commande_form;
+private: System::Windows::Forms::NumericUpDown^ qt_produit;
+private: System::Windows::Forms::RadioButton^ radio_supprimer_produit;
+
+
+private: System::Windows::Forms::Label^ label_qt_produit;
+private: System::Windows::Forms::RadioButton^ radio_modifier_produit;
+
+
+private: System::Windows::Forms::NumericUpDown^ id_produit_commande;
+
+private: System::Windows::Forms::Label^ label_id_produit_commande;
+private: System::Windows::Forms::RadioButton^ radio_ajouter_produit;
+private: System::Windows::Forms::Button^ btn_valider_produit;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -477,6 +585,41 @@ private: System::Windows::Forms::DataGridView^ dgv_ValeurAchat;
 			this->btn_rld_panier_moyen = (gcnew System::Windows::Forms::Button());
 			this->Informations = (gcnew System::Windows::Forms::TabPage());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->groupBox4 = (gcnew System::Windows::Forms::GroupBox());
+			this->radio_supprimer_commande = (gcnew System::Windows::Forms::RadioButton());
+			this->radio_modifier_commande = (gcnew System::Windows::Forms::RadioButton());
+			this->radio_ajouter_commande = (gcnew System::Windows::Forms::RadioButton());
+			this->btn_valider_commande = (gcnew System::Windows::Forms::Button());
+			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->panel3 = (gcnew System::Windows::Forms::Panel());
+			this->remise = (gcnew System::Windows::Forms::NumericUpDown());
+			this->id_commande = (gcnew System::Windows::Forms::NumericUpDown());
+			this->label_id_commande = (gcnew System::Windows::Forms::Label());
+			this->label_remise = (gcnew System::Windows::Forms::Label());
+			this->date_livraison = (gcnew System::Windows::Forms::DateTimePicker());
+			this->label_date_livraison = (gcnew System::Windows::Forms::Label());
+			this->label_date_expédition = (gcnew System::Windows::Forms::Label());
+			this->dgv_commande = (gcnew System::Windows::Forms::DataGridView());
+			this->group_command = (gcnew System::Windows::Forms::GroupBox());
+			this->group_contenu_commande = (gcnew System::Windows::Forms::GroupBox());
+			this->dgv_produits_ajoutes = (gcnew System::Windows::Forms::DataGridView());
+			this->dgv_produits_dispo = (gcnew System::Windows::Forms::DataGridView());
+			this->label_produits_inclus = (gcnew System::Windows::Forms::Label());
+			this->label_produits_disponibles = (gcnew System::Windows::Forms::Label());
+			this->selecteur_moyen_paiement = (gcnew System::Windows::Forms::DomainUpDown());
+			this->label_moyen_paiement = (gcnew System::Windows::Forms::Label());
+			this->id_client_commande = (gcnew System::Windows::Forms::NumericUpDown());
+			this->label_id_client_commande = (gcnew System::Windows::Forms::Label());
+			this->date_expédition = (gcnew System::Windows::Forms::DateTimePicker());
+			this->group_contenu_commande_form = (gcnew System::Windows::Forms::GroupBox());
+			this->radio_supprimer_produit = (gcnew System::Windows::Forms::RadioButton());
+			this->radio_modifier_produit = (gcnew System::Windows::Forms::RadioButton());
+			this->radio_ajouter_produit = (gcnew System::Windows::Forms::RadioButton());
+			this->btn_valider_produit = (gcnew System::Windows::Forms::Button());
+			this->qt_produit = (gcnew System::Windows::Forms::NumericUpDown());
+			this->label_qt_produit = (gcnew System::Windows::Forms::Label());
+			this->id_produit_commande = (gcnew System::Windows::Forms::NumericUpDown());
+			this->label_id_produit_commande = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_personnel))->BeginInit();
 			this->Catégories->SuspendLayout();
 			this->tab_personnel->SuspendLayout();
@@ -502,6 +645,7 @@ private: System::Windows::Forms::DataGridView^ dgv_ValeurAchat;
 			this->groupBox1->SuspendLayout();
 			this->panel2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->id_produit))->BeginInit();
+			this->Commandes->SuspendLayout();
 			this->Statistiques->SuspendLayout();
 			this->stats_grp->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_ValeurAchat))->BeginInit();
@@ -514,6 +658,20 @@ private: System::Windows::Forms::DataGridView^ dgv_ValeurAchat;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_meilleures_ventes))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_seuil_reapro))->BeginInit();
 			this->Informations->SuspendLayout();
+			this->groupBox4->SuspendLayout();
+			this->groupBox2->SuspendLayout();
+			this->panel3->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->remise))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->id_commande))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_commande))->BeginInit();
+			this->group_command->SuspendLayout();
+			this->group_contenu_commande->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_produits_ajoutes))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_produits_dispo))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->id_client_commande))->BeginInit();
+			this->group_contenu_commande_form->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->qt_produit))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->id_produit_commande))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// dgv_personnel
@@ -1471,6 +1629,10 @@ private: System::Windows::Forms::DataGridView^ dgv_ValeurAchat;
 			// 
 			// Commandes
 			// 
+			this->Commandes->Controls->Add(this->group_contenu_commande);
+			this->Commandes->Controls->Add(this->group_command);
+			this->Commandes->Controls->Add(this->groupBox2);
+			this->Commandes->Controls->Add(this->groupBox4);
 			this->Commandes->Location = System::Drawing::Point(4, 22);
 			this->Commandes->Name = L"Commandes";
 			this->Commandes->Padding = System::Windows::Forms::Padding(3);
@@ -1637,7 +1799,7 @@ private: System::Windows::Forms::DataGridView^ dgv_ValeurAchat;
 			// btn_rld_pires_ventes
 			// 
 			this->btn_rld_pires_ventes->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.25F));
-			this->btn_rld_pires_ventes->Location = System::Drawing::Point(640, 411);
+			this->btn_rld_pires_ventes->Location = System::Drawing::Point(377, 406);
 			this->btn_rld_pires_ventes->Name = L"btn_rld_pires_ventes";
 			this->btn_rld_pires_ventes->Size = System::Drawing::Size(43, 40);
 			this->btn_rld_pires_ventes->TabIndex = 15;
@@ -1648,7 +1810,7 @@ private: System::Windows::Forms::DataGridView^ dgv_ValeurAchat;
 			// label_pires_ventes
 			// 
 			this->label_pires_ventes->AutoSize = true;
-			this->label_pires_ventes->Location = System::Drawing::Point(689, 411);
+			this->label_pires_ventes->Location = System::Drawing::Point(426, 406);
 			this->label_pires_ventes->Name = L"label_pires_ventes";
 			this->label_pires_ventes->Size = System::Drawing::Size(101, 13);
 			this->label_pires_ventes->TabIndex = 14;
@@ -1658,15 +1820,15 @@ private: System::Windows::Forms::DataGridView^ dgv_ValeurAchat;
 			// dgv_pires_ventes
 			// 
 			this->dgv_pires_ventes->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgv_pires_ventes->Location = System::Drawing::Point(689, 427);
+			this->dgv_pires_ventes->Location = System::Drawing::Point(426, 422);
 			this->dgv_pires_ventes->Name = L"dgv_pires_ventes";
-			this->dgv_pires_ventes->Size = System::Drawing::Size(498, 166);
+			this->dgv_pires_ventes->Size = System::Drawing::Size(759, 166);
 			this->dgv_pires_ventes->TabIndex = 13;
 			// 
 			// btn_rld_meilleures_ventes
 			// 
 			this->btn_rld_meilleures_ventes->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.25F));
-			this->btn_rld_meilleures_ventes->Location = System::Drawing::Point(640, 213);
+			this->btn_rld_meilleures_ventes->Location = System::Drawing::Point(377, 208);
 			this->btn_rld_meilleures_ventes->Name = L"btn_rld_meilleures_ventes";
 			this->btn_rld_meilleures_ventes->Size = System::Drawing::Size(43, 40);
 			this->btn_rld_meilleures_ventes->TabIndex = 12;
@@ -1677,7 +1839,7 @@ private: System::Windows::Forms::DataGridView^ dgv_ValeurAchat;
 			// label_meilleures_ventes
 			// 
 			this->label_meilleures_ventes->AutoSize = true;
-			this->label_meilleures_ventes->Location = System::Drawing::Point(689, 213);
+			this->label_meilleures_ventes->Location = System::Drawing::Point(426, 208);
 			this->label_meilleures_ventes->Name = L"label_meilleures_ventes";
 			this->label_meilleures_ventes->Size = System::Drawing::Size(125, 13);
 			this->label_meilleures_ventes->TabIndex = 11;
@@ -1687,15 +1849,15 @@ private: System::Windows::Forms::DataGridView^ dgv_ValeurAchat;
 			// dgv_meilleures_ventes
 			// 
 			this->dgv_meilleures_ventes->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgv_meilleures_ventes->Location = System::Drawing::Point(689, 229);
+			this->dgv_meilleures_ventes->Location = System::Drawing::Point(426, 224);
 			this->dgv_meilleures_ventes->Name = L"dgv_meilleures_ventes";
-			this->dgv_meilleures_ventes->Size = System::Drawing::Size(498, 166);
+			this->dgv_meilleures_ventes->Size = System::Drawing::Size(759, 166);
 			this->dgv_meilleures_ventes->TabIndex = 10;
 			// 
 			// btn_rld_seuil_reapro
 			// 
 			this->btn_rld_seuil_reapro->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.25F));
-			this->btn_rld_seuil_reapro->Location = System::Drawing::Point(640, 19);
+			this->btn_rld_seuil_reapro->Location = System::Drawing::Point(377, 14);
 			this->btn_rld_seuil_reapro->Name = L"btn_rld_seuil_reapro";
 			this->btn_rld_seuil_reapro->Size = System::Drawing::Size(43, 40);
 			this->btn_rld_seuil_reapro->TabIndex = 9;
@@ -1706,7 +1868,7 @@ private: System::Windows::Forms::DataGridView^ dgv_ValeurAchat;
 			// label_stats_seuil_reapro
 			// 
 			this->label_stats_seuil_reapro->AutoSize = true;
-			this->label_stats_seuil_reapro->Location = System::Drawing::Point(689, 19);
+			this->label_stats_seuil_reapro->Location = System::Drawing::Point(426, 14);
 			this->label_stats_seuil_reapro->Name = L"label_stats_seuil_reapro";
 			this->label_stats_seuil_reapro->Size = System::Drawing::Size(153, 13);
 			this->label_stats_seuil_reapro->TabIndex = 8;
@@ -1715,9 +1877,9 @@ private: System::Windows::Forms::DataGridView^ dgv_ValeurAchat;
 			// dgv_seuil_reapro
 			// 
 			this->dgv_seuil_reapro->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgv_seuil_reapro->Location = System::Drawing::Point(689, 35);
+			this->dgv_seuil_reapro->Location = System::Drawing::Point(426, 30);
 			this->dgv_seuil_reapro->Name = L"dgv_seuil_reapro";
-			this->dgv_seuil_reapro->Size = System::Drawing::Size(498, 166);
+			this->dgv_seuil_reapro->Size = System::Drawing::Size(759, 166);
 			this->dgv_seuil_reapro->TabIndex = 7;
 			// 
 			// label_stat_ca
@@ -1783,11 +1945,371 @@ private: System::Windows::Forms::DataGridView^ dgv_ValeurAchat;
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(363, 264);
+			this->label1->Location = System::Drawing::Point(332, 286);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(35, 13);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"label1";
+			// 
+			// groupBox4
+			// 
+			this->groupBox4->BackColor = System::Drawing::Color::WhiteSmoke;
+			this->groupBox4->Controls->Add(this->radio_supprimer_commande);
+			this->groupBox4->Controls->Add(this->radio_modifier_commande);
+			this->groupBox4->Controls->Add(this->radio_ajouter_commande);
+			this->groupBox4->Controls->Add(this->btn_valider_commande);
+			this->groupBox4->Location = System::Drawing::Point(6, 542);
+			this->groupBox4->Name = L"groupBox4";
+			this->groupBox4->Size = System::Drawing::Size(305, 90);
+			this->groupBox4->TabIndex = 29;
+			this->groupBox4->TabStop = false;
+			this->groupBox4->Text = L"Actions";
+			// 
+			// radio_supprimer_commande
+			// 
+			this->radio_supprimer_commande->AutoSize = true;
+			this->radio_supprimer_commande->Location = System::Drawing::Point(6, 65);
+			this->radio_supprimer_commande->Name = L"radio_supprimer_commande";
+			this->radio_supprimer_commande->Size = System::Drawing::Size(72, 17);
+			this->radio_supprimer_commande->TabIndex = 23;
+			this->radio_supprimer_commande->Text = L"Supprimer";
+			this->radio_supprimer_commande->UseVisualStyleBackColor = true;
+			// 
+			// radio_modifier_commande
+			// 
+			this->radio_modifier_commande->AutoSize = true;
+			this->radio_modifier_commande->Location = System::Drawing::Point(6, 42);
+			this->radio_modifier_commande->Name = L"radio_modifier_commande";
+			this->radio_modifier_commande->Size = System::Drawing::Size(62, 17);
+			this->radio_modifier_commande->TabIndex = 22;
+			this->radio_modifier_commande->Text = L"Modifier";
+			this->radio_modifier_commande->UseVisualStyleBackColor = true;
+			// 
+			// radio_ajouter_commande
+			// 
+			this->radio_ajouter_commande->AutoSize = true;
+			this->radio_ajouter_commande->Checked = true;
+			this->radio_ajouter_commande->Location = System::Drawing::Point(6, 19);
+			this->radio_ajouter_commande->Name = L"radio_ajouter_commande";
+			this->radio_ajouter_commande->Size = System::Drawing::Size(58, 17);
+			this->radio_ajouter_commande->TabIndex = 21;
+			this->radio_ajouter_commande->TabStop = true;
+			this->radio_ajouter_commande->Text = L"Ajouter";
+			this->radio_ajouter_commande->UseVisualStyleBackColor = true;
+			// 
+			// btn_valider_commande
+			// 
+			this->btn_valider_commande->BackColor = System::Drawing::Color::Transparent;
+			this->btn_valider_commande->FlatAppearance->BorderColor = System::Drawing::Color::White;
+			this->btn_valider_commande->Location = System::Drawing::Point(168, 21);
+			this->btn_valider_commande->Name = L"btn_valider_commande";
+			this->btn_valider_commande->Size = System::Drawing::Size(117, 56);
+			this->btn_valider_commande->TabIndex = 1;
+			this->btn_valider_commande->Text = L"Valider";
+			this->btn_valider_commande->UseVisualStyleBackColor = false;
+			// 
+			// groupBox2
+			// 
+			this->groupBox2->Controls->Add(this->panel3);
+			this->groupBox2->Location = System::Drawing::Point(6, 6);
+			this->groupBox2->Name = L"groupBox2";
+			this->groupBox2->Size = System::Drawing::Size(305, 516);
+			this->groupBox2->TabIndex = 27;
+			this->groupBox2->TabStop = false;
+			this->groupBox2->Text = L"Entrée Utilisateur";
+			// 
+			// panel3
+			// 
+			this->panel3->AllowDrop = true;
+			this->panel3->AutoScroll = true;
+			this->panel3->Controls->Add(this->group_contenu_commande_form);
+			this->panel3->Controls->Add(this->id_client_commande);
+			this->panel3->Controls->Add(this->label_id_client_commande);
+			this->panel3->Controls->Add(this->label_moyen_paiement);
+			this->panel3->Controls->Add(this->selecteur_moyen_paiement);
+			this->panel3->Controls->Add(this->remise);
+			this->panel3->Controls->Add(this->id_commande);
+			this->panel3->Controls->Add(this->label_id_commande);
+			this->panel3->Controls->Add(this->label_remise);
+			this->panel3->Controls->Add(this->date_livraison);
+			this->panel3->Controls->Add(this->label_date_livraison);
+			this->panel3->Controls->Add(this->label_date_expédition);
+			this->panel3->Controls->Add(this->date_expédition);
+			this->panel3->Location = System::Drawing::Point(6, 24);
+			this->panel3->Name = L"panel3";
+			this->panel3->Size = System::Drawing::Size(290, 486);
+			this->panel3->TabIndex = 30;
+			// 
+			// remise
+			// 
+			this->remise->Location = System::Drawing::Point(4, 177);
+			this->remise->Name = L"remise";
+			this->remise->Size = System::Drawing::Size(274, 20);
+			this->remise->TabIndex = 47;
+			// 
+			// id_commande
+			// 
+			this->id_commande->Enabled = false;
+			this->id_commande->Location = System::Drawing::Point(4, 19);
+			this->id_commande->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 99999, 0, 0, 0 });
+			this->id_commande->Name = L"id_commande";
+			this->id_commande->Size = System::Drawing::Size(275, 20);
+			this->id_commande->TabIndex = 26;
+			// 
+			// label_id_commande
+			// 
+			this->label_id_commande->AutoSize = true;
+			this->label_id_commande->Location = System::Drawing::Point(4, 0);
+			this->label_id_commande->Name = L"label_id_commande";
+			this->label_id_commande->Size = System::Drawing::Size(18, 13);
+			this->label_id_commande->TabIndex = 12;
+			this->label_id_commande->Text = L"ID";
+			// 
+			// label_remise
+			// 
+			this->label_remise->AutoSize = true;
+			this->label_remise->Location = System::Drawing::Point(4, 161);
+			this->label_remise->Name = L"label_remise";
+			this->label_remise->Size = System::Drawing::Size(42, 13);
+			this->label_remise->TabIndex = 34;
+			this->label_remise->Text = L"Remise";
+			// 
+			// date_livraison
+			// 
+			this->date_livraison->Location = System::Drawing::Point(3, 99);
+			this->date_livraison->Name = L"date_livraison";
+			this->date_livraison->Size = System::Drawing::Size(275, 20);
+			this->date_livraison->TabIndex = 28;
+			// 
+			// label_date_livraison
+			// 
+			this->label_date_livraison->AutoSize = true;
+			this->label_date_livraison->Location = System::Drawing::Point(3, 83);
+			this->label_date_livraison->Name = L"label_date_livraison";
+			this->label_date_livraison->Size = System::Drawing::Size(86, 13);
+			this->label_date_livraison->TabIndex = 27;
+			this->label_date_livraison->Text = L"Date de livraison";
+			// 
+			// label_date_expédition
+			// 
+			this->label_date_expédition->AutoSize = true;
+			this->label_date_expédition->Location = System::Drawing::Point(4, 42);
+			this->label_date_expédition->Name = L"label_date_expédition";
+			this->label_date_expédition->Size = System::Drawing::Size(89, 13);
+			this->label_date_expédition->TabIndex = 24;
+			this->label_date_expédition->Text = L"Date d\'expédition";
+			// 
+			// dgv_commande
+			// 
+			this->dgv_commande->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgv_commande->Location = System::Drawing::Point(6, 22);
+			this->dgv_commande->Name = L"dgv_commande";
+			this->dgv_commande->Size = System::Drawing::Size(905, 275);
+			this->dgv_commande->TabIndex = 30;
+			// 
+			// group_command
+			// 
+			this->group_command->Controls->Add(this->dgv_commande);
+			this->group_command->Location = System::Drawing::Point(317, 8);
+			this->group_command->Name = L"group_command";
+			this->group_command->Size = System::Drawing::Size(917, 303);
+			this->group_command->TabIndex = 31;
+			this->group_command->TabStop = false;
+			this->group_command->Text = L"Commandes";
+			// 
+			// group_contenu_commande
+			// 
+			this->group_contenu_commande->Controls->Add(this->label_produits_disponibles);
+			this->group_contenu_commande->Controls->Add(this->label_produits_inclus);
+			this->group_contenu_commande->Controls->Add(this->dgv_produits_dispo);
+			this->group_contenu_commande->Controls->Add(this->dgv_produits_ajoutes);
+			this->group_contenu_commande->Location = System::Drawing::Point(317, 317);
+			this->group_contenu_commande->Name = L"group_contenu_commande";
+			this->group_contenu_commande->Size = System::Drawing::Size(917, 315);
+			this->group_contenu_commande->TabIndex = 32;
+			this->group_contenu_commande->TabStop = false;
+			this->group_contenu_commande->Text = L"Contenu de la commande";
+			// 
+			// dgv_produits_ajoutes
+			// 
+			this->dgv_produits_ajoutes->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgv_produits_ajoutes->Location = System::Drawing::Point(6, 39);
+			this->dgv_produits_ajoutes->Name = L"dgv_produits_ajoutes";
+			this->dgv_produits_ajoutes->Size = System::Drawing::Size(377, 270);
+			this->dgv_produits_ajoutes->TabIndex = 30;
+			// 
+			// dgv_produits_dispo
+			// 
+			this->dgv_produits_dispo->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgv_produits_dispo->Location = System::Drawing::Point(402, 39);
+			this->dgv_produits_dispo->Name = L"dgv_produits_dispo";
+			this->dgv_produits_dispo->Size = System::Drawing::Size(509, 270);
+			this->dgv_produits_dispo->TabIndex = 31;
+			// 
+			// label_produits_inclus
+			// 
+			this->label_produits_inclus->AutoSize = true;
+			this->label_produits_inclus->Location = System::Drawing::Point(6, 23);
+			this->label_produits_inclus->Name = L"label_produits_inclus";
+			this->label_produits_inclus->Size = System::Drawing::Size(137, 13);
+			this->label_produits_inclus->TabIndex = 33;
+			this->label_produits_inclus->Text = L"Produits dans la commande";
+			// 
+			// label_produits_disponibles
+			// 
+			this->label_produits_disponibles->AutoSize = true;
+			this->label_produits_disponibles->Location = System::Drawing::Point(399, 23);
+			this->label_produits_disponibles->Name = L"label_produits_disponibles";
+			this->label_produits_disponibles->Size = System::Drawing::Size(100, 13);
+			this->label_produits_disponibles->TabIndex = 34;
+			this->label_produits_disponibles->Text = L"Produits disponibles";
+			// 
+			// selecteur_moyen_paiement
+			// 
+			this->selecteur_moyen_paiement->Items->Add(L"Carte de crédit");
+			this->selecteur_moyen_paiement->Items->Add(L"Carte de débit");
+			this->selecteur_moyen_paiement->Items->Add(L"Chèque");
+			this->selecteur_moyen_paiement->Items->Add(L"Espèce");
+			this->selecteur_moyen_paiement->Location = System::Drawing::Point(4, 138);
+			this->selecteur_moyen_paiement->Name = L"selecteur_moyen_paiement";
+			this->selecteur_moyen_paiement->Size = System::Drawing::Size(274, 20);
+			this->selecteur_moyen_paiement->TabIndex = 48;
+			this->selecteur_moyen_paiement->Text = L"Moyen de paiement";
+			this->selecteur_moyen_paiement->SelectedItemChanged += gcnew System::EventHandler(this, &MyForm::domainUpDown1_SelectedItemChanged);
+			// 
+			// label_moyen_paiement
+			// 
+			this->label_moyen_paiement->AutoSize = true;
+			this->label_moyen_paiement->Location = System::Drawing::Point(4, 122);
+			this->label_moyen_paiement->Name = L"label_moyen_paiement";
+			this->label_moyen_paiement->Size = System::Drawing::Size(100, 13);
+			this->label_moyen_paiement->TabIndex = 49;
+			this->label_moyen_paiement->Text = L"Moyen de paiement";
+			// 
+			// id_client_commande
+			// 
+			this->id_client_commande->Enabled = false;
+			this->id_client_commande->Location = System::Drawing::Point(4, 217);
+			this->id_client_commande->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 99999, 0, 0, 0 });
+			this->id_client_commande->Name = L"id_client_commande";
+			this->id_client_commande->Size = System::Drawing::Size(274, 20);
+			this->id_client_commande->TabIndex = 51;
+			// 
+			// label_id_client_commande
+			// 
+			this->label_id_client_commande->AutoSize = true;
+			this->label_id_client_commande->Location = System::Drawing::Point(4, 201);
+			this->label_id_client_commande->Name = L"label_id_client_commande";
+			this->label_id_client_commande->Size = System::Drawing::Size(61, 13);
+			this->label_id_client_commande->TabIndex = 50;
+			this->label_id_client_commande->Text = L"ID du client";
+			this->label_id_client_commande->Click += gcnew System::EventHandler(this, &MyForm::label2_Click_2);
+			// 
+			// date_expédition
+			// 
+			this->date_expédition->Location = System::Drawing::Point(3, 60);
+			this->date_expédition->Name = L"date_expédition";
+			this->date_expédition->Size = System::Drawing::Size(275, 20);
+			this->date_expédition->TabIndex = 25;
+			// 
+			// group_contenu_commande_form
+			// 
+			this->group_contenu_commande_form->Controls->Add(this->qt_produit);
+			this->group_contenu_commande_form->Controls->Add(this->radio_supprimer_produit);
+			this->group_contenu_commande_form->Controls->Add(this->label_qt_produit);
+			this->group_contenu_commande_form->Controls->Add(this->radio_modifier_produit);
+			this->group_contenu_commande_form->Controls->Add(this->id_produit_commande);
+			this->group_contenu_commande_form->Controls->Add(this->label_id_produit_commande);
+			this->group_contenu_commande_form->Controls->Add(this->radio_ajouter_produit);
+			this->group_contenu_commande_form->Controls->Add(this->btn_valider_produit);
+			this->group_contenu_commande_form->Location = System::Drawing::Point(7, 248);
+			this->group_contenu_commande_form->Name = L"group_contenu_commande_form";
+			this->group_contenu_commande_form->Size = System::Drawing::Size(271, 188);
+			this->group_contenu_commande_form->TabIndex = 52;
+			this->group_contenu_commande_form->TabStop = false;
+			this->group_contenu_commande_form->Text = L"Contenu de la commande";
+			// 
+			// radio_supprimer_produit
+			// 
+			this->radio_supprimer_produit->AutoSize = true;
+			this->radio_supprimer_produit->Location = System::Drawing::Point(9, 157);
+			this->radio_supprimer_produit->Name = L"radio_supprimer_produit";
+			this->radio_supprimer_produit->Size = System::Drawing::Size(72, 17);
+			this->radio_supprimer_produit->TabIndex = 27;
+			this->radio_supprimer_produit->Text = L"Supprimer";
+			this->radio_supprimer_produit->UseVisualStyleBackColor = true;
+			this->radio_supprimer_produit->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioButton4_CheckedChanged);
+			// 
+			// radio_modifier_produit
+			// 
+			this->radio_modifier_produit->AutoSize = true;
+			this->radio_modifier_produit->Location = System::Drawing::Point(9, 134);
+			this->radio_modifier_produit->Name = L"radio_modifier_produit";
+			this->radio_modifier_produit->Size = System::Drawing::Size(62, 17);
+			this->radio_modifier_produit->TabIndex = 26;
+			this->radio_modifier_produit->Text = L"Modifier";
+			this->radio_modifier_produit->UseVisualStyleBackColor = true;
+			this->radio_modifier_produit->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioButton5_CheckedChanged);
+			// 
+			// radio_ajouter_produit
+			// 
+			this->radio_ajouter_produit->AutoSize = true;
+			this->radio_ajouter_produit->Checked = true;
+			this->radio_ajouter_produit->Location = System::Drawing::Point(9, 111);
+			this->radio_ajouter_produit->Name = L"radio_ajouter_produit";
+			this->radio_ajouter_produit->Size = System::Drawing::Size(58, 17);
+			this->radio_ajouter_produit->TabIndex = 25;
+			this->radio_ajouter_produit->TabStop = true;
+			this->radio_ajouter_produit->Text = L"Ajouter";
+			this->radio_ajouter_produit->UseVisualStyleBackColor = true;
+			this->radio_ajouter_produit->CheckedChanged += gcnew System::EventHandler(this, &MyForm::radioButton6_CheckedChanged);
+			// 
+			// btn_valider_produit
+			// 
+			this->btn_valider_produit->BackColor = System::Drawing::Color::Transparent;
+			this->btn_valider_produit->FlatAppearance->BorderColor = System::Drawing::Color::White;
+			this->btn_valider_produit->Location = System::Drawing::Point(141, 114);
+			this->btn_valider_produit->Name = L"btn_valider_produit";
+			this->btn_valider_produit->Size = System::Drawing::Size(117, 56);
+			this->btn_valider_produit->TabIndex = 24;
+			this->btn_valider_produit->Text = L"Valider";
+			this->btn_valider_produit->UseVisualStyleBackColor = false;
+			this->btn_valider_produit->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
+			// 
+			// qt_produit
+			// 
+			this->qt_produit->Enabled = false;
+			this->qt_produit->Location = System::Drawing::Point(6, 76);
+			this->qt_produit->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 99999, 0, 0, 0 });
+			this->qt_produit->Name = L"qt_produit";
+			this->qt_produit->Size = System::Drawing::Size(256, 20);
+			this->qt_produit->TabIndex = 56;
+			// 
+			// label_qt_produit
+			// 
+			this->label_qt_produit->AutoSize = true;
+			this->label_qt_produit->Location = System::Drawing::Point(6, 60);
+			this->label_qt_produit->Name = L"label_qt_produit";
+			this->label_qt_produit->Size = System::Drawing::Size(82, 13);
+			this->label_qt_produit->TabIndex = 55;
+			this->label_qt_produit->Text = L"Quantité produit";
+			// 
+			// id_produit_commande
+			// 
+			this->id_produit_commande->Location = System::Drawing::Point(6, 36);
+			this->id_produit_commande->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 99999, 0, 0, 0 });
+			this->id_produit_commande->Name = L"id_produit_commande";
+			this->id_produit_commande->Size = System::Drawing::Size(256, 20);
+			this->id_produit_commande->TabIndex = 54;
+			// 
+			// label_id_produit_commande
+			// 
+			this->label_id_produit_commande->AutoSize = true;
+			this->label_id_produit_commande->Location = System::Drawing::Point(6, 20);
+			this->label_id_produit_commande->Name = L"label_id_produit_commande";
+			this->label_id_produit_commande->Size = System::Drawing::Size(54, 13);
+			this->label_id_produit_commande->TabIndex = 53;
+			this->label_id_produit_commande->Text = L"ID Produit";
 			// 
 			// MyForm
 			// 
@@ -1829,6 +2351,7 @@ private: System::Windows::Forms::DataGridView^ dgv_ValeurAchat;
 			this->panel2->ResumeLayout(false);
 			this->panel2->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->id_produit))->EndInit();
+			this->Commandes->ResumeLayout(false);
 			this->Statistiques->ResumeLayout(false);
 			this->stats_grp->ResumeLayout(false);
 			this->stats_grp->PerformLayout();
@@ -1843,6 +2366,24 @@ private: System::Windows::Forms::DataGridView^ dgv_ValeurAchat;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_seuil_reapro))->EndInit();
 			this->Informations->ResumeLayout(false);
 			this->Informations->PerformLayout();
+			this->groupBox4->ResumeLayout(false);
+			this->groupBox4->PerformLayout();
+			this->groupBox2->ResumeLayout(false);
+			this->panel3->ResumeLayout(false);
+			this->panel3->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->remise))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->id_commande))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_commande))->EndInit();
+			this->group_command->ResumeLayout(false);
+			this->group_contenu_commande->ResumeLayout(false);
+			this->group_contenu_commande->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_produits_ajoutes))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_produits_dispo))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->id_client_commande))->EndInit();
+			this->group_contenu_commande_form->ResumeLayout(false);
+			this->group_contenu_commande_form->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->qt_produit))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->id_produit_commande))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -2325,6 +2866,18 @@ private: System::Void btn_rld_pires_ventes_Click(System::Object^ sender, System:
 	this->oDs = this->oSvc->Top10PVente("PiresVentes");
 	this->dgv_pires_ventes->DataSource = this->oDs;
 	this->dgv_pires_ventes->DataMember = "PiresVentes";
+}
+private: System::Void domainUpDown1_SelectedItemChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label2_Click_2(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void radioButton4_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void radioButton5_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void radioButton6_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

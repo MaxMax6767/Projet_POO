@@ -297,7 +297,8 @@ private: System::Windows::Forms::Label^ label_id_produit;
 private: System::Windows::Forms::TextBox^ prix_ht;
 private: System::Windows::Forms::Label^ label_prix_ht;
 private: System::Windows::Forms::Label^ label_taux_tva;
-private: System::Windows::Forms::Label^ label1;
+private: System::Windows::Forms::Label^ label_version;
+
 private: System::Windows::Forms::NumericUpDown^ numero_client_2;
 private: System::Windows::Forms::NumericUpDown^ numero_client_1;
 private: System::Windows::Forms::TextBox^ prix_achat;
@@ -397,6 +398,20 @@ private: System::Windows::Forms::Button^ btn_valider_produit;
 private: System::Windows::Forms::NumericUpDown^ id_panier;
 
 private: System::Windows::Forms::Label^ label_id_panier;
+private: System::Windows::Forms::Label^ label_version_valeur;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -626,7 +641,8 @@ private: System::Windows::Forms::Label^ label_id_panier;
 			this->label_stat_panier_moyen = (gcnew System::Windows::Forms::Label());
 			this->btn_rld_panier_moyen = (gcnew System::Windows::Forms::Button());
 			this->Informations = (gcnew System::Windows::Forms::TabPage());
-			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->label_version_valeur = (gcnew System::Windows::Forms::Label());
+			this->label_version = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_personnel))->BeginInit();
 			this->Catégories->SuspendLayout();
 			this->tab_personnel->SuspendLayout();
@@ -685,23 +701,23 @@ private: System::Windows::Forms::Label^ label_id_panier;
 			// dgv_personnel
 			// 
 			this->dgv_personnel->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgv_personnel->Location = System::Drawing::Point(296, 18);
+			this->dgv_personnel->Location = System::Drawing::Point(315, 18);
 			this->dgv_personnel->Name = L"dgv_personnel";
-			this->dgv_personnel->Size = System::Drawing::Size(918, 648);
+			this->dgv_personnel->Size = System::Drawing::Size(899, 606);
 			this->dgv_personnel->TabIndex = 0;
 			// 
 			// nom_personnel
 			// 
 			this->nom_personnel->Location = System::Drawing::Point(6, 80);
 			this->nom_personnel->Name = L"nom_personnel";
-			this->nom_personnel->Size = System::Drawing::Size(266, 20);
+			this->nom_personnel->Size = System::Drawing::Size(291, 20);
 			this->nom_personnel->TabIndex = 6;
 			// 
 			// prenom_personnel
 			// 
 			this->prenom_personnel->Location = System::Drawing::Point(6, 119);
 			this->prenom_personnel->Name = L"prenom_personnel";
-			this->prenom_personnel->Size = System::Drawing::Size(266, 20);
+			this->prenom_personnel->Size = System::Drawing::Size(291, 20);
 			this->prenom_personnel->TabIndex = 7;
 			// 
 			// label_id_employe
@@ -756,14 +772,14 @@ private: System::Windows::Forms::Label^ label_id_panier;
 			// 
 			this->rue_personnel->Location = System::Drawing::Point(6, 278);
 			this->rue_personnel->Name = L"rue_personnel";
-			this->rue_personnel->Size = System::Drawing::Size(266, 20);
+			this->rue_personnel->Size = System::Drawing::Size(291, 20);
 			this->rue_personnel->TabIndex = 16;
 			// 
 			// ville_personnel
 			// 
 			this->ville_personnel->Location = System::Drawing::Point(6, 239);
 			this->ville_personnel->Name = L"ville_personnel";
-			this->ville_personnel->Size = System::Drawing::Size(266, 20);
+			this->ville_personnel->Size = System::Drawing::Size(291, 20);
 			this->ville_personnel->TabIndex = 15;
 			// 
 			// Numero_employe
@@ -824,19 +840,19 @@ private: System::Windows::Forms::Label^ label_id_panier;
 			this->userEntry_personnel->Controls->Add(this->label_id_employe);
 			this->userEntry_personnel->Controls->Add(this->Rue_employe);
 			this->userEntry_personnel->Controls->Add(this->prenom_personnel);
-			this->userEntry_personnel->Location = System::Drawing::Point(6, 14);
+			this->userEntry_personnel->Location = System::Drawing::Point(6, 6);
 			this->userEntry_personnel->Name = L"userEntry_personnel";
-			this->userEntry_personnel->Size = System::Drawing::Size(284, 522);
+			this->userEntry_personnel->Size = System::Drawing::Size(303, 522);
 			this->userEntry_personnel->TabIndex = 25;
 			this->userEntry_personnel->TabStop = false;
-			this->userEntry_personnel->Text = L"Entrée utilisateur";
+			this->userEntry_personnel->Text = L"Entrée Utilisateur";
 			this->userEntry_personnel->Enter += gcnew System::EventHandler(this, &MyForm::groupBox1_Enter_1);
 			// 
 			// numero_personnel
 			// 
 			this->numero_personnel->Location = System::Drawing::Point(6, 322);
 			this->numero_personnel->Name = L"numero_personnel";
-			this->numero_personnel->Size = System::Drawing::Size(266, 20);
+			this->numero_personnel->Size = System::Drawing::Size(291, 20);
 			this->numero_personnel->TabIndex = 29;
 			// 
 			// cp_personnel
@@ -844,14 +860,14 @@ private: System::Windows::Forms::Label^ label_id_panier;
 			this->cp_personnel->Location = System::Drawing::Point(6, 368);
 			this->cp_personnel->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 99999, 0, 0, 0 });
 			this->cp_personnel->Name = L"cp_personnel";
-			this->cp_personnel->Size = System::Drawing::Size(266, 20);
+			this->cp_personnel->Size = System::Drawing::Size(291, 20);
 			this->cp_personnel->TabIndex = 28;
 			// 
 			// id_supp
 			// 
 			this->id_supp->Location = System::Drawing::Point(6, 159);
 			this->id_supp->Name = L"id_supp";
-			this->id_supp->Size = System::Drawing::Size(266, 20);
+			this->id_supp->Size = System::Drawing::Size(291, 20);
 			this->id_supp->TabIndex = 27;
 			// 
 			// id_personnel
@@ -860,14 +876,14 @@ private: System::Windows::Forms::Label^ label_id_panier;
 			this->id_personnel->Location = System::Drawing::Point(6, 41);
 			this->id_personnel->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1000000, 0, 0, 0 });
 			this->id_personnel->Name = L"id_personnel";
-			this->id_personnel->Size = System::Drawing::Size(266, 20);
+			this->id_personnel->Size = System::Drawing::Size(291, 20);
 			this->id_personnel->TabIndex = 26;
 			// 
 			// date_embauche
 			// 
 			this->date_embauche->Location = System::Drawing::Point(6, 200);
 			this->date_embauche->Name = L"date_embauche";
-			this->date_embauche->Size = System::Drawing::Size(266, 20);
+			this->date_embauche->Size = System::Drawing::Size(291, 20);
 			this->date_embauche->TabIndex = 25;
 			// 
 			// ID_supp_employe
@@ -906,7 +922,7 @@ private: System::Windows::Forms::Label^ label_id_panier;
 			this->Actions_Personnel->Controls->Add(this->radio_add_personnel);
 			this->Actions_Personnel->Location = System::Drawing::Point(6, 542);
 			this->Actions_Personnel->Name = L"Actions_Personnel";
-			this->Actions_Personnel->Size = System::Drawing::Size(284, 90);
+			this->Actions_Personnel->Size = System::Drawing::Size(303, 90);
 			this->Actions_Personnel->TabIndex = 24;
 			this->Actions_Personnel->TabStop = false;
 			this->Actions_Personnel->Text = L"Actions";
@@ -1043,7 +1059,7 @@ private: System::Windows::Forms::Label^ label_id_panier;
 			// userEntry_clients
 			// 
 			this->userEntry_clients->Controls->Add(this->panel1);
-			this->userEntry_clients->Location = System::Drawing::Point(6, 15);
+			this->userEntry_clients->Location = System::Drawing::Point(6, 6);
 			this->userEntry_clients->Name = L"userEntry_clients";
 			this->userEntry_clients->Size = System::Drawing::Size(305, 516);
 			this->userEntry_clients->TabIndex = 26;
@@ -1439,7 +1455,7 @@ private: System::Windows::Forms::Label^ label_id_panier;
 			// groupBox1
 			// 
 			this->groupBox1->Controls->Add(this->panel2);
-			this->groupBox1->Location = System::Drawing::Point(6, 15);
+			this->groupBox1->Location = System::Drawing::Point(6, 6);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Size = System::Drawing::Size(305, 516);
 			this->groupBox1->TabIndex = 27;
@@ -1478,7 +1494,7 @@ private: System::Windows::Forms::Label^ label_id_panier;
 			// 
 			this->prix_achat->Location = System::Drawing::Point(3, 100);
 			this->prix_achat->Name = L"prix_achat";
-			this->prix_achat->Size = System::Drawing::Size(266, 20);
+			this->prix_achat->Size = System::Drawing::Size(276, 20);
 			this->prix_achat->TabIndex = 49;
 			// 
 			// label_prix_achat
@@ -1494,14 +1510,14 @@ private: System::Windows::Forms::Label^ label_id_panier;
 			// 
 			this->nom_produit_stock->Location = System::Drawing::Point(4, 58);
 			this->nom_produit_stock->Name = L"nom_produit_stock";
-			this->nom_produit_stock->Size = System::Drawing::Size(266, 20);
+			this->nom_produit_stock->Size = System::Drawing::Size(275, 20);
 			this->nom_produit_stock->TabIndex = 47;
 			// 
 			// qt_dispo
 			// 
 			this->qt_dispo->Location = System::Drawing::Point(4, 221);
 			this->qt_dispo->Name = L"qt_dispo";
-			this->qt_dispo->Size = System::Drawing::Size(266, 20);
+			this->qt_dispo->Size = System::Drawing::Size(275, 20);
 			this->qt_dispo->TabIndex = 46;
 			this->qt_dispo->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox7_TextChanged);
 			// 
@@ -1509,7 +1525,7 @@ private: System::Windows::Forms::Label^ label_id_panier;
 			// 
 			this->seuil_reapro->Location = System::Drawing::Point(4, 260);
 			this->seuil_reapro->Name = L"seuil_reapro";
-			this->seuil_reapro->Size = System::Drawing::Size(266, 20);
+			this->seuil_reapro->Size = System::Drawing::Size(275, 20);
 			this->seuil_reapro->TabIndex = 15;
 			// 
 			// label_type
@@ -1535,7 +1551,7 @@ private: System::Windows::Forms::Label^ label_id_panier;
 			// 
 			this->couleur->Location = System::Drawing::Point(6, 338);
 			this->couleur->Name = L"couleur";
-			this->couleur->Size = System::Drawing::Size(266, 20);
+			this->couleur->Size = System::Drawing::Size(273, 20);
 			this->couleur->TabIndex = 29;
 			// 
 			// label_qt_dispo
@@ -1561,7 +1577,7 @@ private: System::Windows::Forms::Label^ label_id_panier;
 			// 
 			this->type->Location = System::Drawing::Point(5, 299);
 			this->type->Name = L"type";
-			this->type->Size = System::Drawing::Size(266, 20);
+			this->type->Size = System::Drawing::Size(274, 20);
 			this->type->TabIndex = 16;
 			this->type->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox6_TextChanged);
 			// 
@@ -1579,26 +1595,27 @@ private: System::Windows::Forms::Label^ label_id_panier;
 			this->prix_degressif->AutoSize = true;
 			this->prix_degressif->Checked = true;
 			this->prix_degressif->CheckState = System::Windows::Forms::CheckState::Checked;
-			this->prix_degressif->Location = System::Drawing::Point(181, 146);
+			this->prix_degressif->Location = System::Drawing::Point(191, 146);
 			this->prix_degressif->Name = L"prix_degressif";
 			this->prix_degressif->Size = System::Drawing::Size(88, 17);
 			this->prix_degressif->TabIndex = 37;
 			this->prix_degressif->Text = L"Prix dégressif";
 			this->prix_degressif->UseVisualStyleBackColor = true;
+			this->prix_degressif->CheckedChanged += gcnew System::EventHandler(this, &MyForm::prix_degressif_CheckedChanged);
 			// 
 			// id_produit
 			// 
 			this->id_produit->Enabled = false;
 			this->id_produit->Location = System::Drawing::Point(3, 19);
 			this->id_produit->Name = L"id_produit";
-			this->id_produit->Size = System::Drawing::Size(266, 20);
+			this->id_produit->Size = System::Drawing::Size(276, 20);
 			this->id_produit->TabIndex = 26;
 			// 
 			// taux_tva
 			// 
 			this->taux_tva->Location = System::Drawing::Point(4, 182);
 			this->taux_tva->Name = L"taux_tva";
-			this->taux_tva->Size = System::Drawing::Size(265, 20);
+			this->taux_tva->Size = System::Drawing::Size(275, 20);
 			this->taux_tva->TabIndex = 7;
 			// 
 			// label_id_produit
@@ -1614,7 +1631,7 @@ private: System::Windows::Forms::Label^ label_id_panier;
 			// 
 			this->prix_ht->Location = System::Drawing::Point(4, 143);
 			this->prix_ht->Name = L"prix_ht";
-			this->prix_ht->Size = System::Drawing::Size(171, 20);
+			this->prix_ht->Size = System::Drawing::Size(181, 20);
 			this->prix_ht->TabIndex = 6;
 			// 
 			// label_prix_ht
@@ -1699,9 +1716,9 @@ private: System::Windows::Forms::Label^ label_id_panier;
 			// group_command
 			// 
 			this->group_command->Controls->Add(this->dgv_commande);
-			this->group_command->Location = System::Drawing::Point(317, 8);
+			this->group_command->Location = System::Drawing::Point(317, 6);
 			this->group_command->Name = L"group_command";
-			this->group_command->Size = System::Drawing::Size(917, 303);
+			this->group_command->Size = System::Drawing::Size(917, 305);
 			this->group_command->TabIndex = 31;
 			this->group_command->TabStop = false;
 			this->group_command->Text = L"Commandes";
@@ -1723,6 +1740,7 @@ private: System::Windows::Forms::Label^ label_id_panier;
 			this->groupBox2->TabIndex = 27;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Entrée Utilisateur";
+			this->groupBox2->Enter += gcnew System::EventHandler(this, &MyForm::groupBox2_Enter);
 			// 
 			// panel3
 			// 
@@ -2325,7 +2343,8 @@ private: System::Windows::Forms::Label^ label_id_panier;
 			// 
 			// Informations
 			// 
-			this->Informations->Controls->Add(this->label1);
+			this->Informations->Controls->Add(this->label_version_valeur);
+			this->Informations->Controls->Add(this->label_version);
 			this->Informations->Location = System::Drawing::Point(4, 22);
 			this->Informations->Name = L"Informations";
 			this->Informations->Padding = System::Windows::Forms::Padding(3);
@@ -2334,14 +2353,26 @@ private: System::Windows::Forms::Label^ label_id_panier;
 			this->Informations->Text = L"Informations";
 			this->Informations->UseVisualStyleBackColor = true;
 			// 
-			// label1
+			// label_version_valeur
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(332, 286);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(35, 13);
-			this->label1->TabIndex = 0;
-			this->label1->Text = L"label1";
+			this->label_version_valeur->AutoSize = true;
+			this->label_version_valeur->Location = System::Drawing::Point(25, 38);
+			this->label_version_valeur->Name = L"label_version_valeur";
+			this->label_version_valeur->Size = System::Drawing::Size(28, 13);
+			this->label_version_valeur->TabIndex = 1;
+			this->label_version_valeur->Text = L"0.1a";
+			this->label_version_valeur->Click += gcnew System::EventHandler(this, &MyForm::label1_Click_5);
+			// 
+			// label_version
+			// 
+			this->label_version->AutoSize = true;
+			this->label_version->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.35F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
+			this->label_version->Location = System::Drawing::Point(16, 14);
+			this->label_version->Name = L"label_version";
+			this->label_version->Size = System::Drawing::Size(55, 15);
+			this->label_version->TabIndex = 0;
+			this->label_version->Text = L"Version";
+			this->label_version->Click += gcnew System::EventHandler(this, &MyForm::label1_Click_4);
 			// 
 			// MyForm
 			// 
@@ -3003,6 +3034,20 @@ private: System::Void radio_supprimer_commande_CheckedChanged(System::Object^ se
 	this->radio_modifier_produit->Enabled = false;
 	this->radio_supprimer_produit->Enabled = false;
 	this->btn_valider_produit->Enabled = false;
+}
+private: System::Void prix_degressif_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void groupBox2_Enter(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label1_Click_4(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label1_Click_5(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label2_Click_4(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label1_Click_6(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void image_maxime_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

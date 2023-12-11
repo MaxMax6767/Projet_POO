@@ -216,6 +216,7 @@ void NS_Comp_Svc::CLservices::ajouterUneCommande(System::DateTime^ dateExpeditio
 {
 	System::String^ sql;
 	System::String^ sql2;
+	System::String^ sql3;
 
 	this->oCommandeTB->setDateExpedition(dateExpedition);
 	this->oCommandeTB->setDateLivraison(dateLivraison);
@@ -224,15 +225,18 @@ void NS_Comp_Svc::CLservices::ajouterUneCommande(System::DateTime^ dateExpeditio
 	this->oCommandeTB->setIdClient(System::Convert::ToInt32(idClient));
 	sql = this->oCommandeTB->Insert();
 	sql2 = this->oCommandeTB->InsertPanier();
+	sql3 = this->oCommandeTB->InsertPrix();
 
 	this->oCad->actionRows(sql);
 	this->oCad->actionRows(sql2);
+	this->oCad->actionRows(sql3);
 }
 
 void NS_Comp_Svc::CLservices::updateUneCommande(System::Decimal^ id, System::DateTime^ dateExpedition, System::DateTime^ dateLivraison, System::String^ moyenPaiement, System::Decimal^ remise, System::Decimal^ idClient)
 {
 	System::String^ sql;
 	System::String^ sql2;
+	System::String^ sql3;
 
 	this->oCommandeTB->setId(System::Convert::ToInt32(id));
 	this->oCommandeTB->setDateExpedition(dateExpedition);
@@ -242,9 +246,11 @@ void NS_Comp_Svc::CLservices::updateUneCommande(System::Decimal^ id, System::Dat
 	this->oCommandeTB->setIdClient(System::Convert::ToInt32(idClient));
 	sql = this->oCommandeTB->Update();
 	sql2 = this->oCommandeTB->UpdatePanier();
+	sql3 = this->oCommandeTB->UpdatePrix();
 
 	this->oCad->actionRows(sql);
 	this->oCad->actionRows(sql2);
+	this->oCad->actionRows(sql3);
 }
 
 void NS_Comp_Svc::CLservices::deleteUneCommande(System::Decimal^ id)

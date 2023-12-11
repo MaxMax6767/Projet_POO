@@ -7,12 +7,12 @@ System::String^ NS_Comp_Mappage::CLstockTB::Select()
 
 System::String^ NS_Comp_Mappage::CLstockTB::Insert()
 {
-	return "USE POO_projet; EXEC CreerProduit @prix_achat = " + this->prix_achat + ", @prix_commerce = " + this->prix_HT + ", @prix_degressif = " + this->degressif + ", @nom_produit = '" + this->nom + "', @quantite_dispo = " + this->qt_dispo + ", @quantite_reapro = " + this->qt_reapro + ", @taux_tva = " + this->taux_TVA + ", @type_ = '" + this->type + "', @couleur = '" + this->couleur + "', @id_tarif = 1;";
+	return "USE POO_projet; EXEC CreerProduit @prix_achat = " + this->prix_achat + ", @prix_commerce = " + this->prix_HT + ", @prix_degressif = " + this->degressif + ", @nom_produit = '" + this->nom + "', @quantite_dispo = " + this->qt_dispo + ", @quantite_reapro = " + this->qt_reapro + ", @taux_tva = " + this->taux_TVA + ", @type_ = '" + this->type + "', @couleur = '" + this->couleur + "';";
 }
 
 System::String^ NS_Comp_Mappage::CLstockTB::Update()
 {
-	return "USE POO_projet; EXEC ModifierProduit @id_produit = " + this->Id + ", @prix_achat = " + this->prix_achat + ", @prix_commerce = " + this->prix_HT + ", @prix_degressif = " + this->degressif + ", @nom_produit = '" + this->nom + "', @quantite_dispo = " + this->qt_dispo + ", @quantite_reapro = " + this->qt_reapro + ", @taux_tva = " + this->taux_TVA + ", @type_ = '" + this->type + "', @couleur = '" + this->couleur + "', @id_tarif = 1;";
+	return "USE POO_projet; EXEC ModifierProduit @id_produit = " + this->Id + ", @prix_achat = " + this->prix_achat + ", @prix_commerce = " + this->prix_HT + ", @prix_degressif = " + this->degressif + ", @nom_produit = '" + this->nom + "', @quantite_dispo = " + this->qt_dispo + ", @quantite_reapro = " + this->qt_reapro + ", @taux_tva = " + this->taux_TVA + ", @type_ = '" + this->type + "', @couleur = '" + this->couleur + "';";
 }
 
 System::String^ NS_Comp_Mappage::CLstockTB::Delete()

@@ -22,9 +22,11 @@ namespace NS_Comp_Mappage
 		System::String^ Select(void);
 		System::String^ Insert(void);
 		System::String^ InsertPanier(void);
+		System::String^ InsertPrix(void);
 		System::String^ Delete(void);
 		System::String^ Update(void);
 		System::String^ UpdatePanier(void);
+		System::String^ UpdatePrix(void);
 		void setId(int);
 		void setDateExpedition(System::DateTime^);
 		void setDateLivraison(System::DateTime^);

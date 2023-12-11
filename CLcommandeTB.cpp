@@ -20,6 +20,11 @@ System::String^ NS_Comp_Mappage::CLcommandeTB::InsertPanier()
 	return requete;
 }
 
+System::String^ NS_Comp_Mappage::CLcommandeTB::InsertPrix()
+{
+	return "USE POO_projet; EXEC CreerPrix;";
+}
+
 System::String^ NS_Comp_Mappage::CLcommandeTB::Update()
 {
 	return "USE POO_projet; EXEC ModifierCommande @id_commande = " + this->Id + ", @date_livraison = '" + this->dateLivraison + "', @date_expedition = '" + this->dateExpedition + "', @moyen_paiement = '" + this->moyenPaiement + "', @remise = " + this->remise + ", @id_client = " + this->idClient + ";";
@@ -33,6 +38,11 @@ System::String^ NS_Comp_Mappage::CLcommandeTB::UpdatePanier()
 		requete += "EXEC ModifierContientProduit @id_commande = " + this->Id + ", @id_produit = " + this->listeArticles[i] + ", @qt_produit = " + this->listeQuantites[i] + ";";
 	}
 	return requete;
+}
+
+System::String^ NS_Comp_Mappage::CLcommandeTB::UpdatePrix()
+{
+	return "USE POO_projet; EXEC ModifierPrix @id_commande = " + this->Id + ";";
 }
 
 System::String^ NS_Comp_Mappage::CLcommandeTB::Delete()

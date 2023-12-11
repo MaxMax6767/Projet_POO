@@ -1215,6 +1215,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			// cp_client_1
 			// 
 			this->cp_client_1->Location = System::Drawing::Point(2, 432);
+			this->cp_client_1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 999999, 0, 0, 0 });
 			this->cp_client_1->Name = L"cp_client_1";
 			this->cp_client_1->Size = System::Drawing::Size(266, 20);
 			this->cp_client_1->TabIndex = 36;
@@ -2382,9 +2383,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->label_version_valeur->AutoSize = true;
 			this->label_version_valeur->Location = System::Drawing::Point(16, 38);
 			this->label_version_valeur->Name = L"label_version_valeur";
-			this->label_version_valeur->Size = System::Drawing::Size(28, 13);
+			this->label_version_valeur->Size = System::Drawing::Size(22, 13);
 			this->label_version_valeur->TabIndex = 1;
-			this->label_version_valeur->Text = L"0.1a";
+			this->label_version_valeur->Text = L"1.0";
 			this->label_version_valeur->Click += gcnew System::EventHandler(this, &MyForm::label1_Click_5);
 			// 
 			// label_version

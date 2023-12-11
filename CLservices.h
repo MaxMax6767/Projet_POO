@@ -7,8 +7,6 @@
 #include "CLstatTB.h"
 #include "CLcommandeTB.h"
 
-
-
 namespace NS_Comp_Svc
 {
 	ref class CLservices

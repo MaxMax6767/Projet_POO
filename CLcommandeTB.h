@@ -32,6 +32,8 @@ namespace NS_Comp_Mappage
 		void setIdClient(int);
 		void addToListeArticles(int);
 		void addToListeQuantites(int);
+		void supprFromListeArticles(int);
+		void supprFromListeQuantites(int);
 		void emptyListeArticles(void);
 		void emptyListeQuantites(void);
 		int getId(void) { return this->Id; };

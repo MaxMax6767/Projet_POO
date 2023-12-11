@@ -37,7 +37,8 @@ namespace P6new {
 			}
 		}
 	private: System::Windows::Forms::DataGridView^ dgv_personnel;
-
+	private: int x = 0;
+	private: int y = 0;
 
 	protected:
 
@@ -399,6 +400,9 @@ private: System::Windows::Forms::NumericUpDown^ id_panier;
 
 private: System::Windows::Forms::Label^ label_id_panier;
 private: System::Windows::Forms::Label^ label_version_valeur;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn1;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn2;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn3;
 
 
 
@@ -580,6 +584,9 @@ private: System::Windows::Forms::Label^ label_version_valeur;
 			this->label_produits_inclus = (gcnew System::Windows::Forms::Label());
 			this->dgv_produits_dispo = (gcnew System::Windows::Forms::DataGridView());
 			this->dgv_produits_ajoutes = (gcnew System::Windows::Forms::DataGridView());
+			this->dataGridViewTextBoxColumn1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->group_command = (gcnew System::Windows::Forms::GroupBox());
 			this->dgv_commande = (gcnew System::Windows::Forms::DataGridView());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
@@ -1381,7 +1388,7 @@ private: System::Windows::Forms::Label^ label_version_valeur;
 			this->Stock->TabIndex = 2;
 			this->Stock->Text = L"Stock";
 			this->Stock->UseVisualStyleBackColor = true;
-			this->Stock->Click += gcnew System::EventHandler(this, &MyForm::tab_stock_Click);
+			this->Stock->Click += gcnew System::EventHandler(this, &MyForm::tab_commandes_Click);
 			// 
 			// dgv_stock
 			// 
@@ -1682,7 +1689,7 @@ private: System::Windows::Forms::Label^ label_version_valeur;
 			// label_produits_disponibles
 			// 
 			this->label_produits_disponibles->AutoSize = true;
-			this->label_produits_disponibles->Location = System::Drawing::Point(399, 23);
+			this->label_produits_disponibles->Location = System::Drawing::Point(356, 23);
 			this->label_produits_disponibles->Name = L"label_produits_disponibles";
 			this->label_produits_disponibles->Size = System::Drawing::Size(100, 13);
 			this->label_produits_disponibles->TabIndex = 34;
@@ -1700,18 +1707,34 @@ private: System::Windows::Forms::Label^ label_version_valeur;
 			// dgv_produits_dispo
 			// 
 			this->dgv_produits_dispo->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgv_produits_dispo->Location = System::Drawing::Point(402, 39);
+			this->dgv_produits_dispo->Location = System::Drawing::Point(359, 39);
 			this->dgv_produits_dispo->Name = L"dgv_produits_dispo";
-			this->dgv_produits_dispo->Size = System::Drawing::Size(509, 270);
+			this->dgv_produits_dispo->Size = System::Drawing::Size(552, 270);
 			this->dgv_produits_dispo->TabIndex = 31;
 			// 
 			// dgv_produits_ajoutes
 			// 
 			this->dgv_produits_ajoutes->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgv_produits_ajoutes->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
+				this->dataGridViewTextBoxColumn1,
+					this->dataGridViewTextBoxColumn2, this->dataGridViewTextBoxColumn3
+			});
 			this->dgv_produits_ajoutes->Location = System::Drawing::Point(6, 39);
 			this->dgv_produits_ajoutes->Name = L"dgv_produits_ajoutes";
-			this->dgv_produits_ajoutes->Size = System::Drawing::Size(377, 270);
+			this->dgv_produits_ajoutes->Size = System::Drawing::Size(347, 270);
 			this->dgv_produits_ajoutes->TabIndex = 30;
+			// 
+			// dataGridViewTextBoxColumn1
+			// 
+			this->dataGridViewTextBoxColumn1->Name = L"dataGridViewTextBoxColumn1";
+			// 
+			// dataGridViewTextBoxColumn2
+			// 
+			this->dataGridViewTextBoxColumn2->Name = L"dataGridViewTextBoxColumn2";
+			// 
+			// dataGridViewTextBoxColumn3
+			// 
+			this->dataGridViewTextBoxColumn3->Name = L"dataGridViewTextBoxColumn3";
 			// 
 			// group_command
 			// 
@@ -2050,6 +2073,7 @@ private: System::Windows::Forms::Label^ label_version_valeur;
 			this->btn_valider_commande->TabIndex = 1;
 			this->btn_valider_commande->Text = L"Valider";
 			this->btn_valider_commande->UseVisualStyleBackColor = false;
+			this->btn_valider_commande->Click += gcnew System::EventHandler(this, &MyForm::btn_valider_commande_Click);
 			// 
 			// Statistiques
 			// 
@@ -2473,6 +2497,24 @@ private: System::Windows::Forms::Label^ label_version_valeur;
 		this->dgv_stock->DataMember = "Stock";
 
 		this->oSvc = gcnew NS_Comp_Svc::CLservices();
+		this->dgv_commande->Refresh();
+		this->oDs = this->oSvc->selectionnerToutesLesCommandes("Commandes");
+		this->dgv_commande->DataSource = this->oDs;
+		this->dgv_commande->DataMember = "Commandes";
+
+		this->oSvc = gcnew NS_Comp_Svc::CLservices();
+		this->dgv_produits_dispo->Refresh();
+		this->oDs = this->oSvc->selectionnerToutLeStock("ProduitsDispo");
+		this->dgv_produits_dispo->DataSource = this->oDs;
+		this->dgv_produits_dispo->DataMember = "ProduitsDispo";
+
+		this->oSvc = gcnew NS_Comp_Svc::CLservices();
+		this->dgv_produits_ajoutes->Refresh();
+		this->dgv_produits_ajoutes->Columns[0]->HeaderCell->Value = L"ID";
+		this->dgv_produits_ajoutes->Columns[1]->HeaderCell->Value = L"ID Produit";
+		this->dgv_produits_ajoutes->Columns[2]->HeaderCell->Value = L"Quantité";
+
+		this->oSvc = gcnew NS_Comp_Svc::CLservices();
 		this->dgv_panierMoyen->Refresh();
 		this->oDs = this->oSvc->PanierMoyen("PanierMoyen");
 		this->dgv_panierMoyen->DataSource = this->oDs;
@@ -2554,6 +2596,25 @@ private: System::Void tab_stock_Click(System::Object^ sender, System::EventArgs^
 	this->dgv_stock->DataSource = this->oDs;
 	this->dgv_stock->DataMember = "Stock";
 }
+private: System::Void tab_commandes_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->oSvc = gcnew NS_Comp_Svc::CLservices();
+	this->dgv_commande->Refresh();
+	this->oDs = this->oSvc->selectionnerToutesLesCommandes("Commandes");
+	this->dgv_commande->DataSource = this->oDs;
+	this->dgv_commande->DataMember = "Commandes";
+
+	this->oSvc = gcnew NS_Comp_Svc::CLservices();
+	this->dgv_produits_dispo->Refresh();
+	this->oDs = this->oSvc->selectionnerToutLeStock("ProduitsDispo");
+	this->dgv_produits_dispo->DataSource = this->oDs;
+	this->dgv_produits_dispo->DataMember = "ProduitsDispo";
+
+	this->oSvc = gcnew NS_Comp_Svc::CLservices();
+	this->dgv_produits_ajoutes->Refresh();
+	this->dgv_produits_ajoutes->Columns[0]->HeaderCell->Value = L"ID";
+	this->dgv_produits_ajoutes->Columns[1]->HeaderCell->Value = L"ID Produit";
+	this->dgv_produits_ajoutes->Columns[2]->HeaderCell->Value = L"Quantité";
+}
 private: System::Void tab_stat_Click(System::Object^ sender, System::EventArgs^ e) {
    this->oSvc = gcnew NS_Comp_Svc::CLservices();
    this->dgv_panierMoyen->Refresh();
@@ -2602,6 +2663,7 @@ private: System::Void tab_stat_Click(System::Object^ sender, System::EventArgs^ 
    this->oDs = this->oSvc->SousReapro("SeuilReapro");
    this->dgv_seuil_reapro->DataSource = this->oDs;
    this->dgv_seuil_reapro->DataMember = "SeuilReapro";
+
 }
 private: System::Void radioButton1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	this->id_personnel->Enabled = false;
@@ -2936,6 +2998,30 @@ private: System::Void domainUpDown1_SelectedItemChanged(System::Object^ sender, 
 private: System::Void label2_Click_2(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->oSvc = gcnew NS_Comp_Svc::CLservices();
+	if (this->radio_ajouter_produit->Checked)
+	{
+		this->oSvc->ajouterUneLigneCommande(this->id_produit_commande->Value, this->qt_produit->Value);
+		this->dgv_produits_ajoutes->Refresh();
+		this->dgv_produits_ajoutes->Rows[x]->Cells[0]->Value = this->y;
+		this->dgv_produits_ajoutes->Rows[x]->Cells[1]->Value = this->id_produit_commande->Value;
+		this->dgv_produits_ajoutes->Rows[x]->Cells[2]->Value = this->qt_produit->Value;
+		this->x++;
+		this->y++;
+	}
+	else if (this->radio_modifier_produit->Checked)
+	{
+		this->oSvc->updateUneLigneCommande(this->id_panier->Value, this->id_produit_commande->Value, this->qt_produit->Value);
+		this->dgv_produits_ajoutes->Refresh();
+		this->dgv_produits_ajoutes->Rows[x]->Cells[0]->Value = this->id_panier->Value;
+		this->dgv_produits_ajoutes->Rows[x]->Cells[1]->Value = this->id_produit_commande->Value;
+		this->dgv_produits_ajoutes->Rows[x]->Cells[2]->Value = this->qt_produit->Value;
+	}
+	else if (this->radio_supprimer_produit->Checked)
+	{
+		this->oSvc->updateUneLigneCommande(this->id_panier->Value, this->id_produit_commande->Value, this->qt_produit->Value);
+		this->dgv_produits_ajoutes->Refresh();
+	}
 }
 private: System::Void radioButton4_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	this->id_panier->Enabled = true;
@@ -3048,6 +3134,32 @@ private: System::Void label2_Click_4(System::Object^ sender, System::EventArgs^ 
 private: System::Void label1_Click_6(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void image_maxime_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void btn_valider_commande_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (this->radio_ajouter_commande->Checked)
+	{
+		this->oSvc->ajouterUneCommande(this->date_expedition->Value, this->date_livraison->Value, this->selecteur_moyen_paiement->Text, this->remise->Value, this->id_client_commande->Value);
+		this->dgv_commande->Refresh();
+		this->oDs = this->oSvc->selectionnerToutesLesCommandes("Commandes");
+		this->dgv_commande->DataSource = this->oDs;
+		this->dgv_commande->DataMember = "Commandes";
+	}
+	else if (this->radio_modifier_commande->Checked)
+	{
+		this->oSvc->updateUneCommande(this->id_commande->Value, this->date_expedition->Value, this->date_livraison->Value, this->selecteur_moyen_paiement->Text, this->remise->Value, this->id_client_commande->Value);
+		this->dgv_commande->Refresh();
+		this->oDs = this->oSvc->selectionnerToutesLesCommandes("Commandes");
+		this->dgv_commande->DataSource = this->oDs;
+		this->dgv_commande->DataMember = "Commandes";
+	}
+	else if (this->radio_supprimer_commande->Checked)
+	{
+		this->oSvc->deleteUneCommande(this->id_commande->Value);
+		this->dgv_commande->Refresh();
+		this->oDs = this->oSvc->selectionnerToutesLesCommandes("Commandes");
+		this->dgv_commande->DataSource = this->oDs;
+		this->dgv_commande->DataMember = "Commandes";
+	}
 }
 };
 }

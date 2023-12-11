@@ -75,22 +75,32 @@ void NS_Comp_Mappage::CLcommandeTB::setIdClient(int id)
 	this->idClient = id;
 }
 
-void NS_Comp_Mappage::CLcommandesTB::addToListeArticles(int id)
+void NS_Comp_Mappage::CLcommandeTB::addToListeArticles(int id)
 {
 	this->listeArticles->Add(id);
 }
 
-void NS_Comp_Mappage::CLcommandesTB::addToListeQuantites(int quantite)
+void NS_Comp_Mappage::CLcommandeTB::addToListeQuantites(int quantite)
 {
 	this->listeQuantites->Add(quantite);
 }
 
-void NS_Comp_Mappage::CLcommandesTB::emptyListeArticles()
+void NS_Comp_Mappage::CLcommandeTB::supprFromListeArticles(int index)
+{
+	this->listeArticles->RemoveAt(index);
+}
+
+void NS_Comp_Mappage::CLcommandeTB::supprFromListeQuantites(int index)
+{
+	this->listeQuantites->RemoveAt(index);
+}
+
+void NS_Comp_Mappage::CLcommandeTB::emptyListeArticles()
 {
 	this->listeArticles->Clear();
 }
 
-void NS_Comp_Mappage::CLcommandesTB::emptyListeQuantites()
+void NS_Comp_Mappage::CLcommandeTB::emptyListeQuantites()
 {
 	this->listeQuantites->Clear();
 }

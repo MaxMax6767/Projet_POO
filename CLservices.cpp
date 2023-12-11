@@ -215,6 +215,7 @@ System::Data::DataSet^ NS_Comp_Svc::CLservices::selectionnerToutesLesCommandes(S
 void NS_Comp_Svc::CLservices::ajouterUneCommande(System::DateTime^ dateExpedition, System::DateTime^ dateLivraison, System::String^ moyenPaiement, System::Decimal^ remise, System::Decimal^ idClient)
 {
 	System::String^ sql;
+	System::String^ sql2;
 
 	this->oCommandeTB->setDateExpedition(dateExpedition);
 	this->oCommandeTB->setDateLivraison(dateLivraison);
@@ -222,13 +223,16 @@ void NS_Comp_Svc::CLservices::ajouterUneCommande(System::DateTime^ dateExpeditio
 	this->oCommandeTB->setRemise(System::Convert::ToInt32(remise));
 	this->oCommandeTB->setIdClient(System::Convert::ToInt32(idClient));
 	sql = this->oCommandeTB->Insert();
+	sql2 = this->oCommandeTB->InsertPanier();
 
 	this->oCad->actionRows(sql);
+	this->oCad->actionRows(sql2);
 }
 
 void NS_Comp_Svc::CLservices::updateUneCommande(System::Decimal^ id, System::DateTime^ dateExpedition, System::DateTime^ dateLivraison, System::String^ moyenPaiement, System::Decimal^ remise, System::Decimal^ idClient)
 {
 	System::String^ sql;
+	System::String^ sql2;
 
 	this->oCommandeTB->setId(System::Convert::ToInt32(id));
 	this->oCommandeTB->setDateExpedition(dateExpedition);
@@ -237,8 +241,10 @@ void NS_Comp_Svc::CLservices::updateUneCommande(System::Decimal^ id, System::Dat
 	this->oCommandeTB->setRemise(System::Convert::ToInt32(remise));
 	this->oCommandeTB->setIdClient(System::Convert::ToInt32(idClient));
 	sql = this->oCommandeTB->Update();
+	sql2 = this->oCommandeTB->UpdatePanier();
 
 	this->oCad->actionRows(sql);
+	this->oCad->actionRows(sql2);
 }
 
 void NS_Comp_Svc::CLservices::deleteUneCommande(System::Decimal^ id)
@@ -251,7 +257,27 @@ void NS_Comp_Svc::CLservices::deleteUneCommande(System::Decimal^ id)
 	this->oCad->actionRows(sql);
 }
 
+void NS_Comp_Svc::CLservices::ajouterUneLigneCommande(System::Decimal^ idProduit, System::Decimal^ qtProduit)
+{
+	System::String^ sql;
 
+	this->oCommandeTB->addToListeArticles(System::Convert::ToInt32(idProduit));
+	this->oCommandeTB->addToListeQuantites(System::Convert::ToInt32(qtProduit));
+}
+
+void NS_Comp_Svc::CLservices::updateUneLigneCommande(System::Decimal^ idPanier, System::Decimal^ idProduit, System::Decimal^ qtProduit)
+{
+	this->oCommandeTB->supprFromListeArticles(System::Convert::ToInt32(idPanier));
+	this->oCommandeTB->supprFromListeQuantites(System::Convert::ToInt32(idPanier));
+	this->oCommandeTB->addToListeArticles(System::Convert::ToInt32(idProduit));
+	this->oCommandeTB->addToListeQuantites(System::Convert::ToInt32(qtProduit));
+}
+
+void NS_Comp_Svc::CLservices::deleteUneLigneCommande(System::Decimal^ idPanier)
+{
+	this->oCommandeTB->supprFromListeArticles(System::Convert::ToInt32(idPanier));
+	this->oCommandeTB->supprFromListeQuantites(System::Convert::ToInt32(idPanier));
+}
 
 System::Data::DataSet^ NS_Comp_Svc::CLservices::PanierMoyen(System::String^ dgv)
 {

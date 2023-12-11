@@ -2356,7 +2356,7 @@ private: System::Windows::Forms::Label^ label_version_valeur;
 			// label_version_valeur
 			// 
 			this->label_version_valeur->AutoSize = true;
-			this->label_version_valeur->Location = System::Drawing::Point(25, 38);
+			this->label_version_valeur->Location = System::Drawing::Point(16, 38);
 			this->label_version_valeur->Name = L"label_version_valeur";
 			this->label_version_valeur->Size = System::Drawing::Size(28, 13);
 			this->label_version_valeur->TabIndex = 1;

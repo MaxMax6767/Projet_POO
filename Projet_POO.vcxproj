@@ -134,6 +134,7 @@
   <ItemGroup>
     <ClCompile Include="CLcad.cpp" />
     <ClCompile Include="CLclientTB.cpp" />
+    <ClCompile Include="CLcommandeTB.cpp" />
     <ClCompile Include="CLmapTB.cpp" />
     <ClCompile Include="CLpersonnelTB.cpp" />
     <ClCompile Include="CLservices.cpp" />
@@ -144,6 +145,7 @@
   <ItemGroup>
     <ClInclude Include="CLcad.h" />
     <ClInclude Include="CLclientTB.h" />
+    <ClInclude Include="CLcommandeTB.h" />
     <ClInclude Include="CLmapTB.h" />
     <ClInclude Include="CLpersonnelTB.h" />
     <ClInclude Include="CLservices.h" />

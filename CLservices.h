@@ -5,6 +5,9 @@
 #include "CLclientTB.h"
 #include "CLstockTB.h"
 #include "CLstatTB.h"
+#include "CLcommandeTB.h"
+
+
 
 namespace NS_Comp_Svc
 {
@@ -16,6 +19,7 @@ namespace NS_Comp_Svc
 		NS_Comp_Mappage::CLclientTB^ oClientTB;
 		NS_Comp_Mappage::CLstockTB^ oStockTB;
 		NS_Comp_Mappage::CLstatTB^ oStatTB;
+		NS_Comp_Mappage::CLcommandeTB^ oCommandeTB;
 	public:
 		CLservices(void);
 		System::Data::DataSet^ selectionnerToutLePersonnel(System::String^);
@@ -30,6 +34,13 @@ namespace NS_Comp_Svc
 		void ajouterUnStock(System::String^, System::String^, System::String^, System::Boolean^, System::String^, System::String^, System::String^, System::String^, System::String^);
 		void updateUnStock(System::Decimal^, System::String^, System::String^, System::String^, System::Boolean^, System::String^, System::String^, System::String^, System::String^, System::String^);
 		void deleteUnStock(System::Decimal^);
+		System::Data::DataSet^ selectionnerToutesLesCommandes(System::String^);
+		void ajouterUneCommande(System::DateTime^, System::DateTime^, System::String^, System::Decimal^, System::Decimal^);
+		void updateUneCommande(System::Decimal^, System::DateTime^, System::DateTime^, System::String^, System::Decimal^, System::Decimal^);
+		void deleteUneCommande(System::Decimal^);
+		void ajouterUneLigneCommande(System::Decimal^, System::Decimal^);
+		void updateUneLigneCommande(System::Decimal^, System::Decimal^, System::Decimal^);
+		void deleteUneLigneCommande(System::Decimal^);
 		System::Data::DataSet^ PanierMoyen(System::String^);
 		System::Data::DataSet^ CAParMois(System::String^, System::DateTime^);
 		System::Data::DataSet^ CAParClient(System::String^ , System::Decimal^);

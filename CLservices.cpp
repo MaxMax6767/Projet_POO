@@ -8,6 +8,7 @@ NS_Comp_Svc::CLservices::CLservices(void)
 	this->oClientTB = gcnew NS_Comp_Mappage::CLclientTB();
 	this->oStockTB = gcnew NS_Comp_Mappage::CLstockTB();
 	this->oStatTB = gcnew NS_Comp_Mappage::CLstatTB();
+	this->oCommandeTB = gcnew NS_Comp_Mappage::CLcommandeTB();
 }
 
 System::Data::DataSet^ NS_Comp_Svc::CLservices::selectionnerToutLePersonnel(System::String^ dataTableName)
@@ -202,6 +203,55 @@ void NS_Comp_Svc::CLservices::deleteUnStock(System::Decimal^ id)
 
 	this->oCad->actionRows(sql);
 }
+
+System::Data::DataSet^ NS_Comp_Svc::CLservices::selectionnerToutesLesCommandes(System::String^ dataTableName)
+{
+	System::String^ sql;
+
+	sql = this->oCommandeTB->Select();
+	return this->oCad->getRows(sql, dataTableName);
+}
+
+void NS_Comp_Svc::CLservices::ajouterUneCommande(System::DateTime^ dateExpedition, System::DateTime^ dateLivraison, System::String^ moyenPaiement, System::Decimal^ remise, System::Decimal^ idClient)
+{
+	System::String^ sql;
+
+	this->oCommandeTB->setDateExpedition(dateExpedition);
+	this->oCommandeTB->setDateLivraison(dateLivraison);
+	this->oCommandeTB->setMoyenPaiement(moyenPaiement);
+	this->oCommandeTB->setRemise(System::Convert::ToInt32(remise));
+	this->oCommandeTB->setIdClient(System::Convert::ToInt32(idClient));
+	sql = this->oCommandeTB->Insert();
+
+	this->oCad->actionRows(sql);
+}
+
+void NS_Comp_Svc::CLservices::updateUneCommande(System::Decimal^ id, System::DateTime^ dateExpedition, System::DateTime^ dateLivraison, System::String^ moyenPaiement, System::Decimal^ remise, System::Decimal^ idClient)
+{
+	System::String^ sql;
+
+	this->oCommandeTB->setId(System::Convert::ToInt32(id));
+	this->oCommandeTB->setDateExpedition(dateExpedition);
+	this->oCommandeTB->setDateLivraison(dateLivraison);
+	this->oCommandeTB->setMoyenPaiement(moyenPaiement);
+	this->oCommandeTB->setRemise(System::Convert::ToInt32(remise));
+	this->oCommandeTB->setIdClient(System::Convert::ToInt32(idClient));
+	sql = this->oCommandeTB->Update();
+
+	this->oCad->actionRows(sql);
+}
+
+void NS_Comp_Svc::CLservices::deleteUneCommande(System::Decimal^ id)
+{
+	System::String^ sql;
+
+	this->oCommandeTB->setId(System::Convert::ToInt32(id));
+	sql = this->oCommandeTB->Delete();
+
+	this->oCad->actionRows(sql);
+}
+
+
 
 System::Data::DataSet^ NS_Comp_Svc::CLservices::PanierMoyen(System::String^ dgv)
 {

@@ -279,6 +279,26 @@ void NS_Comp_Svc::CLservices::deleteUneLigneCommande(System::Decimal^ idPanier)
 	this->oCommandeTB->supprFromListeQuantites(System::Convert::ToInt32(idPanier));
 }
 
+int NS_Comp_Svc::CLservices::getTailleListeArticle()
+{
+	return this->oCommandeTB->getTailleListeArticles();
+}
+
+int NS_Comp_Svc::CLservices::getTailleListeQuantite()
+{
+	return this->oCommandeTB->getTailleListeQuantites();
+}
+
+int NS_Comp_Svc::CLservices::getValeurListeArticle(int i)
+{
+	return this->oCommandeTB->getValeurListeArticles(i);
+}
+
+int NS_Comp_Svc::CLservices::getValeurListeQuantite(int i)
+{
+	return this->oCommandeTB->getValeurListeQuantites(i);
+}
+
 System::Data::DataSet^ NS_Comp_Svc::CLservices::PanierMoyen(System::String^ dgv)
 {
 	System::String^ sql;

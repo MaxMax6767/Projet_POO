@@ -39,6 +39,10 @@ namespace NS_Comp_Svc
 		void ajouterUneLigneCommande(System::Decimal^, System::Decimal^);
 		void updateUneLigneCommande(System::Decimal^, System::Decimal^, System::Decimal^);
 		void deleteUneLigneCommande(System::Decimal^);
+		int getTailleListeArticle(void);
+		int getTailleListeQuantite(void);
+		int getValeurListeArticle(int);
+		int getValeurListeQuantite(int);
 		System::Data::DataSet^ PanierMoyen(System::String^);
 		System::Data::DataSet^ CAParMois(System::String^, System::DateTime^);
 		System::Data::DataSet^ CAParClient(System::String^ , System::Decimal^);

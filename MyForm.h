@@ -3002,12 +3002,16 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	if (this->radio_ajouter_produit->Checked)
 	{
 		this->oSvc->ajouterUneLigneCommande(this->id_produit_commande->Value, this->qt_produit->Value);
-		this->dgv_produits_ajoutes->Refresh();
-		this->dgv_produits_ajoutes->Rows[x]->Cells[0]->Value = this->y;
-		this->dgv_produits_ajoutes->Rows[x]->Cells[1]->Value = this->id_produit_commande->Value;
-		this->dgv_produits_ajoutes->Rows[x]->Cells[2]->Value = this->qt_produit->Value;
+		for (int i = 0; i < this->oSvc->getTailleListeArticle(); i++)
+		{
+			this->dgv_produits_ajoutes->Rows[i]->Cells[0]->Value = i;
+			this->dgv_produits_ajoutes->Rows[i]->Cells[1]->Value = this->oSvc->getValeurListeArticle(i);
+			this->dgv_produits_ajoutes->Rows[i]->Cells[2]->Value = this->oSvc->getValeurListeQuantite(i);
+		}
 		this->x++;
 		this->y++;
+		this->dgv_produits_ajoutes->RowCount = this->x;
+		this->dgv_produits_ajoutes->Refresh();
 	}
 	else if (this->radio_modifier_produit->Checked)
 	{

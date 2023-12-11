@@ -88,6 +88,7 @@ void NS_Comp_Mappage::CLcommandeTB::addToListeQuantites(int quantite)
 void NS_Comp_Mappage::CLcommandeTB::supprFromListeArticles(int index)
 {
 	this->listeArticles->RemoveAt(index);
+
 }
 
 void NS_Comp_Mappage::CLcommandeTB::supprFromListeQuantites(int index)

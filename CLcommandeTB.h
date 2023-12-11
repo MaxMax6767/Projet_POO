@@ -1,5 +1,7 @@
 #include <vector>
 
+
+
 #pragma once
 namespace NS_Comp_Mappage
 {
@@ -14,8 +16,8 @@ namespace NS_Comp_Mappage
 		int nbArticles;
 		int remise;
 		int idClient;
-		System::Collections::ArrayList^ listeArticles;
-		System::Collections::ArrayList^ listeQuantites;
+		System::Collections::ArrayList^ listeArticles = gcnew System::Collections::ArrayList;
+		System::Collections::ArrayList^ listeQuantites = gcnew System::Collections::ArrayList;
 	public:
 		System::String^ Select(void);
 		System::String^ Insert(void);
@@ -45,5 +47,9 @@ namespace NS_Comp_Mappage
 		int getIdClient(void) { return this->idClient; };
 		System::Collections::ArrayList^ getListeArticles(void) { return this->listeArticles; };
 		System::Collections::ArrayList^ getListeQuantites(void) { return this->listeQuantites; };
+		int getTailleListeArticles(void) { return this->listeArticles->Count; };
+		int getTailleListeQuantites(void) { return this->listeQuantites->Count; };
+		int getValeurListeArticles(int i) { return (int)this->listeArticles[i]; };
+		int getValeurListeQuantites(int i) { return (int)this->listeQuantites[i]; };
 	};
 }
